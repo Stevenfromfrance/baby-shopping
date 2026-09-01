@@ -33,7 +33,7 @@ Pour un affichage **public en direct** pour toute la famille :
 
 ## Produits
 
-Les 51 articles viennent des PDF Amazon (Baby + Mom), avec images et prix.
+Les 56 articles viennent des listes Amazon publiques (Baby + Mom), avec images, prix et liens produit `/dp/`.
 Fichier : `public/products.json`
 
 Listes Amazon d’origine :
