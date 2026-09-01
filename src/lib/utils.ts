@@ -4,6 +4,14 @@ export function publicUrl(path: string): string {
   return `${base}${path.replace(/^\//, '')}`
 }
 
+export function productTitle(
+  product: { title: string; titleEn?: string; shortTitle?: string },
+  lang: 'en' | 'fr',
+): string {
+  if (lang === 'en') return product.titleEn || product.shortTitle || product.title
+  return product.title
+}
+
 export function formatPrice(
   price: number | null | undefined,
   locale = 'en-GB',

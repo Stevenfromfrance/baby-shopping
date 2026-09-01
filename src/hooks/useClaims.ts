@@ -4,11 +4,13 @@ import {
   getClaims,
   subscribeClaims,
   addClaim as addLocalClaim,
+  removeClaim,
 } from '../lib/claims'
 import {
   isRemoteEnabled,
   loadRemoteClaims,
   pushRemoteClaim,
+  deleteRemoteClaim,
 } from '../lib/remote'
 import type { Claim } from '../types'
 
@@ -72,5 +74,17 @@ export function useClaims() {
     [],
   )
 
-  return { claims, ready, submitClaim, remote: isRemoteEnabled() }
+  const releaseClaim = useCallback(async (claim: Claim) => {
+    if (isRemoteEnabled()) {
+      try {
+        await deleteRemoteClaim(claim)
+      } catch {
+        /* still clear locally so the admin can recover */
+      }
+    }
+    removeClaim(claim.id)
+    setClaims(getClaims())
+  }, [])
+
+  return { claims, ready, submitClaim, releaseClaim, remote: isRemoteEnabled() }
 }

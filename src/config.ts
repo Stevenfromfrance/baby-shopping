@@ -43,3 +43,6 @@ export const WISHLISTS = {
 
 export const CONTACT_NOTE =
   'Une question ? Écrivez à Steven ou Sherally — ils vous guideront avec plaisir.'
+
+/** Open the site with ?admin=searwar to restore a gift by mistake. */
+export const ADMIN_PIN = 'searwar'

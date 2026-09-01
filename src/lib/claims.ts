@@ -54,6 +54,10 @@ export function removeClaim(id: string) {
   write(read().filter((c) => c.id !== id))
 }
 
+export function removeClaimForProduct(productId: string) {
+  write(read().filter((c) => c.productId !== productId))
+}
+
 export function subscribeClaims(cb: (claims: Claim[]) => void): () => void {
   const onCustom = () => cb(getClaims())
   const onStorage = (e: StorageEvent) => {

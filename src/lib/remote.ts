@@ -55,6 +55,17 @@ export async function pushRemoteClaim(
   return rowToClaim(rows[0])
 }
 
+export async function deleteRemoteClaim(claim: Claim): Promise<void> {
+  if (!enabled) {
+    local.removeClaim(claim.id)
+    return
+  }
+  await supabaseFetch(
+    `claims?id=eq.${encodeURIComponent(claim.id)}`,
+    { method: 'DELETE' },
+  )
+}
+
 function rowToClaim(row: Record<string, unknown>): Claim {
   return {
     id: String(row.id),

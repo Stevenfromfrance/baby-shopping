@@ -20,3 +20,7 @@ create policy "Lecture publique"
 create policy "Ajout public"
   on claims for insert
   with check (true);
+
+create policy "Suppression publique"
+  on claims for delete
+  using (true);

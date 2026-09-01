@@ -4,6 +4,7 @@ export type Product = {
   listLabel: string
   category: string
   title: string
+  titleEn?: string
   shortTitle: string
   brand: string
   price: number | null

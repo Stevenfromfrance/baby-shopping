@@ -4,13 +4,15 @@ import { ProductGrid } from './components/ProductGrid'
 import { ProductModal } from './components/ProductModal'
 import { ActivityFeed, DonateBanner, Footer } from './components/Activity'
 import { useClaims } from './hooks/useClaims'
+import { useAdmin } from './hooks/useAdmin'
 import { publicUrl } from './lib/utils'
 import type { Product } from './types'
 
 export default function App() {
   const [products, setProducts] = useState<Product[]>([])
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const { claims, submitClaim } = useClaims()
+  const { claims, submitClaim, releaseClaim } = useClaims()
+  const isAdmin = useAdmin()
 
   useEffect(() => {
     const version = import.meta.env.VITE_BUILD_ID || '1'
@@ -40,7 +42,9 @@ export default function App() {
         <ProductGrid
           products={products}
           claimsByProduct={claimsByProduct}
+          isAdmin={isAdmin}
           onOpen={(p) => setSelectedId(p.id)}
+          onRelease={(claim) => void releaseClaim(claim)}
         />
         <ActivityFeed claims={claims} productsById={productsById} />
         <DonateBanner />
@@ -51,8 +55,10 @@ export default function App() {
         <ProductModal
           product={selected}
           claim={claimsByProduct.get(selected.id)}
+          isAdmin={isAdmin}
           onClose={() => setSelectedId(null)}
           onSubmitClaim={submitClaim}
+          onReleaseClaim={releaseClaim}
         />
       ) : null}
     </>

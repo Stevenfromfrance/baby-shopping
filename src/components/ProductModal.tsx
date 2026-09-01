@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { DELIVERY, DONATION_LINK, paypalUrl } from '../config'
-import { copyText, fileToDataUrl, formatPrice, publicUrl } from '../lib/utils'
+import { copyText, fileToDataUrl, formatPrice, productTitle, publicUrl } from '../lib/utils'
 import type { Claim, Product } from '../types'
 import { useLang } from '../i18n'
 
@@ -9,13 +9,22 @@ type Tab = 'order' | 'donate' | 'claim'
 type Props = {
   product: Product
   claim?: Claim
+  isAdmin?: boolean
   onClose: () => void
   onSubmitClaim: (
     claim: Omit<Claim, 'id' | 'createdAt'>,
   ) => Promise<Claim>
+  onReleaseClaim?: (claim: Claim) => Promise<void>
 }
 
-export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) {
+export function ProductModal({
+  product,
+  claim,
+  isAdmin,
+  onClose,
+  onSubmitClaim,
+  onReleaseClaim,
+}: Props) {
   const { lang, t } = useLang()
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
   const priceLabel = formatPrice(product.price, locale, t.seeAmazon)
@@ -103,6 +112,22 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
 
   const category = t.categories[product.category] ?? product.category
   const listLabel = product.list === 'mom' ? t.listMom : t.listBaby
+  const title = productTitle(product, lang)
+
+  async function handleRestore() {
+    if (!claim || !onReleaseClaim) return
+    if (!window.confirm(t.restoreConfirm)) return
+    setBusy(true)
+    setError('')
+    try {
+      await onReleaseClaim(claim)
+      setOk(t.restored)
+    } catch (err) {
+      setError(mapError(err))
+    } finally {
+      setBusy(false)
+    }
+  }
 
   return (
     <div
@@ -141,15 +166,28 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                 <span>{listLabel}</span>
                 <span>{category}</span>
               </div>
-              <h2 id="product-title">{product.title}</h2>
+              <h2 id="product-title">{title}</h2>
               <div className="card-price" style={{ marginTop: '0.75rem' }}>
                 {priceLabel}
               </div>
+              <p style={{ marginTop: '0.85rem' }}>
+                <a
+                  className="btn btn-primary"
+                  href={product.amazonUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  {t.openAmazon}
+                </a>
+              </p>
               {claim ? (
-                <p className="claim-line" style={{ marginTop: '0.5rem' }}>
-                  {t.alreadyBy} {claim.name}
-                  {claim.message ? ` — « ${claim.message} »` : ''}
-                </p>
+                <div className="gifted-by gifted-by-modal">
+                  <span className="gifted-by-label">{t.givenBy}</span>
+                  <strong className="gifted-by-name">{claim.name}</strong>
+                  {claim.message ? (
+                    <p className="gifted-by-message">« {claim.message} »</p>
+                  ) : null}
+                </div>
               ) : null}
             </div>
           </div>
@@ -363,11 +401,16 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
             <div className="modal-panel">
               <div className="panel-box">
                 <h3>{t.alreadyTitle}</h3>
-                <p>
-                  {t.thankYou} <strong>{claim.name}</strong>
-                  {claim.type === 'donation' ? ` ${t.donationTag}` : ''}.
-                </p>
-                {claim.message ? <p>« {claim.message} »</p> : null}
+                <div className="gifted-by gifted-by-modal">
+                  <span className="gifted-by-label">{t.givenBy}</span>
+                  <strong className="gifted-by-name">{claim.name}</strong>
+                  {claim.type === 'donation' ? (
+                    <span className="gifted-by-tag">{t.donationTag}</span>
+                  ) : null}
+                  {claim.message ? (
+                    <p className="gifted-by-message">« {claim.message} »</p>
+                  ) : null}
+                </div>
                 {claim.proofDataUrl ? (
                   <p style={{ marginTop: '0.75rem' }}>
                     <img
@@ -381,10 +424,30 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                     />
                   </p>
                 ) : null}
-                <p style={{ marginTop: '1rem' }}>
+                {error ? <p className="form-error">{error}</p> : null}
+                {ok ? <p className="form-ok">{ok}</p> : null}
+                <p style={{ marginTop: '1rem' }} className="copy-row">
+                  <a
+                    className="btn btn-primary"
+                    href={product.amazonUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t.openAmazon}
+                  </a>
                   <a className="btn btn-ghost" href="#liste" onClick={onClose}>
                     {t.backToList}
                   </a>
+                  {isAdmin && onReleaseClaim ? (
+                    <button
+                      type="button"
+                      className="btn btn-ghost"
+                      disabled={busy}
+                      onClick={handleRestore}
+                    >
+                      {t.restoreGift}
+                    </button>
+                  ) : null}
                 </p>
               </div>
             </div>

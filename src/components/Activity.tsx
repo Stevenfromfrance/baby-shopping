@@ -1,5 +1,5 @@
 import type { Claim, Product } from '../types'
-import { formatDate, publicUrl } from '../lib/utils'
+import { formatDate, productTitle, publicUrl } from '../lib/utils'
 import { DONATION_LINK, paypalUrl, BABY } from '../config'
 import { useLang } from '../i18n'
 
@@ -35,12 +35,17 @@ export function ActivityFeed({ claims, productsById }: Props) {
                   )}
                 </div>
                 <div>
-                  <h3>
-                    {claim.name}{' '}
+                  <p className="activity-who">
+                    <span className="gifted-by-label">{t.givenBy}</span>
+                    <strong className="gifted-by-name">{claim.name}</strong>
+                  </p>
+                  <p className="activity-what">
                     {claim.type === 'donation' ? t.donatedFor : t.offered}{' '}
-                    {product?.shortTitle ?? product?.title}
-                  </h3>
-                  {claim.message ? <p>« {claim.message} »</p> : null}
+                    {product ? productTitle(product, lang) : ''}
+                  </p>
+                  {claim.message ? (
+                    <p className="gifted-by-message">« {claim.message} »</p>
+                  ) : null}
                   <div className="activity-meta">
                     {formatDate(claim.createdAt, locale)}
                   </div>
