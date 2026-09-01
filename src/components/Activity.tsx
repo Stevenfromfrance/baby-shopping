@@ -1,6 +1,7 @@
 import type { Claim, Product } from '../types'
 import { formatDate, publicUrl } from '../lib/utils'
-import { DONATION_LINK, CONTACT_NOTE, paypalUrl } from '../config'
+import { DONATION_LINK, paypalUrl, BABY } from '../config'
+import { useLang } from '../i18n'
 
 type Props = {
   claims: Claim[]
@@ -8,20 +9,18 @@ type Props = {
 }
 
 export function ActivityFeed({ claims, productsById }: Props) {
+  const { lang, t } = useLang()
+  const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
+
   return (
     <section className="section wrap" id="messages">
       <div className="section-head">
-        <h2>Messages & cadeaux</h2>
-        <p>
-          Tout s’affiche ici en direct : qui a offert quoi, et les petits mots
-          laissés pour Nehemia.
-        </p>
+        <h2>{t.messagesTitle}</h2>
+        <p>{t.messagesIntro}</p>
       </div>
 
       {claims.length === 0 ? (
-        <div className="empty">
-          Aucun cadeau pour l’instant — soyez le premier à participer ✨
-        </div>
+        <div className="empty">{t.messagesEmpty}</div>
       ) : (
         <div className="activity">
           {claims.map((claim) => {
@@ -38,11 +37,13 @@ export function ActivityFeed({ claims, productsById }: Props) {
                 <div>
                   <h3>
                     {claim.name}{' '}
-                    {claim.type === 'donation' ? 'a fait un don pour' : 'a offert'}{' '}
-                    {product?.shortTitle ?? 'un article'}
+                    {claim.type === 'donation' ? t.donatedFor : t.offered}{' '}
+                    {product?.shortTitle ?? product?.title}
                   </h3>
                   {claim.message ? <p>« {claim.message} »</p> : null}
-                  <div className="activity-meta">{formatDate(claim.createdAt)}</div>
+                  <div className="activity-meta">
+                    {formatDate(claim.createdAt, locale)}
+                  </div>
                 </div>
               </article>
             )
@@ -54,16 +55,13 @@ export function ActivityFeed({ claims, productsById }: Props) {
 }
 
 export function DonateBanner() {
+  const { t } = useLang()
   const paypal = paypalUrl()
   return (
     <section className="section wrap" id="don">
       <div className="donate-banner">
-        <h2>Un don, en un clic</h2>
-        <p>
-          Pas d’article en tête ? PayPal suffit. Steven et Sherally
-          l’utilisent pour les besoins du quotidien — couches, soins, petites
-          surprises.
-        </p>
+        <h2>{t.donateTitle}</h2>
+        <p>{t.donateBody}</p>
         {paypal || DONATION_LINK ? (
           <a
             className="btn"
@@ -71,10 +69,10 @@ export function DonateBanner() {
             target="_blank"
             rel="noreferrer"
           >
-            Donner via PayPal
+            {t.donateBtn}
           </a>
         ) : (
-          <p style={{ opacity: 0.95 }}>{CONTACT_NOTE}</p>
+          <p style={{ opacity: 0.95 }}>{t.contact}</p>
         )}
       </div>
     </section>
@@ -82,12 +80,15 @@ export function DonateBanner() {
 }
 
 export function Footer() {
+  const { t } = useLang()
   return (
     <footer className="site-footer wrap">
       <p>
-        <strong>Nehemia</strong>
+        <strong>
+          {BABY.firstName} {BABY.lastName}
+        </strong>
       </p>
-      <p>Steven & Sherally — avec toute notre gratitude.</p>
+      <p>{t.footerThanks}</p>
     </footer>
   )
 }

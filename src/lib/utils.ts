@@ -4,16 +4,20 @@ export function publicUrl(path: string): string {
   return `${base}${path.replace(/^\//, '')}`
 }
 
-export function formatPrice(price: number | null | undefined): string {
-  if (price == null || Number.isNaN(price)) return 'Voir sur Amazon'
-  return new Intl.NumberFormat('fr-FR', {
+export function formatPrice(
+  price: number | null | undefined,
+  locale = 'en-GB',
+  fallback = 'See on Amazon',
+): string {
+  if (price == null || Number.isNaN(price)) return fallback
+  return new Intl.NumberFormat(locale, {
     style: 'currency',
     currency: 'EUR',
   }).format(price)
 }
 
-export function formatDate(iso: string): string {
-  return new Intl.DateTimeFormat('fr-FR', {
+export function formatDate(iso: string, locale = 'en-GB'): string {
+  return new Intl.DateTimeFormat(locale, {
     day: 'numeric',
     month: 'long',
     hour: '2-digit',
@@ -28,9 +32,8 @@ export async function fileToDataUrl(
   if (file.size <= maxBytes) {
     return readFile(file)
   }
-  // Compress via canvas for photos
   if (!file.type.startsWith('image/')) {
-    throw new Error('La preuve doit être une image (capture d’écran ou photo).')
+    throw new Error('IMAGE_TYPE')
   }
   const bitmap = await createImageBitmap(file)
   const scale = Math.min(1, Math.sqrt(maxBytes / file.size))
@@ -40,7 +43,7 @@ export async function fileToDataUrl(
   canvas.width = w
   canvas.height = h
   const ctx = canvas.getContext('2d')
-  if (!ctx) throw new Error('Compression impossible')
+  if (!ctx) throw new Error('COMPRESS')
   ctx.drawImage(bitmap, 0, 0, w, h)
   return canvas.toDataURL('image/jpeg', 0.72)
 }
@@ -49,7 +52,7 @@ function readFile(file: File): Promise<string> {
   return new Promise((resolve, reject) => {
     const reader = new FileReader()
     reader.onload = () => resolve(String(reader.result))
-    reader.onerror = () => reject(new Error('Lecture du fichier impossible'))
+    reader.onerror = () => reject(new Error('FILE_READ'))
     reader.readAsDataURL(file)
   })
 }

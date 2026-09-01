@@ -1,6 +1,7 @@
-import { useMemo, useState } from 'react'
+import { useMemo } from 'react'
 import type { Claim, Product } from '../types'
 import { ProductCard } from './ProductCard'
+import { useLang } from '../i18n'
 
 type Props = {
   products: Product[]
@@ -23,6 +24,7 @@ function ListBlock({
   claimsByProduct: Map<string, Claim>
   onOpen: (product: Product) => void
 }) {
+  const { t } = useLang()
   const available = products.filter((p) => !claimsByProduct.has(p.id)).length
 
   return (
@@ -32,12 +34,12 @@ function ListBlock({
         <p>{intro}</p>
       </div>
       <div className="stats list-stats">
-        <strong>{available}</strong> / {products.length} disponibles
+        <strong>{available}</strong> / {products.length} {t.available}
       </div>
       {products.length === 0 ? (
-        <div className="empty">Aucun produit ne correspond à votre recherche.</div>
+        <div className="empty">{t.empty}</div>
       ) : (
-        <div className="grid">
+        <div className="catalog">
           {products.map((product) => (
             <ProductCard
               key={product.id}
@@ -53,74 +55,35 @@ function ListBlock({
 }
 
 export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
-  const [query, setQuery] = useState('')
-  const [hideGifted, setHideGifted] = useState(false)
-
-  const visible = useMemo(() => {
-    const q = query.trim().toLowerCase()
-    return products.filter((p) => {
-      if (hideGifted && claimsByProduct.has(p.id)) return false
-      if (!q) return true
-      return (
-        p.title.toLowerCase().includes(q) ||
-        p.brand.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q)
-      )
-    })
-  }, [products, query, hideGifted, claimsByProduct])
-
-  const baby = visible.filter((p) => p.list === 'baby')
-  const mom = visible.filter((p) => p.list === 'mom')
+  const { t } = useLang()
+  const baby = useMemo(
+    () => products.filter((p) => p.list === 'baby'),
+    [products],
+  )
+  const mom = useMemo(
+    () => products.filter((p) => p.list === 'mom'),
+    [products],
+  )
 
   return (
     <div className="section wrap" id="liste">
       <div className="section-head">
-        <h2>Les cadeaux</h2>
-        <p>
-          Deux listes, comme sur Amazon : une pour Nehemia, une pour maman.
-          Cliquez sur un article pour commander, faire un don, ou laisser un
-          message.
-        </p>
-      </div>
-
-      <div className="toolbar">
-        <input
-          className="search"
-          type="search"
-          placeholder="Rechercher un produit…"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          aria-label="Rechercher"
-        />
-        <button
-          type="button"
-          className={`chip${hideGifted ? ' active' : ''}`}
-          onClick={() => setHideGifted((v) => !v)}
-        >
-          Masquer les offerts
-        </button>
-        <div className="list-jump">
-          <a className="chip" href="#bebe">
-            Pour le bébé
-          </a>
-          <a className="chip" href="#maman">
-            Pour la maman
-          </a>
-        </div>
+        <h2>{t.giftsTitle}</h2>
+        <p>{t.giftsIntro}</p>
       </div>
 
       <ListBlock
         id="bebe"
-        title="Pour le bébé"
-        intro="Couches, toilette, chambre, sorties — tout pour accueillir Nehemia."
+        title={t.babyTitle}
+        intro={t.babyIntro}
         products={baby}
         claimsByProduct={claimsByProduct}
         onOpen={onOpen}
       />
       <ListBlock
         id="maman"
-        title="Pour la maman"
-        intro="Allaitement, portage, soins post-partum — pour Sherally."
+        title={t.momTitle}
+        intro={t.momIntro}
         products={mom}
         claimsByProduct={claimsByProduct}
         onOpen={onOpen}

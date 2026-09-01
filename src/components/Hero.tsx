@@ -1,26 +1,47 @@
 import { BABY } from '../config'
 import { publicUrl } from '../lib/utils'
+import { useLang } from '../i18n'
 
 export function Header() {
+  const { lang, t, setLang } = useLang()
+
   return (
     <header className="site-header">
       <div className="wrap inner">
         <a className="brand-mark" href="#top">
-          {BABY.firstName}
+          {BABY.firstName} <span>{BABY.lastName}</span>
         </a>
         <nav className="nav-links" aria-label="Navigation">
-          <a href="#comment">Comment participer</a>
-          <a href="#bebe">Bébé</a>
-          <a href="#maman">Maman</a>
-          <a href="#messages">Messages</a>
-          <a href="#don">Don</a>
+          <a href="#comment">{t.navHow}</a>
+          <a href="#bebe">{t.navBaby}</a>
+          <a href="#maman">{t.navMom}</a>
+          <a href="#messages">{t.navMessages}</a>
+          <a href="#don">{t.navDonate}</a>
         </nav>
+        <div className="lang-switch" role="group" aria-label={t.langSwitch}>
+          <button
+            type="button"
+            className={lang === 'en' ? 'active' : ''}
+            onClick={() => setLang('en')}
+          >
+            {t.langEn}
+          </button>
+          <button
+            type="button"
+            className={lang === 'fr' ? 'active' : ''}
+            onClick={() => setLang('fr')}
+          >
+            {t.langFr}
+          </button>
+        </div>
       </div>
     </header>
   )
 }
 
 export function Hero() {
+  const { t } = useLang()
+
   return (
     <section className="hero" id="top">
       <div
@@ -37,18 +58,21 @@ export function Hero() {
       />
       <div className="hero-veil" aria-hidden />
       <div className="hero-copy wrap">
-        <p className="hero-kicker">Pour son arrivée</p>
-        <h1 className="hero-name">{BABY.firstName}</h1>
-        <p className="hero-lede">
-          Un cadeau sur Amazon, ou un don — comme vous voulez. Chaque geste
-          compte pour l’accueillir.
+        <p className="hero-kicker">{t.kicker}</p>
+        <h1 className="hero-name">
+          {BABY.firstName}
+          <span>{BABY.lastName}</span>
+        </h1>
+        <p className="hero-parents">
+          {BABY.mother} & {BABY.father}
         </p>
+        <p className="hero-lede">{t.heroLede}</p>
         <div className="hero-actions">
           <a className="btn btn-primary" href="#bebe">
-            Pour le bébé
+            {t.heroCtaBaby}
           </a>
           <a className="btn btn-ghost btn-on-dark" href="#maman">
-            Pour la maman
+            {t.heroCtaMom}
           </a>
         </div>
       </div>
@@ -57,39 +81,29 @@ export function Hero() {
 }
 
 export function HowTo() {
+  const { t } = useLang()
+
   return (
     <section className="section wrap" id="comment">
       <div className="section-head">
-        <h2>Trois façons de participer</h2>
-        <p>
-          Pas besoin d’être à l’aise avec internet. Choisissez ce qui vous
-          convient — on a tout simplifié.
-        </p>
+        <h2>{t.howTitle}</h2>
+        <p>{t.howIntro}</p>
       </div>
       <div className="paths">
         <article className="path-card">
           <div className="path-num">01</div>
-          <h3>Commander sur Amazon</h3>
-          <p>
-            Ouvrez la fiche, suivez le guide de livraison Colis Colibri, puis
-            indiquez que c’est vous qui avez offert le cadeau.
-          </p>
+          <h3>{t.how1Title}</h3>
+          <p>{t.how1Body}</p>
         </article>
         <article className="path-card">
           <div className="path-num">02</div>
-          <h3>Donner pour un produit</h3>
-          <p>
-            Vous préférez ne pas commander ? Sur la fiche, faites un don du
-            montant du produit. On s’occupe du reste.
-          </p>
+          <h3>{t.how2Title}</h3>
+          <p>{t.how2Body}</p>
         </article>
         <article className="path-card">
           <div className="path-num">03</div>
-          <h3>Don libre</h3>
-          <p>
-            Aucune idée précise ? Un don libre aide aussi — couches, soins, ou
-            petites surprises du quotidien.
-          </p>
+          <h3>{t.how3Title}</h3>
+          <p>{t.how3Body}</p>
         </article>
       </div>
     </section>

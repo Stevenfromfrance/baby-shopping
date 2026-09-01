@@ -1,5 +1,6 @@
 import type { Claim, Product } from '../types'
 import { formatPrice, publicUrl } from '../lib/utils'
+import { useLang } from '../i18n'
 
 type Props = {
   product: Product
@@ -8,29 +9,38 @@ type Props = {
 }
 
 export function ProductCard({ product, claim, onOpen }: Props) {
+  const { lang, t } = useLang()
+  const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
+  const category = t.categories[product.category] ?? product.category
+  const listLabel = product.list === 'mom' ? t.listMom : t.listBaby
+
   return (
     <button
       type="button"
-      className={`card${claim ? ' gifted' : ''}`}
+      className={`catalog-item${claim ? ' gifted' : ''}`}
+      data-gifted={t.gifted}
       onClick={() => onOpen(product)}
     >
-      <div className="card-photo">
+      <div className="catalog-photo">
         {product.image ? (
           <img src={publicUrl(product.image)} alt="" loading="lazy" />
         ) : (
           <span aria-hidden>✦</span>
         )}
       </div>
-      <div className="card-body">
+      <div className="catalog-body">
         <div className="card-meta">
-          <span>{product.listLabel}</span>
-          <span>{product.category}</span>
+          <span>{listLabel}</span>
+          <span>{category}</span>
         </div>
-        <h3>{product.shortTitle}</h3>
-        <p className="card-desc">{product.description}</p>
-        <div className="card-price">{formatPrice(product.price)}</div>
+        <h3>{product.title}</h3>
+        <div className="catalog-price">
+          {formatPrice(product.price, locale, t.seeAmazon)}
+        </div>
         {claim ? (
-          <div className="claim-line">Merci {claim.name}</div>
+          <div className="claim-line">
+            {t.thanks} {claim.name}
+          </div>
         ) : null}
       </div>
     </button>

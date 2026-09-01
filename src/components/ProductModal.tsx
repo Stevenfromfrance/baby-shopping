@@ -2,6 +2,7 @@ import { useEffect, useState, type FormEvent } from 'react'
 import { DELIVERY, DONATION_LINK, paypalUrl } from '../config'
 import { copyText, fileToDataUrl, formatPrice, publicUrl } from '../lib/utils'
 import type { Claim, Product } from '../types'
+import { useLang } from '../i18n'
 
 type Tab = 'order' | 'donate' | 'claim'
 
@@ -15,6 +16,9 @@ type Props = {
 }
 
 export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) {
+  const { lang, t } = useLang()
+  const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
+  const priceLabel = formatPrice(product.price, locale, t.seeAmazon)
   const [tab, setTab] = useState<Tab>(claim ? 'claim' : 'order')
   const [copied, setCopied] = useState(false)
   const [name, setName] = useState('')
@@ -54,12 +58,20 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
     window.setTimeout(() => setCopied(false), 2000)
   }
 
+  function mapError(err: unknown) {
+    if (!(err instanceof Error)) return t.genericError
+    if (err.message === 'IMAGE_TYPE') return t.proofType
+    if (err.message === 'COMPRESS') return t.compressFail
+    if (err.message === 'FILE_READ') return t.fileFail
+    return err.message || t.genericError
+  }
+
   async function handleClaim(e: FormEvent, type: 'purchase' | 'donation') {
     e.preventDefault()
     setError('')
     setOk('')
     if (!name.trim()) {
-      setError('Indiquez votre prénom (ou le nom de la famille).')
+      setError(t.nameRequired)
       return
     }
     setBusy(true)
@@ -80,18 +92,17 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
         proofNote: proofNote.trim() || undefined,
         proofDataUrl,
       })
-      setOk(
-        type === 'donation'
-          ? 'Merci ! Votre don est affiché sur la liste.'
-          : 'Merci ! Votre cadeau est marqué comme offert.',
-      )
+      setOk(type === 'donation' ? t.thanksDonate : t.thanksGift)
       setTab('claim')
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Une erreur est survenue.')
+      setError(mapError(err))
     } finally {
       setBusy(false)
     }
   }
+
+  const category = t.categories[product.category] ?? product.category
+  const listLabel = product.list === 'mom' ? t.listMom : t.listBaby
 
   return (
     <div
@@ -112,7 +123,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
             type="button"
             className="modal-close"
             onClick={onClose}
-            aria-label="Fermer"
+            aria-label={t.close}
           >
             ×
           </button>
@@ -127,19 +138,16 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
             </div>
             <div className="modal-info">
               <div className="card-meta">
-                <span>{product.listLabel}</span>
-                <span>{product.category}</span>
+                <span>{listLabel}</span>
+                <span>{category}</span>
               </div>
               <h2 id="product-title">{product.title}</h2>
-              <p className="card-desc" style={{ WebkitLineClamp: 4 }}>
-                {product.description}
-              </p>
               <div className="card-price" style={{ marginTop: '0.75rem' }}>
-                {formatPrice(product.price)}
+                {priceLabel}
               </div>
               {claim ? (
                 <p className="claim-line" style={{ marginTop: '0.5rem' }}>
-                  Déjà offert par {claim.name}
+                  {t.alreadyBy} {claim.name}
                   {claim.message ? ` — « ${claim.message} »` : ''}
                 </p>
               ) : null}
@@ -154,44 +162,40 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                   className={`tab${tab === 'order' ? ' active' : ''}`}
                   onClick={() => setTab('order')}
                 >
-                  Commander
+                  {t.order}
                 </button>
                 <button
                   type="button"
                   className={`tab${tab === 'donate' ? ' active' : ''}`}
                   onClick={() => setTab('donate')}
                 >
-                  Faire un don
+                  {t.donate}
                 </button>
                 <button
                   type="button"
                   className={`tab${tab === 'claim' ? ' active' : ''}`}
                   onClick={() => setTab('claim')}
                 >
-                  J’ai offert
+                  {t.iGave}
                 </button>
               </div>
 
               <div className="modal-panel">
                 {tab === 'order' ? (
                   <div className="panel-box">
-                    <h3>Guide commande Amazon</h3>
+                    <h3>{t.amazonGuide}</h3>
                     <ol>
-                      <li>Ouvrez le produit sur Amazon.fr (bouton ci-dessous).</li>
-                      <li>Ajoutez-le au panier et passez commande.</li>
+                      <li>{t.orderStep1}</li>
+                      <li>{t.orderStep2}</li>
                       <li>
-                        À l’étape livraison, utilisez l’adresse{' '}
-                        <strong>{DELIVERY.service}</strong> ci-dessous (pas
-                        votre adresse personnelle).
+                        {t.orderStep3a} <strong>{DELIVERY.service}</strong>{' '}
+                        {t.orderStep3b}
                       </li>
-                      <li>
-                        Revenez ici dans l’onglet « J’ai offert » pour laisser
-                        votre nom et un message.
-                      </li>
+                      <li>{t.orderStep4}</li>
                     </ol>
 
                     <div className="address">
-                      <strong>Adresse de livraison</strong>
+                      <strong>{t.addressLabel}</strong>
                       {DELIVERY.name}
                       <br />
                       {DELIVERY.street}
@@ -207,7 +211,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                         className="btn btn-soft"
                         onClick={handleCopy}
                       >
-                        {copied ? 'Adresse copiée ✓' : 'Copier l’adresse'}
+                        {copied ? t.copied : t.copyAddress}
                       </button>
                       <a
                         className="btn btn-primary"
@@ -215,7 +219,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Ouvrir sur Amazon.fr
+                        {t.openAmazon}
                       </a>
                       <a
                         className="btn btn-ghost"
@@ -223,7 +227,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                         target="_blank"
                         rel="noreferrer"
                       >
-                        Voir la wishlist
+                        {t.viewWishlist}
                       </a>
                     </div>
                   </div>
@@ -231,11 +235,8 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
 
                 {tab === 'donate' ? (
                   <div className="panel-box">
-                    <h3>Don pour ce produit</h3>
-                    <p>
-                      Idéal si vous ne souhaitez pas passer commande. Indiquez
-                      votre nom — la fiche sera grisée pour tout le monde.
-                    </p>
+                    <h3>{t.donateItemTitle}</h3>
+                    <p>{t.donateItemBody}</p>
                     {paypalUrl(product.price) || DONATION_LINK ? (
                       <p style={{ margin: '0.85rem 0' }}>
                         <a
@@ -244,37 +245,31 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Donner
-                          {product.price != null
-                            ? ` ${formatPrice(product.price)}`
-                            : ''}{' '}
-                          via PayPal
+                          {t.donatePaypal}
+                          {product.price != null ? ` · ${priceLabel}` : ''}
                         </a>
                       </p>
                     ) : (
-                      <p style={{ margin: '0.85rem 0' }}>
-                        Contactez Steven ou Sherally pour PayPal, puis validez
-                        le formulaire ci-dessous.
-                      </p>
+                      <p style={{ margin: '0.85rem 0' }}>{t.contactPaypal}</p>
                     )}
                     <form
                       className="form-grid"
                       onSubmit={(e) => handleClaim(e, 'donation')}
                     >
                       <label>
-                        Votre prénom
+                        {t.yourName}
                         <input
                           type="text"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="Ex. Tante Marie"
+                          placeholder={t.namePh}
                           required
                         />
                       </label>
                       <label>
-                        Montant (€)
+                        {t.amount}
                         <span className="hint">
-                          Suggestion : {formatPrice(product.price)}
+                          {t.suggestion}: {priceLabel}
                         </span>
                         <input
                           type="text"
@@ -284,11 +279,11 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                         />
                       </label>
                       <label>
-                        Message (optionnel)
+                        {t.message}
                         <textarea
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
-                          placeholder="Un petit mot pour les parents…"
+                          placeholder={t.messagePh}
                         />
                       </label>
                       {error ? <p className="form-error">{error}</p> : null}
@@ -298,7 +293,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                         type="submit"
                         disabled={busy}
                       >
-                        Confirmer mon don
+                        {t.confirmDonate}
                       </button>
                     </form>
                   </div>
@@ -306,47 +301,42 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
 
                 {tab === 'claim' ? (
                   <div className="panel-box">
-                    <h3>J’ai acheté / offert cet article</h3>
-                    <p>
-                      Dites qui vous êtes pour que la famille voie que c’est
-                      déjà pris. Vous pouvez joindre une capture d’écran de
-                      commande.
-                    </p>
+                    <h3>{t.iBoughtTitle}</h3>
+                    <p>{t.iBoughtBody}</p>
                     <form
                       className="form-grid"
                       onSubmit={(e) => handleClaim(e, 'purchase')}
                     >
                       <label>
-                        Votre prénom
+                        {t.yourName}
                         <input
                           type="text"
                           value={name}
                           onChange={(e) => setName(e.target.value)}
-                          placeholder="Ex. Cousin Julien"
+                          placeholder={t.cousinPh}
                           required
                         />
                       </label>
                       <label>
-                        Message (optionnel)
+                        {t.message}
                         <textarea
                           value={message}
                           onChange={(e) => setMessage(e.target.value)}
-                          placeholder="Bienvenue petit Nehemia 💙"
+                          placeholder={t.welcomePh}
                         />
                       </label>
                       <label>
-                        N° de commande / note
-                        <span className="hint">Facultatif</span>
+                        {t.orderNote}
+                        <span className="hint">{t.optional}</span>
                         <input
                           type="text"
                           value={proofNote}
                           onChange={(e) => setProofNote(e.target.value)}
-                          placeholder="Ex. Commande 302-…"
                         />
                       </label>
                       <label>
-                        Preuve d’achat (image)
-                        <span className="hint">Capture d’écran facultative</span>
+                        {t.proof}
+                        <span className="hint">{t.screenshot}</span>
                         <input
                           type="file"
                           accept="image/*"
@@ -362,7 +352,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                         type="submit"
                         disabled={busy}
                       >
-                        Publier sur la liste
+                        {t.publish}
                       </button>
                     </form>
                   </div>
@@ -372,17 +362,17 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
           ) : (
             <div className="modal-panel">
               <div className="panel-box">
-                <h3>Déjà offert</h3>
+                <h3>{t.alreadyTitle}</h3>
                 <p>
-                  Merci à <strong>{claim.name}</strong>
-                  {claim.type === 'donation' ? ' (don)' : ''}.
+                  {t.thankYou} <strong>{claim.name}</strong>
+                  {claim.type === 'donation' ? ` ${t.donationTag}` : ''}.
                 </p>
                 {claim.message ? <p>« {claim.message} »</p> : null}
                 {claim.proofDataUrl ? (
                   <p style={{ marginTop: '0.75rem' }}>
                     <img
                       src={claim.proofDataUrl}
-                      alt="Preuve d’achat"
+                      alt={t.proofAlt}
                       style={{
                         maxWidth: '100%',
                         borderRadius: 12,
@@ -393,7 +383,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                 ) : null}
                 <p style={{ marginTop: '1rem' }}>
                   <a className="btn btn-ghost" href="#liste" onClick={onClose}>
-                    Retour à la liste
+                    {t.backToList}
                   </a>
                 </p>
               </div>
