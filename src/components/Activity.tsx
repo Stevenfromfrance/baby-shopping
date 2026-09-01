@@ -1,5 +1,5 @@
 import type { Claim, Product } from '../types'
-import { formatDate } from '../lib/utils'
+import { formatDate, publicUrl } from '../lib/utils'
 import { DONATION_LINK, CONTACT_NOTE } from '../config'
 
 type Props = {
@@ -30,7 +30,7 @@ export function ActivityFeed({ claims, productsById }: Props) {
               <article key={claim.id} className="activity-item">
                 <div className="activity-thumb">
                   {product?.image ? (
-                    <img src={product.image} alt="" />
+                    <img src={publicUrl(product.image)} alt="" />
                   ) : (
                     <span>✦</span>
                   )}

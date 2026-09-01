@@ -1,6 +1,6 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { DELIVERY, DONATION_LINK } from '../config'
-import { copyText, fileToDataUrl, formatPrice } from '../lib/utils'
+import { copyText, fileToDataUrl, formatPrice, publicUrl } from '../lib/utils'
 import type { Claim, Product } from '../types'
 
 type Tab = 'order' | 'donate' | 'claim'
@@ -120,7 +120,7 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
           <div className="modal-top">
             <div className="modal-photo">
               {product.image ? (
-                <img src={product.image} alt="" />
+                <img src={publicUrl(product.image)} alt="" />
               ) : (
                 <span>✦</span>
               )}

@@ -1,3 +1,9 @@
+/** Prefix public files with the GitHub Pages base (`/baby-shopping/`). */
+export function publicUrl(path: string): string {
+  const base = import.meta.env.BASE_URL || '/'
+  return `${base}${path.replace(/^\//, '')}`
+}
+
 export function formatPrice(price: number | null | undefined): string {
   if (price == null || Number.isNaN(price)) return 'Voir sur Amazon'
   return new Intl.NumberFormat('fr-FR', {

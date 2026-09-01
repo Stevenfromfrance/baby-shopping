@@ -1,5 +1,5 @@
 import type { Claim, Product } from '../types'
-import { formatPrice } from '../lib/utils'
+import { formatPrice, publicUrl } from '../lib/utils'
 
 type Props = {
   product: Product
@@ -16,7 +16,7 @@ export function ProductCard({ product, claim, onOpen }: Props) {
     >
       <div className="card-photo">
         {product.image ? (
-          <img src={product.image} alt="" loading="lazy" />
+          <img src={publicUrl(product.image)} alt="" loading="lazy" />
         ) : (
           <span aria-hidden>✦</span>
         )}

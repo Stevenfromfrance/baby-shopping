@@ -4,6 +4,7 @@ import { ProductGrid } from './components/ProductGrid'
 import { ProductModal } from './components/ProductModal'
 import { ActivityFeed, DonateBanner, Footer } from './components/Activity'
 import { useClaims } from './hooks/useClaims'
+import { publicUrl } from './lib/utils'
 import type { Product } from './types'
 
 export default function App() {
@@ -12,7 +13,7 @@ export default function App() {
   const { claims, submitClaim } = useClaims()
 
   useEffect(() => {
-    fetch('/products.json')
+    fetch(publicUrl('products.json'))
       .then((r) => r.json())
       .then((data: Product[]) => setProducts(data))
       .catch(() => setProducts([]))
