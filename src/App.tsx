@@ -13,7 +13,8 @@ export default function App() {
   const { claims, submitClaim } = useClaims()
 
   useEffect(() => {
-    fetch(publicUrl('products.json'))
+    const version = import.meta.env.VITE_BUILD_ID || '1'
+    fetch(publicUrl(`products.json?v=${version}`), { cache: 'no-store' })
       .then((r) => r.json())
       .then((data: Product[]) => setProducts(data))
       .catch(() => setProducts([]))
