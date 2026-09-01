@@ -15,6 +15,7 @@ type Props = {
     claim: Omit<Claim, 'id' | 'createdAt'>,
   ) => Promise<Claim>
   onReleaseClaim?: (claim: Claim) => Promise<void>
+  onUnlock?: (pin: string) => boolean
 }
 
 export function ProductModal({
@@ -24,6 +25,7 @@ export function ProductModal({
   onClose,
   onSubmitClaim,
   onReleaseClaim,
+  onUnlock,
 }: Props) {
   const { lang, t } = useLang()
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
@@ -40,6 +42,7 @@ export function ProductModal({
   const [error, setError] = useState('')
   const [ok, setOk] = useState('')
   const [busy, setBusy] = useState(false)
+  const [pin, setPin] = useState('')
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -114,11 +117,18 @@ export function ProductModal({
   const listLabel = product.list === 'mom' ? t.listMom : t.listBaby
   const title = productTitle(product, lang)
 
-  async function handleRestore() {
+  async function handleRestore(e?: FormEvent) {
+    e?.preventDefault()
     if (!claim || !onReleaseClaim) return
-    if (!window.confirm(t.restoreConfirm)) return
-    setBusy(true)
     setError('')
+    setOk('')
+    if (!isAdmin) {
+      if (!onUnlock?.(pin)) {
+        setError(t.adminPinWrong)
+        return
+      }
+    }
+    setBusy(true)
     try {
       await onReleaseClaim(claim)
       setOk(t.restored)
@@ -426,6 +436,28 @@ export function ProductModal({
                 ) : null}
                 {error ? <p className="form-error">{error}</p> : null}
                 {ok ? <p className="form-ok">{ok}</p> : null}
+                <form className="restore-form" onSubmit={handleRestore}>
+                  <p className="hint">{t.adminPinHint}</p>
+                  {isAdmin ? null : (
+                    <label>
+                      {t.adminPinLabel}
+                      <input
+                        type="password"
+                        autoComplete="off"
+                        value={pin}
+                        onChange={(e) => setPin(e.target.value)}
+                        required
+                      />
+                    </label>
+                  )}
+                  <button
+                    type="submit"
+                    className="btn btn-primary btn-block"
+                    disabled={busy}
+                  >
+                    {t.restoreGift}
+                  </button>
+                </form>
                 <p style={{ marginTop: '1rem' }} className="copy-row">
                   <a
                     className="btn btn-primary"
@@ -438,16 +470,6 @@ export function ProductModal({
                   <a className="btn btn-ghost" href="#liste" onClick={onClose}>
                     {t.backToList}
                   </a>
-                  {isAdmin && onReleaseClaim ? (
-                    <button
-                      type="button"
-                      className="btn btn-ghost"
-                      disabled={busy}
-                      onClick={handleRestore}
-                    >
-                      {t.restoreGift}
-                    </button>
-                  ) : null}
                 </p>
               </div>
             </div>

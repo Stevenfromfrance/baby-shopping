@@ -6,9 +6,7 @@ import { useLang } from '../i18n'
 type Props = {
   products: Product[]
   claimsByProduct: Map<string, Claim>
-  isAdmin?: boolean
   onOpen: (product: Product) => void
-  onRelease?: (claim: Claim) => void
 }
 
 function ListBlock({
@@ -17,18 +15,14 @@ function ListBlock({
   intro,
   products,
   claimsByProduct,
-  isAdmin,
   onOpen,
-  onRelease,
 }: {
   id: string
   title: string
   intro: string
   products: Product[]
   claimsByProduct: Map<string, Claim>
-  isAdmin?: boolean
   onOpen: (product: Product) => void
-  onRelease?: (claim: Claim) => void
 }) {
   const { t } = useLang()
   const available = products.filter((p) => !claimsByProduct.has(p.id)).length
@@ -51,9 +45,7 @@ function ListBlock({
               key={product.id}
               product={product}
               claim={claimsByProduct.get(product.id)}
-              isAdmin={isAdmin}
               onOpen={onOpen}
-              onRelease={onRelease}
             />
           ))}
         </div>
@@ -62,13 +54,7 @@ function ListBlock({
   )
 }
 
-export function ProductGrid({
-  products,
-  claimsByProduct,
-  isAdmin,
-  onOpen,
-  onRelease,
-}: Props) {
+export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
   const { t } = useLang()
   const baby = useMemo(
     () => products.filter((p) => p.list === 'baby'),
@@ -92,9 +78,7 @@ export function ProductGrid({
         intro={t.babyIntro}
         products={baby}
         claimsByProduct={claimsByProduct}
-        isAdmin={isAdmin}
         onOpen={onOpen}
-        onRelease={onRelease}
       />
       <ListBlock
         id="maman"
@@ -102,9 +86,7 @@ export function ProductGrid({
         intro={t.momIntro}
         products={mom}
         claimsByProduct={claimsByProduct}
-        isAdmin={isAdmin}
         onOpen={onOpen}
-        onRelease={onRelease}
       />
     </div>
   )

@@ -56,6 +56,10 @@ export const strings = {
     restoreConfirm:
       'Mark this gift as available again? The name and message will be removed from the list.',
     restored: 'This gift is available again.',
+    adminPinLabel: 'Family code',
+    adminPinHint: 'Steven or Sherally only — this puts the gift back on the list.',
+    adminPinWrong: 'That code is not right.',
+    adminOn: 'Admin mode is on. You can restore a gift that was marked by mistake.',
     amazonFr: 'Amazon.fr',
     thanks: 'With thanks to',
     seeAmazon: 'See on Amazon',
@@ -182,6 +186,12 @@ export const strings = {
     restoreConfirm:
       'Remettre ce cadeau disponible ? Le nom et le message disparaîtront de la liste.',
     restored: 'Ce cadeau est de nouveau disponible.',
+    adminPinLabel: 'Code famille',
+    adminPinHint:
+      'Steven ou Sherally seulement — cela remet le cadeau sur la liste.',
+    adminPinWrong: 'Ce code n’est pas le bon.',
+    adminOn:
+      'Mode admin activé. Vous pouvez remettre un cadeau offert par erreur.',
     amazonFr: 'Amazon.fr',
     thanks: 'Avec nos remerciements à',
     seeAmazon: 'Voir sur Amazon',

@@ -5,18 +5,10 @@ import { useLang } from '../i18n'
 type Props = {
   product: Product
   claim?: Claim
-  isAdmin?: boolean
   onOpen: (product: Product) => void
-  onRelease?: (claim: Claim) => void
 }
 
-export function ProductCard({
-  product,
-  claim,
-  isAdmin,
-  onOpen,
-  onRelease,
-}: Props) {
+export function ProductCard({ product, claim, onOpen }: Props) {
   const { lang, t } = useLang()
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
   const category = t.categories[product.category] ?? product.category
@@ -68,13 +60,11 @@ export function ProductCard({
           >
             {t.amazonFr}
           </a>
-          {isAdmin && claim && onRelease ? (
+          {claim ? (
             <button
               type="button"
-              className="catalog-restore"
-              onClick={() => {
-                if (window.confirm(t.restoreConfirm)) onRelease(claim)
-              }}
+              className="btn btn-soft"
+              onClick={() => onOpen(product)}
             >
               {t.restoreGift}
             </button>

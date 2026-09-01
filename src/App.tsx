@@ -5,14 +5,16 @@ import { ProductModal } from './components/ProductModal'
 import { ActivityFeed, DonateBanner, Footer } from './components/Activity'
 import { useClaims } from './hooks/useClaims'
 import { useAdmin } from './hooks/useAdmin'
+import { useLang } from './i18n'
 import { publicUrl } from './lib/utils'
 import type { Product } from './types'
 
 export default function App() {
+  const { t } = useLang()
   const [products, setProducts] = useState<Product[]>([])
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const { claims, submitClaim, releaseClaim } = useClaims()
-  const isAdmin = useAdmin()
+  const { isAdmin, unlock } = useAdmin()
 
   useEffect(() => {
     const version = import.meta.env.VITE_BUILD_ID || '1'
@@ -36,15 +38,18 @@ export default function App() {
   return (
     <>
       <Header />
+      {isAdmin ? (
+        <div className="admin-banner" role="status">
+          <div className="wrap">{t.adminOn}</div>
+        </div>
+      ) : null}
       <main>
         <Hero />
         <HowTo />
         <ProductGrid
           products={products}
           claimsByProduct={claimsByProduct}
-          isAdmin={isAdmin}
           onOpen={(p) => setSelectedId(p.id)}
-          onRelease={(claim) => void releaseClaim(claim)}
         />
         <ActivityFeed claims={claims} productsById={productsById} />
         <DonateBanner />
@@ -58,7 +63,11 @@ export default function App() {
           isAdmin={isAdmin}
           onClose={() => setSelectedId(null)}
           onSubmitClaim={submitClaim}
-          onReleaseClaim={releaseClaim}
+          onReleaseClaim={async (claim) => {
+            await releaseClaim(claim)
+            setSelectedId(null)
+          }}
+          onUnlock={unlock}
         />
       ) : null}
     </>

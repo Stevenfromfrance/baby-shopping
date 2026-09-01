@@ -5,6 +5,7 @@ import {
   subscribeClaims,
   addClaim as addLocalClaim,
   removeClaim,
+  removeClaimForProduct,
 } from '../lib/claims'
 import {
   isRemoteEnabled,
@@ -83,6 +84,7 @@ export function useClaims() {
       }
     }
     removeClaim(claim.id)
+    removeClaimForProduct(claim.productId)
     setClaims(getClaims())
   }, [])
 
