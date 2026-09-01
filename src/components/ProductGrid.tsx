@@ -8,22 +8,57 @@ type Props = {
   onOpen: (product: Product) => void
 }
 
+function ListBlock({
+  id,
+  title,
+  intro,
+  products,
+  claimsByProduct,
+  onOpen,
+}: {
+  id: string
+  title: string
+  intro: string
+  products: Product[]
+  claimsByProduct: Map<string, Claim>
+  onOpen: (product: Product) => void
+}) {
+  const available = products.filter((p) => !claimsByProduct.has(p.id)).length
+
+  return (
+    <section className="list-block" id={id}>
+      <div className="section-head">
+        <h2>{title}</h2>
+        <p>{intro}</p>
+      </div>
+      <div className="stats list-stats">
+        <strong>{available}</strong> / {products.length} disponibles
+      </div>
+      {products.length === 0 ? (
+        <div className="empty">Aucun produit ne correspond à votre recherche.</div>
+      ) : (
+        <div className="grid">
+          {products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              claim={claimsByProduct.get(product.id)}
+              onOpen={onOpen}
+            />
+          ))}
+        </div>
+      )}
+    </section>
+  )
+}
+
 export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
   const [query, setQuery] = useState('')
-  const [list, setList] = useState<'all' | 'baby' | 'mom'>('all')
-  const [category, setCategory] = useState('all')
   const [hideGifted, setHideGifted] = useState(false)
 
-  const categories = useMemo(() => {
-    const set = new Set(products.map((p) => p.category))
-    return ['all', ...Array.from(set).sort((a, b) => a.localeCompare(b, 'fr'))]
-  }, [products])
-
-  const filtered = useMemo(() => {
+  const visible = useMemo(() => {
     const q = query.trim().toLowerCase()
     return products.filter((p) => {
-      if (list !== 'all' && p.list !== list) return false
-      if (category !== 'all' && p.category !== category) return false
       if (hideGifted && claimsByProduct.has(p.id)) return false
       if (!q) return true
       return (
@@ -32,17 +67,19 @@ export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
         p.category.toLowerCase().includes(q)
       )
     })
-  }, [products, query, list, category, hideGifted, claimsByProduct])
+  }, [products, query, hideGifted, claimsByProduct])
 
-  const available = products.filter((p) => !claimsByProduct.has(p.id)).length
+  const baby = visible.filter((p) => p.list === 'baby')
+  const mom = visible.filter((p) => p.list === 'mom')
 
   return (
-    <section className="section wrap" id="liste">
+    <div className="section wrap" id="liste">
       <div className="section-head">
         <h2>Les cadeaux</h2>
         <p>
+          Deux listes, comme sur Amazon : une pour Nehemia, une pour maman.
           Cliquez sur un article pour commander, faire un don, ou laisser un
-          message. Les cadeaux déjà offerts apparaissent en gris.
+          message.
         </p>
       </div>
 
@@ -55,36 +92,6 @@ export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
           onChange={(e) => setQuery(e.target.value)}
           aria-label="Rechercher"
         />
-        <div className="chips" role="group" aria-label="Liste">
-          {(
-            [
-              ['all', 'Tout'],
-              ['baby', 'Bébé'],
-              ['mom', 'Maman'],
-            ] as const
-          ).map(([id, label]) => (
-            <button
-              key={id}
-              type="button"
-              className={`chip${list === id ? ' active' : ''}`}
-              onClick={() => setList(id)}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-        <div className="chips" role="group" aria-label="Catégories">
-          {categories.map((c) => (
-            <button
-              key={c}
-              type="button"
-              className={`chip${category === c ? ' active' : ''}`}
-              onClick={() => setCategory(c)}
-            >
-              {c === 'all' ? 'Toutes catégories' : c}
-            </button>
-          ))}
-        </div>
         <button
           type="button"
           className={`chip${hideGifted ? ' active' : ''}`}
@@ -92,25 +99,32 @@ export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
         >
           Masquer les offerts
         </button>
-        <div className="stats">
-          <strong>{available}</strong> / {products.length} disponibles
+        <div className="list-jump">
+          <a className="chip" href="#bebe">
+            Pour le bébé
+          </a>
+          <a className="chip" href="#maman">
+            Pour la maman
+          </a>
         </div>
       </div>
 
-      {filtered.length === 0 ? (
-        <div className="empty">Aucun produit ne correspond à votre recherche.</div>
-      ) : (
-        <div className="grid">
-          {filtered.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              claim={claimsByProduct.get(product.id)}
-              onOpen={onOpen}
-            />
-          ))}
-        </div>
-      )}
-    </section>
+      <ListBlock
+        id="bebe"
+        title="Pour le bébé"
+        intro="Couches, toilette, chambre, sorties — tout pour accueillir Nehemia."
+        products={baby}
+        claimsByProduct={claimsByProduct}
+        onOpen={onOpen}
+      />
+      <ListBlock
+        id="maman"
+        title="Pour la maman"
+        intro="Allaitement, portage, soins post-partum — pour Sherally."
+        products={mom}
+        claimsByProduct={claimsByProduct}
+        onOpen={onOpen}
+      />
+    </div>
   )
 }

@@ -10,7 +10,8 @@ export function Header() {
         </a>
         <nav className="nav-links" aria-label="Navigation">
           <a href="#comment">Comment participer</a>
-          <a href="#liste">Cadeaux</a>
+          <a href="#bebe">Bébé</a>
+          <a href="#maman">Maman</a>
           <a href="#messages">Messages</a>
           <a href="#don">Don</a>
         </nav>
@@ -43,11 +44,11 @@ export function Hero() {
           compte pour l’accueillir.
         </p>
         <div className="hero-actions">
-          <a className="btn btn-primary" href="#liste">
-            Voir les cadeaux
+          <a className="btn btn-primary" href="#bebe">
+            Pour le bébé
           </a>
-          <a className="btn btn-ghost btn-on-dark" href="#don">
-            Faire un don
+          <a className="btn btn-ghost btn-on-dark" href="#maman">
+            Pour la maman
           </a>
         </div>
       </div>

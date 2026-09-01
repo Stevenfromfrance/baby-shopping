@@ -377,6 +377,27 @@ img {
   margin-bottom: 1.25rem;
 }
 
+.list-jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+a.chip {
+  text-decoration: none;
+}
+
+.list-block {
+  padding-top: 2rem;
+  margin-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  scroll-margin-top: 5.5rem;
+}
+
+.list-stats {
+  margin: 0 0 1.1rem;
+}
+
 .search {
   flex: 1 1 220px;
   border: 1px solid var(--line);
