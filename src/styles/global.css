@@ -925,19 +925,63 @@ a.chip {
 .address {
   background: var(--accent-soft);
   border-radius: 14px;
-  padding: 1rem;
+  padding: 1rem 1.1rem;
   margin: 0.85rem 0;
   font-family: var(--font-body);
   line-height: 1.55;
 }
 
-.address strong {
+.address > strong {
   display: block;
-  margin-bottom: 0.35rem;
+  margin-bottom: 0.75rem;
   color: var(--accent);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.address-fields {
+  margin: 0;
+}
+
+.address-fields > div {
+  display: grid;
+  grid-template-columns: 8.2rem minmax(0, 1fr);
+  gap: 0.45rem 0.85rem;
+  align-items: baseline;
+  padding: 0.38rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--line) 70%, transparent);
+}
+
+.address-fields > div:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.address-fields dt {
+  margin: 0;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.address-fields dt::after {
+  content: ' :';
+}
+
+.address-fields dd {
+  margin: 0;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+@media (max-width: 520px) {
+  .address-fields > div {
+    grid-template-columns: 1fr;
+    gap: 0.12rem;
+  }
 }
 
 .copy-row {

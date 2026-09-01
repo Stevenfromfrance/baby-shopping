@@ -62,10 +62,11 @@ export function ProductModal({
   }, [onClose])
 
   const addressText = [
-    DELIVERY.name,
-    DELIVERY.street,
-    `${DELIVERY.postalCode} ${DELIVERY.city}`,
-    DELIVERY.country,
+    `${t.addressName} : ${DELIVERY.name}`,
+    `${t.addressStreet} : ${DELIVERY.street}`,
+    `${t.addressPostal} : ${DELIVERY.postalCode}`,
+    `${t.addressCity} : ${DELIVERY.city}`,
+    `${t.addressCountry} : ${DELIVERY.country}`,
   ].join('\n')
 
   async function handleCopy() {
@@ -248,13 +249,28 @@ export function ProductModal({
 
                     <div className="address">
                       <strong>{t.addressLabel}</strong>
-                      {DELIVERY.name}
-                      <br />
-                      {DELIVERY.street}
-                      <br />
-                      {DELIVERY.postalCode} {DELIVERY.city}
-                      <br />
-                      {DELIVERY.country}
+                      <dl className="address-fields">
+                        <div>
+                          <dt>{t.addressName}</dt>
+                          <dd>{DELIVERY.name}</dd>
+                        </div>
+                        <div>
+                          <dt>{t.addressStreet}</dt>
+                          <dd>{DELIVERY.street}</dd>
+                        </div>
+                        <div>
+                          <dt>{t.addressPostal}</dt>
+                          <dd>{DELIVERY.postalCode}</dd>
+                        </div>
+                        <div>
+                          <dt>{t.addressCity}</dt>
+                          <dd>{DELIVERY.city}</dd>
+                        </div>
+                        <div>
+                          <dt>{t.addressCountry}</dt>
+                          <dd>{DELIVERY.country}</dd>
+                        </div>
+                      </dl>
                     </div>
 
                     <div className="copy-row">

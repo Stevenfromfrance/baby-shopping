@@ -86,6 +86,11 @@ export const strings = {
     orderStep4:
       'Return here under “I chose this gift” to leave your name and a note.',
     addressLabel: 'Delivery address',
+    addressName: 'Name',
+    addressStreet: 'Street',
+    addressPostal: 'Postal code',
+    addressCity: 'City',
+    addressCountry: 'Country',
     copied: 'Address copied',
     copyAddress: 'Copy address',
     openAmazon: 'Open on Amazon.fr',
@@ -221,6 +226,11 @@ export const strings = {
     orderStep4:
       'Revenez ici, onglet « J’ai choisi ce cadeau », pour laisser votre nom et un mot.',
     addressLabel: 'Adresse de livraison',
+    addressName: 'Nom',
+    addressStreet: 'Rue',
+    addressPostal: 'Code postal',
+    addressCity: 'Ville',
+    addressCountry: 'Pays',
     copied: 'Adresse copiée',
     copyAddress: 'Copier l’adresse',
     openAmazon: 'Ouvrir sur Amazon.fr',
