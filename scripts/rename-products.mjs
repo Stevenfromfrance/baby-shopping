@@ -85,8 +85,8 @@ const names = {
     titleEn: 'Dikaslon changing backpack',
   },
   'baby-31': {
-    title: 'Berceau cododo Maxi-Cosi Iora',
-    titleEn: 'Maxi-Cosi Iora co-sleeper crib',
+    title: 'Berceau cododo Maxi-Cosi Iora Air',
+    titleEn: 'Maxi-Cosi Iora Air co-sleeper crib',
   },
   'baby-33': {
     title: 'Sucettes Soothie Philips Avent, lot de 2',
