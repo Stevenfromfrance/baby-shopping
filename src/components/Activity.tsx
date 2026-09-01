@@ -1,6 +1,6 @@
 import type { Claim, Product } from '../types'
 import { formatDate, publicUrl } from '../lib/utils'
-import { DONATION_LINK, CONTACT_NOTE } from '../config'
+import { DONATION_LINK, CONTACT_NOTE, paypalUrl } from '../config'
 
 type Props = {
   claims: Claim[]
@@ -54,22 +54,24 @@ export function ActivityFeed({ claims, productsById }: Props) {
 }
 
 export function DonateBanner() {
+  const paypal = paypalUrl()
   return (
     <section className="section wrap" id="don">
       <div className="donate-banner">
-        <h2>Don libre</h2>
+        <h2>Un don, en un clic</h2>
         <p>
-          Pas d’article en tête ? Un don libre aide Steven & Sherally pour les
-          besoins du quotidien — couches, soins, petites surprises.
+          Pas d’article en tête ? PayPal suffit. Steven et Sherally
+          l’utilisent pour les besoins du quotidien — couches, soins, petites
+          surprises.
         </p>
-        {DONATION_LINK ? (
+        {paypal || DONATION_LINK ? (
           <a
             className="btn"
-            href={DONATION_LINK}
+            href={paypal || DONATION_LINK}
             target="_blank"
             rel="noreferrer"
           >
-            Faire un don libre
+            Donner via PayPal
           </a>
         ) : (
           <p style={{ opacity: 0.95 }}>{CONTACT_NOTE}</p>
@@ -83,9 +85,9 @@ export function Footer() {
   return (
     <footer className="site-footer wrap">
       <p>
-        <strong>Nehemia Searwar</strong>
+        <strong>Nehemia</strong>
       </p>
-      <p>Steven Searwar & Sherally Dompig — avec toute notre gratitude.</p>
+      <p>Steven & Sherally — avec toute notre gratitude.</p>
     </footer>
   )
 }

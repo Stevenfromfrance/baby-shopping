@@ -1,4 +1,4 @@
-# Liste de naissance — Nehemia Searwar
+# Nehemia — Pour son arrivée
 
 Site pour partager la liste Amazon (bébé + maman) avec la famille :
 commander via Colis Colibri, faire un don sur une fiche, ou un don libre.
@@ -16,7 +16,7 @@ Ouvrez l’URL affichée (souvent `http://localhost:5173`).
 
 Éditez `src/config.ts` :
 
-- `DONATION_LINK` — lien PayPal.me / Lydia / Revolut / HelloAsso
+- `PAYPAL_ME` — identifiant PayPal.me (ex. `StevenSearwar`) pour les dons en un clic
 - adresse Colis Colibri (déjà remplie)
 - noms des parents / bébé
 

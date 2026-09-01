@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { DELIVERY, DONATION_LINK } from '../config'
+import { DELIVERY, DONATION_LINK, paypalUrl } from '../config'
 import { copyText, fileToDataUrl, formatPrice, publicUrl } from '../lib/utils'
 import type { Claim, Product } from '../types'
 
@@ -236,21 +236,25 @@ export function ProductModal({ product, claim, onClose, onSubmitClaim }: Props) 
                       Idéal si vous ne souhaitez pas passer commande. Indiquez
                       votre nom — la fiche sera grisée pour tout le monde.
                     </p>
-                    {DONATION_LINK ? (
+                    {paypalUrl(product.price) || DONATION_LINK ? (
                       <p style={{ margin: '0.85rem 0' }}>
                         <a
                           className="btn btn-primary"
-                          href={DONATION_LINK}
+                          href={paypalUrl(product.price) || DONATION_LINK}
                           target="_blank"
                           rel="noreferrer"
                         >
-                          Ouvrir le lien de don
+                          Donner
+                          {product.price != null
+                            ? ` ${formatPrice(product.price)}`
+                            : ''}{' '}
+                          via PayPal
                         </a>
                       </p>
                     ) : (
                       <p style={{ margin: '0.85rem 0' }}>
-                        Contactez Steven ou Sherally pour le virement / Lydia,
-                        puis validez le formulaire ci-dessous.
+                        Contactez Steven ou Sherally pour PayPal, puis validez
+                        le formulaire ci-dessous.
                       </p>
                     )}
                     <form

@@ -39,7 +39,7 @@ export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
   return (
     <section className="section wrap" id="liste">
       <div className="section-head">
-        <h2>La liste</h2>
+        <h2>Les cadeaux</h2>
         <p>
           Cliquez sur un article pour commander, faire un don, ou laisser un
           message. Les cadeaux déjà offerts apparaissent en gris.

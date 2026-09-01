@@ -1,4 +1,5 @@
 import { BABY } from '../config'
+import { publicUrl } from '../lib/utils'
 
 export function Header() {
   return (
@@ -9,9 +10,9 @@ export function Header() {
         </a>
         <nav className="nav-links" aria-label="Navigation">
           <a href="#comment">Comment participer</a>
-          <a href="#liste">Liste</a>
+          <a href="#liste">Cadeaux</a>
           <a href="#messages">Messages</a>
-          <a href="#don">Don libre</a>
+          <a href="#don">Don</a>
         </nav>
       </div>
     </header>
@@ -20,26 +21,35 @@ export function Header() {
 
 export function Hero() {
   return (
-    <section className="hero wrap" id="top">
-      <p className="hero-kicker">Liste de naissance</p>
-      <h1 className="hero-name">
-        {BABY.firstName}
-        <span>{BABY.lastName}</span>
-      </h1>
-      <p className="hero-parents">
-        Avec tout notre amour, {BABY.father} & {BABY.mother}
-      </p>
-      <p className="hero-lede">
-        Choisissez un cadeau sur Amazon, ou faites simplement un don — même sans
-        commander. Chaque geste compte pour accueillir Nehemia.
-      </p>
-      <div className="hero-actions">
-        <a className="btn btn-primary" href="#liste">
-          Voir la liste
-        </a>
-        <a className="btn btn-ghost" href="#don">
-          Faire un don libre
-        </a>
+    <section className="hero" id="top">
+      <div
+        className="hero-photo hero-photo-desktop"
+        style={{ backgroundImage: `url(${publicUrl('hero-baby-bw.jpg')})` }}
+        aria-hidden
+      />
+      <div
+        className="hero-photo hero-photo-mobile"
+        style={{
+          backgroundImage: `url(${publicUrl('hero-baby-bw-portrait.jpg')})`,
+        }}
+        aria-hidden
+      />
+      <div className="hero-veil" aria-hidden />
+      <div className="hero-copy wrap">
+        <p className="hero-kicker">Pour son arrivée</p>
+        <h1 className="hero-name">{BABY.firstName}</h1>
+        <p className="hero-lede">
+          Un cadeau sur Amazon, ou un don — comme vous voulez. Chaque geste
+          compte pour l’accueillir.
+        </p>
+        <div className="hero-actions">
+          <a className="btn btn-primary" href="#liste">
+            Voir les cadeaux
+          </a>
+          <a className="btn btn-ghost btn-on-dark" href="#don">
+            Faire un don
+          </a>
+        </div>
       </div>
     </section>
   )

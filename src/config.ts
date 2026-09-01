@@ -3,15 +3,29 @@
 export const BABY = {
   firstName: 'Nehemia',
   lastName: 'Searwar',
-  father: 'Steven Searwar',
-  mother: 'Sherally Dompig',
+  father: 'Steven',
+  mother: 'Sherally',
 } as const
 
 /**
- * Lien de don libre (PayPal.me, Lydia, Revolut, HelloAsso…).
- * Laissez vide pour afficher un message « contactez les parents ».
+ * Identifiant PayPal.me (sans l’URL).
+ * Exemple : 'StevenSearwar' ouvre https://paypal.me/StevenSearwar
+ * Créez le lien sur https://www.paypal.com/paypalme
  */
-export const DONATION_LINK = ''
+export const PAYPAL_ME = 'StevenSearwar'
+
+export const DONATION_LINK = PAYPAL_ME
+  ? `https://paypal.me/${PAYPAL_ME}`
+  : ''
+
+export function paypalUrl(amount?: number | null): string {
+  if (!PAYPAL_ME) return ''
+  if (amount != null && Number.isFinite(amount) && amount > 0) {
+    const rounded = Math.round(amount * 100) / 100
+    return `https://paypal.me/${PAYPAL_ME}/${rounded}`
+  }
+  return `https://paypal.me/${PAYPAL_ME}`
+}
 
 export const DELIVERY = {
   service: 'Colis Colibri',
