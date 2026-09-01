@@ -39,7 +39,7 @@ export const strings = {
       'If you would rather not place an order, you may contribute the item price plus delivery.',
     how3Title: 'A contribution',
     how3Body:
-      'A PayPal contribution is equally welcome, and will be used with care.',
+      'A PayPal or Wero contribution is equally welcome, and will be used with care.',
     giftsTitle: 'The gifts',
     giftsIntro:
       'Two collections — one for Nehemia, one for Sherally — grouped by type.',
@@ -70,8 +70,12 @@ export const strings = {
     offered: 'chose',
     donateTitle: 'A contribution',
     donateBody:
-      'Should you wish to offer something of your own choosing, PayPal is the simplest way.',
+      'Should you wish to offer something of your own choosing, PayPal or Wero is the simplest way.',
     donateBtn: 'Contribute with PayPal',
+    donateWero: 'Contribute with Wero',
+    weroHint: 'Open your bank app, choose Wero, and send to this number.',
+    copyNumber: 'Copy number',
+    numberCopied: 'Number copied',
     footerThanks: 'Sherally & Steven — with our love and gratitude.',
     close: 'Close',
     alreadyBy: 'Already given by',
@@ -175,7 +179,7 @@ export const strings = {
       'Si vous préférez ne pas commander, vous pouvez contribuer du prix de l’article plus la livraison.',
     how3Title: 'Une contribution',
     how3Body:
-      'Une contribution par PayPal est tout aussi bienvenue, et sera utilisée avec soin.',
+      'Une contribution par PayPal ou Wero est tout aussi bienvenue, et sera utilisée avec soin.',
     giftsTitle: 'Les cadeaux',
     giftsIntro:
       'Deux collections — une pour Nehemia, une pour Sherally — classées par type.',
@@ -210,8 +214,12 @@ export const strings = {
     offered: 'a choisi',
     donateTitle: 'Une contribution',
     donateBody:
-      'Si vous souhaitez offrir autrement, PayPal est la voie la plus simple.',
+      'Si vous souhaitez offrir autrement, PayPal ou Wero est la voie la plus simple.',
     donateBtn: 'Contribuer par PayPal',
+    donateWero: 'Contribuer par Wero',
+    weroHint: 'Ouvrez l’application de votre banque, choisissez Wero, et envoyez à ce numéro.',
+    copyNumber: 'Copier le numéro',
+    numberCopied: 'Numéro copié',
     footerThanks: 'Sherally & Steven — avec tout notre amour et notre gratitude.',
     close: 'Fermer',
     alreadyBy: 'Déjà offert par',

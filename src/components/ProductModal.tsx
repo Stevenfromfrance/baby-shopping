@@ -3,6 +3,7 @@ import { DELIVERY, DONATION_LINK, paypalUrl, SHIPPING_EUR, contributeAmount } fr
 import { copyText, fileToDataUrl, formatPrice, productTitle, publicUrl } from '../lib/utils'
 import type { Claim, Product } from '../types'
 import { useLang } from '../i18n'
+import { WeroPay } from './WeroPay'
 
 type Tab = 'order' | 'donate' | 'claim'
 
@@ -305,8 +306,8 @@ export function ProductModal({
                   <div className="panel-box">
                     <h3>{t.donateItemTitle}</h3>
                     <p>{t.donateItemBody}</p>
-                    {paypalUrl(paypalAmount) || DONATION_LINK ? (
-                      <p style={{ margin: '0.85rem 0' }}>
+                    <div className="pay-row">
+                      {paypalUrl(paypalAmount) || DONATION_LINK ? (
                         <a
                           className="btn btn-primary"
                           href={paypalUrl(paypalAmount) || DONATION_LINK}
@@ -316,10 +317,11 @@ export function ProductModal({
                           {t.donatePaypal}
                           {suggested != null ? ` · ${suggestedLabel}` : ''}
                         </a>
-                      </p>
-                    ) : (
-                      <p style={{ margin: '0.85rem 0' }}>{t.contactPaypal}</p>
-                    )}
+                      ) : (
+                        <p>{t.contactPaypal}</p>
+                      )}
+                      <WeroPay />
+                    </div>
                     {product.price != null ? (
                       <ul className="contribute-breakdown">
                         <li>

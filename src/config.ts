@@ -35,6 +35,17 @@ export function contributeAmount(price: number | null | undefined): number | nul
   return Math.round((price + SHIPPING_EUR) * 100) / 100
 }
 
+/** Wero (instant bank payment). Send to this mobile number. */
+export const WERO_NUMBER = '+594694907130'
+
+export function formatWeroNumber(number = WERO_NUMBER): string {
+  const digits = number.replace(/\D/g, '')
+  if (digits.startsWith('594') && digits.length === 12) {
+    return `+594 ${digits.slice(3, 6)} ${digits.slice(6, 8)} ${digits.slice(8, 10)} ${digits.slice(10)}`
+  }
+  return number
+}
+
 export const DELIVERY = {
   service: 'Colis Colibri',
   name: 'Colis Colibri 2A',
