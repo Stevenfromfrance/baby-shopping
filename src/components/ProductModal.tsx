@@ -1,5 +1,5 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { DELIVERY, DONATION_LINK, paypalUrl } from '../config'
+import { DELIVERY, DONATION_LINK, paypalUrl, SHIPPING_EUR, contributeAmount } from '../config'
 import { copyText, fileToDataUrl, formatPrice, productTitle, publicUrl } from '../lib/utils'
 import type { Claim, Product } from '../types'
 import { useLang } from '../i18n'
@@ -30,12 +30,16 @@ export function ProductModal({
   const { lang, t } = useLang()
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
   const priceLabel = formatPrice(product.price, locale, t.seeAmazon)
+  const suggested = contributeAmount(product.price)
+  const suggestedLabel = formatPrice(suggested, locale, t.seeAmazon)
+  const shippingLabel = formatPrice(SHIPPING_EUR, locale)
+  const paypalAmount = suggested ?? undefined
   const [tab, setTab] = useState<Tab>(claim ? 'claim' : 'order')
   const [copied, setCopied] = useState(false)
   const [name, setName] = useState('')
   const [message, setMessage] = useState('')
   const [amount, setAmount] = useState(
-    product.price != null ? String(product.price) : '',
+    suggested != null ? String(suggested) : '',
   )
   const [proofNote, setProofNote] = useState('')
   const [proofFile, setProofFile] = useState<File | null>(null)
@@ -285,21 +289,37 @@ export function ProductModal({
                   <div className="panel-box">
                     <h3>{t.donateItemTitle}</h3>
                     <p>{t.donateItemBody}</p>
-                    {paypalUrl(product.price) || DONATION_LINK ? (
+                    {paypalUrl(paypalAmount) || DONATION_LINK ? (
                       <p style={{ margin: '0.85rem 0' }}>
                         <a
                           className="btn btn-primary"
-                          href={paypalUrl(product.price) || DONATION_LINK}
+                          href={paypalUrl(paypalAmount) || DONATION_LINK}
                           target="_blank"
                           rel="noreferrer"
                         >
                           {t.donatePaypal}
-                          {product.price != null ? ` · ${priceLabel}` : ''}
+                          {suggested != null ? ` · ${suggestedLabel}` : ''}
                         </a>
                       </p>
                     ) : (
                       <p style={{ margin: '0.85rem 0' }}>{t.contactPaypal}</p>
                     )}
+                    {product.price != null ? (
+                      <ul className="contribute-breakdown">
+                        <li>
+                          <span>{t.contributeItem}</span>
+                          <span>{priceLabel}</span>
+                        </li>
+                        <li>
+                          <span>{t.contributeDelivery}</span>
+                          <span>{shippingLabel}</span>
+                        </li>
+                        <li className="total">
+                          <span>{t.contributeTotal}</span>
+                          <span>{suggestedLabel}</span>
+                        </li>
+                      </ul>
+                    ) : null}
                     <form
                       className="form-grid"
                       onSubmit={(e) => handleClaim(e, 'donation')}
@@ -317,7 +337,7 @@ export function ProductModal({
                       <label>
                         {t.amount}
                         <span className="hint">
-                          {t.suggestion}: {priceLabel}
+                          {t.suggestion}: {suggested != null ? suggestedLabel : priceLabel}
                         </span>
                         <input
                           type="text"

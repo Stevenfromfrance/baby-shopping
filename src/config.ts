@@ -27,6 +27,14 @@ export function paypalUrl(amount?: number | null): string {
   return `https://paypal.me/${PAYPAL_ME}`
 }
 
+/** Added to PayPal contributions so delivery is covered, not only the item price. */
+export const SHIPPING_EUR = 4.99
+
+export function contributeAmount(price: number | null | undefined): number | null {
+  if (price == null || Number.isNaN(price)) return null
+  return Math.round((price + SHIPPING_EUR) * 100) / 100
+}
+
 export const DELIVERY = {
   service: 'Colis Colibri',
   name: 'Colis Colibri 2A',

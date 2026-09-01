@@ -36,7 +36,7 @@ export const strings = {
       'Open an item, order it on Amazon, and ship it to the Colis Colibri address.',
     how2Title: 'Contribute toward an item',
     how2Body:
-      'If you would rather not place an order, you may contribute the amount of a gift.',
+      'If you would rather not place an order, you may contribute the item price plus delivery.',
     how3Title: 'A contribution',
     how3Body:
       'A PayPal contribution is equally welcome, and will be used with care.',
@@ -92,8 +92,11 @@ export const strings = {
     viewWishlist: 'View the Amazon list',
     donateItemTitle: 'Contribute toward this gift',
     donateItemBody:
-      'A thoughtful alternative to placing an order. Your name will appear beside the item.',
+      'A thoughtful alternative to placing an order. The suggested amount includes delivery, so the family can buy the gift themselves. Your name will appear beside the item.',
     donatePaypal: 'Contribute via PayPal',
+    contributeItem: 'Item',
+    contributeDelivery: 'Delivery',
+    contributeTotal: 'Total',
     contactPaypal: 'Write to Steven or Sherally for PayPal, then confirm below.',
     yourName: 'Your name',
     namePh: 'e.g. Aunt Marie',
@@ -164,7 +167,7 @@ export const strings = {
       'Ouvrez un article, commandez-le sur Amazon, et faites-le livrer à l’adresse Colis Colibri.',
     how2Title: 'Contribuer pour un article',
     how2Body:
-      'Si vous préférez ne pas commander, vous pouvez contribuer du montant d’un cadeau.',
+      'Si vous préférez ne pas commander, vous pouvez contribuer du prix de l’article plus la livraison.',
     how3Title: 'Une contribution',
     how3Body:
       'Une contribution par PayPal est tout aussi bienvenue, et sera utilisée avec soin.',
@@ -224,8 +227,11 @@ export const strings = {
     viewWishlist: 'Voir la liste Amazon',
     donateItemTitle: 'Contribuer pour ce cadeau',
     donateItemBody:
-      'Une belle alternative à la commande. Votre nom apparaîtra auprès de l’article.',
+      'Une belle alternative à la commande. Le montant suggéré inclut la livraison, pour que la famille puisse acheter le cadeau. Votre nom apparaîtra auprès de l’article.',
     donatePaypal: 'Contribuer par PayPal',
+    contributeItem: 'Article',
+    contributeDelivery: 'Livraison',
+    contributeTotal: 'Total',
     contactPaypal:
       'Écrivez à Steven ou Sherally pour PayPal, puis confirmez ci-dessous.',
     yourName: 'Votre nom',

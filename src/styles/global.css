@@ -982,6 +982,32 @@ textarea:focus {
   box-shadow: 0 0 0 3px rgba(142, 175, 212, 0.25);
 }
 
+.contribute-breakdown {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0.85rem 1rem;
+  background: color-mix(in srgb, var(--accent-soft) 70%, #fff);
+  border-radius: 14px;
+}
+
+.contribute-breakdown li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+  padding: 0.2rem 0;
+}
+
+.contribute-breakdown li.total {
+  margin-top: 0.35rem;
+  padding-top: 0.45rem;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 1.02rem;
+}
+
 .hint {
   font-weight: 400;
   color: var(--muted);
