@@ -12,6 +12,50 @@ export function productTitle(
   return product.title
 }
 
+const CATEGORY_ORDER = [
+  'Chambre & sommeil',
+  'Biberons & repas',
+  'Toilette & soins',
+  'Couches & hygiène',
+  'Rangement & sorties',
+  'Allaitement',
+  'Portage',
+  'Soins maman',
+  'Post-partum',
+]
+
+function familyKey(brand: string) {
+  const b = brand.trim().toLowerCase()
+  if (b === 'avent' || b.includes('philips')) return 'philips avent'
+  return b
+}
+
+export function groupProductsByFamily<T extends { category: string; brand: string; title: string; titleEn?: string }>(
+  products: T[],
+  lang: 'en' | 'fr',
+): { category: string; products: T[] }[] {
+  const buckets = new Map<string, T[]>()
+  for (const product of products) {
+    const list = buckets.get(product.category) ?? []
+    list.push(product)
+    buckets.set(product.category, list)
+  }
+
+  const ordered = [
+    ...CATEGORY_ORDER.filter((category) => buckets.has(category)),
+    ...[...buckets.keys()].filter((category) => !CATEGORY_ORDER.includes(category)),
+  ]
+
+  return ordered.map((category) => ({
+    category,
+    products: [...(buckets.get(category) ?? [])].sort((a, b) => {
+      const family = familyKey(a.brand).localeCompare(familyKey(b.brand), lang)
+      if (family !== 0) return family
+      return productTitle(a, lang).localeCompare(productTitle(b, lang), lang)
+    }),
+  }))
+}
+
 export function formatPrice(
   price: number | null | undefined,
   locale = 'en-GB',

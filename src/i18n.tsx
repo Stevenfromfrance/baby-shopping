@@ -42,7 +42,7 @@ export const strings = {
       'A PayPal contribution is equally welcome, and will be used with care.',
     giftsTitle: 'The gifts',
     giftsIntro:
-      'Two collections — one for Nehemia, one for Sherally — chosen with care.',
+      'Two collections — one for Nehemia, one for Sherally — grouped by type.',
     hideGifted: 'Hide gifts already given',
     babyTitle: 'For the baby',
     babyIntro: 'For Nehemia’s first days: care, rest, and the little essentials.',
@@ -178,7 +178,7 @@ export const strings = {
       'Une contribution par PayPal est tout aussi bienvenue, et sera utilisée avec soin.',
     giftsTitle: 'Les cadeaux',
     giftsIntro:
-      'Deux collections — une pour Nehemia, une pour Sherally — choisies avec attention.',
+      'Deux collections — une pour Nehemia, une pour Sherally — classées par type.',
     hideGifted: 'Masquer les cadeaux déjà offerts',
     babyTitle: 'Pour le bébé',
     babyIntro:

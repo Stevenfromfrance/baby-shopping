@@ -2,6 +2,7 @@ import { useMemo } from 'react'
 import type { Claim, Product } from '../types'
 import { ProductCard } from './ProductCard'
 import { useLang } from '../i18n'
+import { groupProductsByFamily } from '../lib/utils'
 
 type Props = {
   products: Product[]
@@ -24,8 +25,12 @@ function ListBlock({
   claimsByProduct: Map<string, Claim>
   onOpen: (product: Product) => void
 }) {
-  const { t } = useLang()
+  const { lang, t } = useLang()
   const available = products.filter((p) => !claimsByProduct.has(p.id)).length
+  const families = useMemo(
+    () => groupProductsByFamily(products, lang),
+    [products, lang],
+  )
 
   return (
     <section className="list-block" id={id}>
@@ -39,16 +44,23 @@ function ListBlock({
       {products.length === 0 ? (
         <div className="empty">{t.empty}</div>
       ) : (
-        <div className="catalog">
-          {products.map((product) => (
-            <ProductCard
-              key={product.id}
-              product={product}
-              claim={claimsByProduct.get(product.id)}
-              onOpen={onOpen}
-            />
-          ))}
-        </div>
+        families.map((family) => (
+          <div className="catalog-family" key={family.category}>
+            <h3 className="catalog-family-title">
+              {t.categories[family.category] ?? family.category}
+            </h3>
+            <div className="catalog">
+              {family.products.map((product) => (
+                <ProductCard
+                  key={product.id}
+                  product={product}
+                  claim={claimsByProduct.get(product.id)}
+                  onOpen={onOpen}
+                />
+              ))}
+            </div>
+          </div>
+        ))
       )}
     </section>
   )
