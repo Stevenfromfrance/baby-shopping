@@ -80,22 +80,6 @@
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
-    "id": "baby-06",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Rangement & sorties",
-    "title": "AUAUY Panier à Linge Enfant, Grand Organiser pour Bébé, avec Poignées | Imperméable Panier à Linge Pliable, Panier de rangement Jouet pour chambre d'enfant, bureau, chambre à coucher",
-    "shortTitle": "AUAUY Panier à Linge Enfant, Grand Organiser pour Bébé, avec Poignées | Imp…",
-    "brand": "AUAUY",
-    "price": 10.99,
-    "currency": "EUR",
-    "description": "AUAUY Panier à Linge Enfant, Grand Organiser pour Bébé, avec Poignées",
-    "notes": [],
-    "image": "/products/baby-06.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0GYFR67LD",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
     "id": "baby-07",
     "list": "baby",
     "listLabel": "Bébé",
@@ -208,43 +192,6 @@
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
-    "id": "baby-13",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Toilette & soins",
-    "title": "Mustela Stelatopia Gel Lavant Peau Atopique Corps Cheveux Famille 500ml | Gel lavant nettoie et relipide les peaux à tendance atopique, apaise les démangeaisons, à l'huile de tournesol, sans parfum",
-    "shortTitle": "Mustela Stelatopia Gel Lavant Peau Atopique Corps Cheveux Famille 500ml | G…",
-    "brand": "Mustela",
-    "price": 15.69,
-    "currency": "EUR",
-    "description": "Ligne eczema / atopique · Plus riche · Seulement si le médecin confirme",
-    "notes": [
-      "Ligne eczema / atopique",
-      "Plus riche",
-      "Seulement si le médecin confirme",
-      "Ne pas acheter avec le gel Bio"
-    ],
-    "image": "/products/baby-13.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B07YQ5LW2Q",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
-    "id": "baby-14",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Toilette & soins",
-    "title": "Chicco Set Manucure pour Bébé garçon, Avec Ciseaux, Lime en Carton, Coupe-Ongles, Brosse à Ongles, Idée Cadeau pour Bebé Garçon, bleu, 0 mois+",
-    "shortTitle": "Chicco Set Manucure pour Bébé garçon, Avec Ciseaux, Lime en Carton, Coupe-O…",
-    "brand": "Chicco",
-    "price": 8.9,
-    "currency": "EUR",
-    "description": "Chicco Set Manucure pour Bébé garçon, Avec Ciseaux, Lime en Carton, Coupe-Ongles, Brosse à Ongles, Idée Cadeau…",
-    "notes": [],
-    "image": "/products/baby-14.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B004S0UELS",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
     "id": "baby-15",
     "list": "baby",
     "listLabel": "Bébé",
@@ -274,38 +221,6 @@
     "notes": [],
     "image": "/products/baby-16.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0GLQX4PN4",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
-    "id": "baby-17",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Rangement & sorties",
-    "title": "KeaBabies Sac à couches Sac à dos pour maman et papa - Grands sacs de voyage pour - Sac de maternité multifonctionnel - Tissu Oxford Premium durable et imperméable - Matelas à langer inclus",
-    "shortTitle": "KeaBabies Sac à couches Sac à dos pour maman et papa - Grands sacs de voyag…",
-    "brand": "KeaBabies",
-    "price": 62.99,
-    "currency": "EUR",
-    "description": "KeaBabies Sac à couches Sac à dos pour maman et papa - Grands sacs de voyage pour - Sac de maternité multifonc…",
-    "notes": [],
-    "image": "/products/baby-17.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0C89V3Z8T",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
-    "id": "baby-18",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Couches & hygiène",
-    "title": "Huggies Pure 560 Lingettes Bébé pour Peau Sensible x 10",
-    "shortTitle": "Huggies Pure 560 Lingettes Bébé pour Peau Sensible x 10",
-    "brand": "HUGGIES",
-    "price": null,
-    "currency": "EUR",
-    "description": "Huggies Pure 560 Lingettes Bébé pour Peau Sensible x 10",
-    "notes": [],
-    "image": "/products/baby-18.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B01MAZKGHM",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
@@ -373,22 +288,6 @@
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
-    "id": "baby-23",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Chambre & sommeil",
-    "title": "Boppy Coussin d'allaitement Deluxe pour Bébés 0+ Mois, Forme Ergonomique, Coussin Enfant et Nid Bébé pour l'allaitement et Le Biberon, Rembourrage Complet, Amovible et Lavable en Machine",
-    "shortTitle": "Boppy Coussin d'allaitement Deluxe pour Bébés 0+ Mois, Forme Ergonomique, C…",
-    "brand": "Chicco",
-    "price": 39.99,
-    "currency": "EUR",
-    "description": "Boppy Coussin d'allaitement Deluxe pour Bébés 0+ Mois, Forme Ergonomique, Coussin Enfant et Nid Bébé pour l'al…",
-    "notes": [],
-    "image": "/products/baby-23.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0DTV7JZYQ",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
     "id": "baby-24",
     "list": "baby",
     "listLabel": "Bébé",
@@ -402,38 +301,6 @@
     "notes": [],
     "image": "/products/baby-24.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0FJFV2X5T",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
-    "id": "baby-25",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Couches & hygiène",
-    "title": "Huggies Extra Care Bébé, 4 paquets de 40 couches, Incolore, Taille 1 (2-5 kg)",
-    "shortTitle": "Huggies Extra Care Bébé, 4 paquets de 40 couches, Incolore, Taille 1 (2-5 kg)",
-    "brand": "HUGGIES",
-    "price": 31.01,
-    "currency": "EUR",
-    "description": "Huggies Extra Care Bébé, 4 paquets de 40 couches, Incolore, Taille 1 (2-5 kg)",
-    "notes": [],
-    "image": "/products/baby-25.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B08CYCV9PQ",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
-    "id": "baby-26",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Couches & hygiène",
-    "title": "Pampers Harmonie Couches Édition Limitée Taille 1 x180 Pack 1 Mois | 2kg-5kg. Conçues Pour Les Peaux Les Plus Sensibles. Pack 1 Mois.",
-    "shortTitle": "Pampers Harmonie Couches Édition Limitée Taille 1 x180 Pack 1 Mois | 2kg-5k…",
-    "brand": "Pampers",
-    "price": 58.75,
-    "currency": "EUR",
-    "description": "Pampers Harmonie Couches Édition Limitée Taille 1 x180 Pack 1 Mois",
-    "notes": [],
-    "image": "/products/baby-26.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0GNSR4GTW",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
@@ -453,22 +320,6 @@
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
-    "id": "baby-28",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Couches & hygiène",
-    "title": "Babyono parfumée Diaper Sacs de couches jetables, Lot de 100",
-    "shortTitle": "Babyono parfumée Diaper Sacs de couches jetables, Lot de 100",
-    "brand": "Babyono",
-    "price": 8.32,
-    "currency": "EUR",
-    "description": "Babyono parfumée Diaper Sacs de couches jetables, Lot de 100",
-    "notes": [],
-    "image": "/products/baby-28.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B01LF525L0",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
     "id": "baby-29",
     "list": "baby",
     "listLabel": "Bébé",
@@ -482,22 +333,6 @@
     "notes": [],
     "image": "/products/baby-29.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B08MTMKQNX",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
-    "id": "baby-30",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Chambre & sommeil",
-    "title": "Kinderkraft NESTEE UP 2 Lit bébé cododo, Lit Bebe avec Matelas de la Naissance, Réglage de la Hauteur, Facile Adapter au lit du Parent, Pieds réglables, Gris Clair",
-    "shortTitle": "Kinderkraft NESTEE UP 2 Lit bébé cododo, Lit Bebe avec Matelas de la Naissa…",
-    "brand": "kk Kinderkraft",
-    "price": 79.9,
-    "currency": "EUR",
-    "description": "Kinderkraft NESTEE UP 2 Lit bébé cododo, Lit Bebe avec Matelas de la Naissance, Réglage de la Hauteur, Facile …",
-    "notes": [],
-    "image": "/products/baby-30.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0FD3RHQVD",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
@@ -741,22 +576,6 @@
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
-    "id": "baby-32",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Chambre & sommeil",
-    "title": "Maxi-Cosi Cododo Tori 2 en 1, Berceau bébé, Cododo, Pliage ultra compact, Léger, 5 hauteurs, Maille respirante, Tissus 100 % recyclés, de 0 à 6 mois environ, 0 à 9 kg, Beyond Graphite",
-    "brand": "Maxi-Cosi",
-    "price": 99.9,
-    "description": "Maxi-Cosi Cododo Tori 2 en 1, Berceau bébé, Cododo, Pliage ultra compact",
-    "shortTitle": "Maxi-Cosi Cododo Tori 2 en 1, Berceau bébé, Cododo, Pliage ultra compac…",
-    "currency": "EUR",
-    "notes": [],
-    "image": "/products/baby-32.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0BXSS2KH5",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
     "id": "baby-33",
     "list": "baby",
     "listLabel": "Bébé",
@@ -770,22 +589,6 @@
     "notes": [],
     "image": "/products/baby-33.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0FHBNQY9P",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
-  },
-  {
-    "id": "baby-34",
-    "list": "baby",
-    "listLabel": "Bébé",
-    "category": "Biberons & repas",
-    "title": "Philips Avent Sucettes ultra-douces - Tétines orthodontiques, pour bébés de 0 à 6 mois, collerette souple, en silicone d'origine végétale, sans BPA, avec 2 étuis de stérilisation, lot de 4, SCF091/50",
-    "brand": "PHILIPS",
-    "price": 16.99,
-    "description": "Philips Avent Sucettes ultra-douces, lot de 4, 0-6 mois (SCF091/50)",
-    "shortTitle": "Philips Avent Sucettes ultra-douces - Tétines orthodontiques, pour bébé…",
-    "currency": "EUR",
-    "notes": [],
-    "image": "/products/baby-34.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0FBWYZRZX",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   },
   {
