@@ -1182,72 +1182,126 @@ textarea:focus {
   line-height: 1.55;
 }
 
-.donate-banner .btn {
-  justify-self: start;
-  background: #fff;
-  color: var(--accent);
+.donate-banner .pay-options {
+  margin-top: 0.85rem;
 }
 
-.pay-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
-  gap: 0.85rem;
-  margin-top: 0.35rem;
-}
-
-.wero-pay {
-  flex: 1 1 220px;
+.pay-options {
   display: grid;
-  gap: 0.35rem;
-  align-content: start;
-  padding: 0.9rem 1rem;
-  border-radius: 16px;
-  background: color-mix(in srgb, var(--paper) 88%, transparent);
-  border: 1px solid var(--line);
+  grid-template-columns: 1fr 1fr;
+  border: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 1rem 0 1.15rem;
+  background: color-mix(in srgb, var(--paper) 70%, transparent);
 }
 
-.wero-pay p {
-  margin: 0;
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: var(--muted);
+.pay-option {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  min-height: 10.5rem;
+  padding: 1.25rem 1.35rem;
+  text-decoration: none;
+  color: inherit;
+  background: transparent;
+  border: 0;
+  text-align: left;
 }
 
-.wero-brand {
-  font-size: 0.72rem;
+.pay-option + .pay-option {
+  border-left: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+}
+
+.pay-option-name {
+  font-size: 0.7rem;
   font-weight: 700;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
 }
 
-.wero-number {
+.pay-option-lead {
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.pay-option-value {
   font-family: var(--font-display);
-  font-size: 1.45rem;
+  font-size: clamp(1.35rem, 2.4vw, 1.7rem);
   font-weight: 600;
   letter-spacing: 0.02em;
+  line-height: 1.2;
+  color: var(--ink);
 }
 
-.wero-pay .btn {
-  justify-self: start;
-  margin-top: 0.35rem;
+.pay-option-action {
+  appearance: none;
+  margin-top: auto;
+  padding: 0;
+  border: 0;
+  background: none;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
 }
 
-.wero-pay-dark {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.28);
+.pay-option-action:hover {
+  color: var(--ink);
+}
+
+a.pay-option:hover {
+  background: color-mix(in srgb, var(--paper) 92%, transparent);
+}
+
+.pay-options-dark {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+.pay-options-dark .pay-option + .pay-option {
+  border-left-color: rgba(255, 255, 255, 0.18);
+}
+
+.pay-options-dark .pay-option-name,
+.pay-options-dark .pay-option-action {
   color: #fff;
 }
 
-.wero-pay-dark .wero-brand,
-.wero-pay-dark p {
-  color: rgba(255, 255, 255, 0.88);
+.pay-options-dark .pay-option-lead {
+  color: rgba(255, 255, 255, 0.78);
 }
 
-.wero-pay-dark .btn {
-  background: #fff;
-  color: var(--accent);
+.pay-options-dark .pay-option-value {
+  color: #fff;
+}
+
+.pay-options-dark a.pay-option:hover,
+.pay-options-dark .pay-option-action:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 640px) {
+  .pay-options {
+    grid-template-columns: 1fr;
+  }
+
+  .pay-option + .pay-option {
+    border-left: 0;
+    border-top: 1px solid color-mix(in srgb, var(--line) 80%, transparent);
+  }
+
+  .pay-options-dark .pay-option + .pay-option {
+    border-top-color: rgba(255, 255, 255, 0.18);
+  }
 }
 
 .site-footer {

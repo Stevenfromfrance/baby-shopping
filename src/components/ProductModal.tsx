@@ -1,9 +1,9 @@
 import { useEffect, useState, type FormEvent } from 'react'
-import { DELIVERY, DONATION_LINK, paypalUrl, SHIPPING_EUR, contributeAmount } from '../config'
+import { DELIVERY, SHIPPING_EUR, contributeAmount } from '../config'
 import { copyText, fileToDataUrl, formatPrice, productTitle, publicUrl } from '../lib/utils'
 import type { Claim, Product } from '../types'
 import { useLang } from '../i18n'
-import { WeroPay } from './WeroPay'
+import { PayOptions } from './PayOptions'
 
 type Tab = 'order' | 'donate' | 'claim'
 
@@ -307,22 +307,14 @@ export function ProductModal({
                   <div className="panel-box">
                     <h3>{t.donateItemTitle}</h3>
                     <p>{t.donateItemBody}</p>
-                    <div className="pay-row">
-                      {paypalUrl(paypalAmount) || DONATION_LINK ? (
-                        <a
-                          className="btn btn-primary"
-                          href={paypalUrl(paypalAmount) || DONATION_LINK}
-                          target="_blank"
-                          rel="noreferrer"
-                        >
-                          {t.donatePaypal}
-                          {suggested != null ? ` · ${suggestedLabel}` : ''}
-                        </a>
-                      ) : (
-                        <p>{t.contactPaypal}</p>
-                      )}
-                      <WeroPay />
-                    </div>
+                    <PayOptions
+                      paypalAmount={paypalAmount}
+                      paypalLabel={
+                        suggested != null
+                          ? `${t.donatePaypal} · ${suggestedLabel}`
+                          : t.donatePaypal
+                      }
+                    />
                     {product.price != null ? (
                       <ul className="contribute-breakdown">
                         <li>

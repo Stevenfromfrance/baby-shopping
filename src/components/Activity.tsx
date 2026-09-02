@@ -1,8 +1,8 @@
 import type { Claim, Product } from '../types'
 import { formatDate, productTitle, publicUrl } from '../lib/utils'
-import { DONATION_LINK, paypalUrl, BABY } from '../config'
+import { BABY } from '../config'
 import { useLang } from '../i18n'
-import { WeroPay } from './WeroPay'
+import { PayOptions } from './PayOptions'
 
 type Props = {
   claims: Claim[]
@@ -62,25 +62,12 @@ export function ActivityFeed({ claims, productsById }: Props) {
 
 export function DonateBanner() {
   const { t } = useLang()
-  const paypal = paypalUrl()
   return (
     <section className="section wrap" id="don">
       <div className="donate-banner">
         <h2>{t.donateTitle}</h2>
         <p>{t.donateBody}</p>
-        <div className="pay-row">
-          {paypal || DONATION_LINK ? (
-            <a
-              className="btn"
-              href={paypal || DONATION_LINK}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {t.donateBtn}
-            </a>
-          ) : null}
-          <WeroPay variant="dark" />
-        </div>
+        <PayOptions variant="dark" />
       </div>
     </section>
   )
