@@ -291,14 +291,6 @@ export function ProductModal({
                       >
                         {t.openAmazon}
                       </a>
-                      <a
-                        className="btn btn-ghost"
-                        href={product.wishlistUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                      >
-                        {t.viewWishlist}
-                      </a>
                     </div>
                   </div>
                 ) : null}
