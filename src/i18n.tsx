@@ -34,7 +34,7 @@ export const strings = {
       'Amazon does not deliver to French Guiana, where Sherally and Steven live. Here is how to take part.',
     how1Title: 'Order on Amazon',
     how1Body:
-      'Place the order on Amazon.fr and ship it to the Colis Colibri address in mainland France. Colis Colibri then forwards the parcel to Guyane.',
+      'Place the order on the French site Amazon.fr (not Amazon.com) and ship it to the Colis Colibri address in mainland France. Colis Colibri then forwards the parcel to Guyane.',
     how2Title: 'Contribute toward an item',
     how2Body:
       'If you would rather not place an order, you may contribute the item price plus delivery.',
@@ -84,7 +84,8 @@ export const strings = {
     donate: 'Contribute',
     iGave: 'I chose this gift',
     amazonGuide: 'Ordering on Amazon',
-    orderStep1: 'Open the item on Amazon.fr with the button below.',
+    orderStep1:
+      'You must be on the French website Amazon.fr — not Amazon.com or another country’s Amazon. Open the item with the button below.',
     orderStep2: 'Add it to your basket and complete the order.',
     orderStep3a: 'At delivery, enter the Colis Colibri address',
     orderStep3b:
@@ -178,7 +179,7 @@ export const strings = {
       'Amazon ne livre pas en Guyane, où vivent Sherally et Steven. Voici comment participer.',
     how1Title: 'Commander sur Amazon',
     how1Body:
-      'Commandez sur Amazon.fr et faites livrer à l’adresse Colis Colibri en métropole. Colis Colibri réexpédie ensuite le colis en Guyane.',
+      'Commandez sur le site français Amazon.fr (pas Amazon.com) et faites livrer à l’adresse Colis Colibri en métropole. Colis Colibri réexpédie ensuite le colis en Guyane.',
     how2Title: 'Contribuer pour un article',
     how2Body:
       'Si vous préférez ne pas commander, vous pouvez contribuer du prix de l’article plus la livraison.',
@@ -232,7 +233,8 @@ export const strings = {
     donate: 'Contribuer',
     iGave: 'J’ai choisi ce cadeau',
     amazonGuide: 'Commander sur Amazon',
-    orderStep1: 'Ouvrez l’article sur Amazon.fr avec le bouton ci-dessous.',
+    orderStep1:
+      'Il faut être sur le site français Amazon.fr — pas Amazon.com, ni un autre pays. Ouvrez l’article avec le bouton ci-dessous.',
     orderStep2: 'Ajoutez-le au panier et terminez la commande.',
     orderStep3a: 'À la livraison, saisissez l’adresse Colis Colibri',
     orderStep3b:
