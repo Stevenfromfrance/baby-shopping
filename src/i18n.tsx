@@ -30,10 +30,11 @@ export const strings = {
     heroCtaBaby: 'Gifts for baby',
     heroCtaMom: 'Gifts for mother',
     howTitle: 'How to take part',
-    howIntro: 'A few simple ways to share in this moment.',
-    how1Title: 'Choose a gift',
+    howIntro:
+      'Amazon does not deliver to French Guiana, where Sherally and Steven live. Here is how to take part.',
+    how1Title: 'Order on Amazon',
     how1Body:
-      'Open an item, order it on Amazon, and ship it to the Colis Colibri address.',
+      'Place the order on Amazon.fr and ship it to the Colis Colibri address in mainland France. Colis Colibri then forwards the parcel to Guyane.',
     how2Title: 'Contribute toward an item',
     how2Body:
       'If you would rather not place an order, you may contribute the item price plus delivery.',
@@ -85,11 +86,14 @@ export const strings = {
     amazonGuide: 'Ordering on Amazon',
     orderStep1: 'Open the item on Amazon.fr with the button below.',
     orderStep2: 'Add it to your basket and complete the order.',
-    orderStep3a: 'At delivery, use the',
-    orderStep3b: 'address below — not your own.',
+    orderStep3a: 'At delivery, enter the Colis Colibri address',
+    orderStep3b:
+      'below — not your own. Colis Colibri forwards the parcel to French Guiana, where the family lives.',
     orderStep4:
       'Return here under “I chose this gift” to leave your name and a note.',
     addressLabel: 'Delivery address',
+    addressForward:
+      'Colis Colibri re-ships this parcel to French Guiana, where the family lives.',
     addressName: 'Name',
     addressStreet: 'Street',
     addressPostal: 'Postal code',
@@ -170,10 +174,11 @@ export const strings = {
     heroCtaBaby: 'Pour le bébé',
     heroCtaMom: 'Pour la maman',
     howTitle: 'Comment participer',
-    howIntro: 'Quelques façons simples de prendre part à ce moment.',
-    how1Title: 'Choisir un cadeau',
+    howIntro:
+      'Amazon ne livre pas en Guyane, où vivent Sherally et Steven. Voici comment participer.',
+    how1Title: 'Commander sur Amazon',
     how1Body:
-      'Ouvrez un article, commandez-le sur Amazon, et faites-le livrer à l’adresse Colis Colibri.',
+      'Commandez sur Amazon.fr et faites livrer à l’adresse Colis Colibri en métropole. Colis Colibri réexpédie ensuite le colis en Guyane.',
     how2Title: 'Contribuer pour un article',
     how2Body:
       'Si vous préférez ne pas commander, vous pouvez contribuer du prix de l’article plus la livraison.',
@@ -229,11 +234,14 @@ export const strings = {
     amazonGuide: 'Commander sur Amazon',
     orderStep1: 'Ouvrez l’article sur Amazon.fr avec le bouton ci-dessous.',
     orderStep2: 'Ajoutez-le au panier et terminez la commande.',
-    orderStep3a: 'À la livraison, utilisez l’adresse',
-    orderStep3b: 'ci-dessous — pas la vôtre.',
+    orderStep3a: 'À la livraison, saisissez l’adresse Colis Colibri',
+    orderStep3b:
+      'ci-dessous — pas la vôtre. Colis Colibri réexpédie le colis en Guyane, où vit la famille.',
     orderStep4:
       'Revenez ici, onglet « J’ai choisi ce cadeau », pour laisser votre nom et un mot.',
     addressLabel: 'Adresse de livraison',
+    addressForward:
+      'Colis Colibri réexpédie ce colis en Guyane, où vit la famille.',
     addressName: 'Nom',
     addressStreet: 'Rue',
     addressPostal: 'Code postal',

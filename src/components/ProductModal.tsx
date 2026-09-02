@@ -250,6 +250,7 @@ export function ProductModal({
 
                     <div className="address">
                       <strong>{t.addressLabel}</strong>
+                      <p className="address-forward">{t.addressForward}</p>
                       <dl className="address-fields">
                         <div>
                           <dt>{t.addressName}</dt>

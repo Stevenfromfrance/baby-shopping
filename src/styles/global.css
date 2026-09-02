@@ -448,7 +448,7 @@ img {
 .path-card p {
   margin: 0;
   color: var(--muted);
-  line-height: 1.5;
+  line-height: 1.55;
   font-size: 0.95rem;
 }
 
@@ -949,11 +949,18 @@ a.chip {
 
 .address > strong {
   display: block;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.35rem;
   color: var(--accent);
   font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
+}
+
+.address-forward {
+  margin: 0 0 0.75rem;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  color: var(--ink);
 }
 
 .address-fields {
