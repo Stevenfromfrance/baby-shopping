@@ -1,22 +1,42 @@
-import type { Claim, Product } from '../types'
+import type { Claim, Product, ProductPriority } from '../types'
 import { formatPrice, productTitle, publicUrl } from '../lib/utils'
 import { useLang } from '../i18n'
 
 type Props = {
   product: Product
   claim?: Claim
+  selected?: boolean
   onOpen: (product: Product) => void
+  onToggleSelect?: (product: Product) => void
 }
 
-export function ProductCard({ product, claim, onOpen }: Props) {
+function priorityLabel(
+  priority: ProductPriority | undefined,
+  t: ReturnType<typeof useLang>['t'],
+) {
+  if (priority === 'essential') return t.priorityEssential
+  return t.priorityComfort
+}
+
+export function ProductCard({
+  product,
+  claim,
+  selected,
+  onOpen,
+  onToggleSelect,
+}: Props) {
   const { lang, t } = useLang()
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
   const category = t.categories[product.category] ?? product.category
   const listLabel = product.list === 'mom' ? t.listMom : t.listBaby
   const title = productTitle(product, lang)
+  const canSelect = !claim && Boolean(onToggleSelect)
+  const priority = product.priority || 'comfort'
 
   return (
-    <article className={`catalog-item${claim ? ' gifted' : ''}`}>
+    <article
+      className={`catalog-item${claim ? ' gifted' : ''}${selected ? ' selected' : ''}`}
+    >
       <button
         type="button"
         className="catalog-photo"
@@ -34,8 +54,15 @@ export function ProductCard({ product, claim, onOpen }: Props) {
           <span>{listLabel}</span>
           <span>{category}</span>
         </div>
+        <div className={`priority-badge priority-${priority}`}>
+          {priorityLabel(priority, t)}
+        </div>
         <h3>
-          <button type="button" className="catalog-title" onClick={() => onOpen(product)}>
+          <button
+            type="button"
+            className="catalog-title"
+            onClick={() => onOpen(product)}
+          >
             {title}
           </button>
         </h3>
@@ -52,6 +79,16 @@ export function ProductCard({ product, claim, onOpen }: Props) {
           </div>
         ) : null}
         <div className="catalog-actions">
+          {canSelect ? (
+            <label className="catalog-check">
+              <input
+                type="checkbox"
+                checked={Boolean(selected)}
+                onChange={() => onToggleSelect?.(product)}
+              />
+              <span>{selected ? t.selectedGift : t.selectGift}</span>
+            </label>
+          ) : null}
           <a
             className="catalog-amazon"
             href={product.amazonUrl}

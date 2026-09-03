@@ -33,6 +33,30 @@ export async function loadRemoteClaims(): Promise<Claim[] | null> {
   return rows.map(rowToClaim)
 }
 
+const GID_PREFIX = '__gid__'
+
+function packProofNote(groupId?: string, proofNote?: string): string | null {
+  if (!groupId) return proofNote ?? null
+  return `${GID_PREFIX}${groupId}__${proofNote ?? ''}`
+}
+
+function unpackProofNote(raw: string | null | undefined): {
+  groupId?: string
+  proofNote?: string
+} {
+  if (!raw) return {}
+  if (!raw.startsWith(GID_PREFIX)) return { proofNote: raw }
+  const rest = raw.slice(GID_PREFIX.length)
+  const sep = rest.indexOf('__')
+  if (sep <= 0) return { proofNote: raw }
+  const groupId = rest.slice(0, sep)
+  const proofNote = rest.slice(sep + 2)
+  return {
+    groupId,
+    proofNote: proofNote || undefined,
+  }
+}
+
 export async function pushRemoteClaim(
   claim: Omit<Claim, 'id' | 'createdAt'> & { id?: string; createdAt?: string },
 ): Promise<Claim> {
@@ -45,7 +69,7 @@ export async function pushRemoteClaim(
     name: claim.name,
     message: claim.message,
     amount: claim.amount ?? null,
-    proof_note: claim.proofNote ?? null,
+    proof_note: packProofNote(claim.groupId, claim.proofNote),
     proof_data_url: claim.proofDataUrl ?? null,
   }
   const rows = (await supabaseFetch('claims', {
@@ -75,6 +99,9 @@ export async function deleteRemoteClaim(claim: Claim): Promise<void> {
 }
 
 function rowToClaim(row: Record<string, unknown>): Claim {
+  const packed = unpackProofNote(
+    (row.proof_note as string | null | undefined) ?? undefined,
+  )
   return {
     id: String(row.id),
     productId: String(row.product_id),
@@ -82,8 +109,9 @@ function rowToClaim(row: Record<string, unknown>): Claim {
     name: String(row.name),
     message: String(row.message ?? ''),
     amount: (row.amount as number | null) ?? null,
-    proofNote: (row.proof_note as string | null) ?? undefined,
+    proofNote: packed.proofNote,
     proofDataUrl: (row.proof_data_url as string | null) ?? undefined,
+    groupId: packed.groupId,
     createdAt: String(row.created_at),
   }
 }

@@ -1,8 +1,12 @@
+export type ProductPriority = 'essential' | 'comfort'
+
 export type Product = {
   id: string
   list: 'baby' | 'mom'
   listLabel: string
   category: string
+  /** Helps guests know what matters most. */
+  priority?: ProductPriority
   title: string
   titleEn?: string
   shortTitle: string
@@ -27,5 +31,7 @@ export type Claim = {
   amount?: number | null
   proofNote?: string
   proofDataUrl?: string
+  /** Shared across claims from one multi-gift checkout (one message). */
+  groupId?: string
   createdAt: string
 }

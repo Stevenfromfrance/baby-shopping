@@ -11,6 +11,8 @@ type Props = {
   product: Product
   claim?: Claim
   isAdmin?: boolean
+  selected?: boolean
+  onToggleSelect?: () => void
   onClose: () => void
   onSubmitClaim: (
     claim: Omit<Claim, 'id' | 'createdAt'>,
@@ -23,6 +25,8 @@ export function ProductModal({
   product,
   claim,
   isAdmin,
+  selected,
+  onToggleSelect,
   onClose,
   onSubmitClaim,
   onReleaseClaim,
@@ -182,6 +186,13 @@ export function ProductModal({
                 <span>{listLabel}</span>
                 <span>{category}</span>
               </div>
+              <div
+                className={`priority-badge priority-${(product.priority || 'comfort') === 'essential' ? 'essential' : 'comfort'}`}
+              >
+                {(product.priority || 'comfort') === 'essential'
+                  ? t.priorityEssential
+                  : t.priorityComfort}
+              </div>
               <h2 id="product-title">{title}</h2>
               <div className="card-price" style={{ marginTop: '0.75rem' }}>
                 {priceLabel}
@@ -292,6 +303,18 @@ export function ProductModal({
                         {t.openAmazon}
                       </a>
                     </div>
+                    {onToggleSelect ? (
+                      <p className="modal-select-row">
+                        <button
+                          type="button"
+                          className={`btn ${selected ? 'btn-primary' : 'btn-soft'}`}
+                          onClick={onToggleSelect}
+                        >
+                          {selected ? t.selectedGift : t.addToSelection}
+                        </button>
+                        <span className="hint">{t.multiSelectHint}</span>
+                      </p>
+                    ) : null}
                   </div>
                 ) : null}
 
@@ -374,6 +397,18 @@ export function ProductModal({
                   <div className="panel-box">
                     <h3>{t.iBoughtTitle}</h3>
                     <p>{t.iBoughtBody}</p>
+                    {onToggleSelect ? (
+                      <p className="modal-select-row">
+                        <button
+                          type="button"
+                          className={`btn ${selected ? 'btn-primary' : 'btn-soft'}`}
+                          onClick={onToggleSelect}
+                        >
+                          {selected ? t.selectedGift : t.addToSelection}
+                        </button>
+                        <span className="hint">{t.multiSelectHint}</span>
+                      </p>
+                    ) : null}
                     <form
                       className="form-grid"
                       onSubmit={(e) => handleClaim(e, 'purchase')}

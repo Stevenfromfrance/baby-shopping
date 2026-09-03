@@ -31,19 +31,51 @@ export const strings = {
     heroCtaMom: 'Gifts for mother',
     howTitle: 'How to take part',
     howIntro:
-      'Amazon does not deliver to French Guiana, where Sherally and Steven live. Here is how to take part.',
-    how1Title: 'Order on Amazon',
+      'Amazon does not deliver to French Guiana. You can offer a gift from the list — or simply contribute, if you prefer not to choose an item.',
+    how1Title: 'Choose gifts',
     how1Body:
-      'Place the order on the French site Amazon.fr (not Amazon.com) and ship it to the Colis Colibri address in mainland France. Colis Colibri then forwards the parcel to Guyane.',
-    how2Title: 'Contribute toward an item',
+      'Tick one or more items on the list. Essentials come first if you are unsure.',
+    how2Title: 'Order on Amazon.fr',
     how2Body:
-      'If you would rather not place an order, you may contribute the item price plus delivery.',
-    how3Title: 'A contribution',
+      'Ship to the Colis Colibri address in mainland France — not Amazon.com.',
+    how3Title: 'Confirm once here',
     how3Body:
-      'A PayPal or Wero contribution is equally welcome, and will be used with care.',
+      'Leave your name and one message for everything you chose.',
+    how4Title: 'Or simply contribute',
+    how4Body:
+      'Prefer not to pick a product? A PayPal or Wero gift is just as welcome.',
+    how4Cta: 'Contribute',
+    journeyTitle: 'In short',
+    journeyStep1: 'Tick gifts',
+    journeyStep2: 'Order on Amazon.fr',
+    journeyStep3: 'Confirm once here',
+    journeyAlt: 'Or contribute without choosing',
     giftsTitle: 'The gifts',
     giftsIntro:
-      'Two collections — one for Nehemia, one for Sherally — grouped by type.',
+      'Filter by priority if you like. Tick several gifts, then leave one message for all of them.',
+    priorityAll: 'All',
+    priorityEssential: 'Essentials',
+    priorityComfort: 'Also welcome',
+    priorityEssentialHint: 'Most useful first',
+    priorityComfortHint: 'Lovely additions',
+    filterPriority: 'Show',
+    selectGift: 'Select',
+    selectedGift: 'Selected',
+    addToSelection: 'Add to my selection',
+    multiSelectHint:
+      'For several gifts: select them on the list, then confirm once with a single message.',
+    cartCountOne: 'gift selected',
+    cartCountMany: 'gifts selected',
+    cartClear: 'Clear',
+    cartContinue: 'Confirm gifts',
+    cartTitle: 'Your selected gifts',
+    cartIntro:
+      'Order each item on Amazon.fr if needed, then leave your name and one note for the whole selection.',
+    cartRemove: 'Remove',
+    cartMessageHint: 'One note for all selected gifts',
+    cartPublish: 'Share all on the list',
+    cartEmpty: 'Select at least one gift.',
+    thanksGifts: 'Thank you. Your gifts are now marked as given.',
     hideGifted: 'Hide gifts already given',
     babyTitle: 'For the baby',
     babyIntro: 'For Nehemia’s first days: care, rest, and the little essentials.',
@@ -92,7 +124,7 @@ export const strings = {
     orderStep3b:
       'below — not your own. Colis Colibri forwards the parcel to French Guiana, where the family lives.',
     orderStep4:
-      'Return here under “I chose this gift” to leave your name and a note.',
+      'Return here, select all the gifts you ordered (you can tick several), then leave your name and one note for all of them.',
     addressLabel: 'Delivery address',
     addressForward:
       'Colis Colibri re-ships this parcel to French Guiana, where the family lives.',
@@ -177,19 +209,51 @@ export const strings = {
     heroCtaMom: 'Pour la maman',
     howTitle: 'Comment participer',
     howIntro:
-      'Amazon ne livre pas en Guyane, où vivent Sherally et Steven. Voici comment participer.',
-    how1Title: 'Commander sur Amazon',
+      'Amazon ne livre pas en Guyane. Vous pouvez offrir un cadeau de la liste — ou simplement contribuer, si vous préférez ne pas choisir d’article.',
+    how1Title: 'Choisir',
     how1Body:
-      'Commandez sur le site français Amazon.fr (pas Amazon.com) et faites livrer à l’adresse Colis Colibri en métropole. Colis Colibri réexpédie ensuite le colis en Guyane.',
-    how2Title: 'Contribuer pour un article',
+      'Cochez un ou plusieurs articles. Les essentiels sont en premier si vous hésitez.',
+    how2Title: 'Commander sur Amazon.fr',
     how2Body:
-      'Si vous préférez ne pas commander, vous pouvez contribuer du prix de l’article plus la livraison.',
-    how3Title: 'Une contribution',
+      'Livraison à l’adresse Colis Colibri en métropole — pas Amazon.com.',
+    how3Title: 'Valider une seule fois',
     how3Body:
-      'Une contribution par PayPal ou Wero est tout aussi bienvenue, et sera utilisée avec soin.',
+      'Laissez votre nom et un seul message pour tout ce que vous avez choisi.',
+    how4Title: 'Ou simplement contribuer',
+    how4Body:
+      'Vous préférez ne pas choisir ? Un don PayPal ou Wero est tout aussi bienvenu.',
+    how4Cta: 'Contribuer',
+    journeyTitle: 'En bref',
+    journeyStep1: 'Cochez',
+    journeyStep2: 'Commandez sur Amazon.fr',
+    journeyStep3: 'Validez une fois ici',
+    journeyAlt: 'Ou contribuer sans choisir',
     giftsTitle: 'Les cadeaux',
     giftsIntro:
-      'Deux collections — une pour Nehemia, une pour Sherally — classées par type.',
+      'Filtrez par priorité si vous voulez. Cochez plusieurs cadeaux, puis laissez un seul message pour tous.',
+    priorityAll: 'Tous',
+    priorityEssential: 'Essentiels',
+    priorityComfort: 'Aussi bienvenus',
+    priorityEssentialHint: 'Le plus utile d’abord',
+    priorityComfortHint: 'Petites attentions bienvenues',
+    filterPriority: 'Afficher',
+    selectGift: 'Sélectionner',
+    selectedGift: 'Sélectionné',
+    addToSelection: 'Ajouter à ma sélection',
+    multiSelectHint:
+      'Pour plusieurs cadeaux : cochez-les sur la liste, puis validez une seule fois avec un message unique.',
+    cartCountOne: 'cadeau sélectionné',
+    cartCountMany: 'cadeaux sélectionnés',
+    cartClear: 'Vider',
+    cartContinue: 'Valider les cadeaux',
+    cartTitle: 'Vos cadeaux sélectionnés',
+    cartIntro:
+      'Commandez chaque article sur Amazon.fr si besoin, puis laissez votre nom et un seul mot pour toute la sélection.',
+    cartRemove: 'Retirer',
+    cartMessageHint: 'Un seul message pour tous les cadeaux sélectionnés',
+    cartPublish: 'Publier tous sur la liste',
+    cartEmpty: 'Sélectionnez au moins un cadeau.',
+    thanksGifts: 'Merci. Vos cadeaux sont marqués comme offerts.',
     hideGifted: 'Masquer les cadeaux déjà offerts',
     babyTitle: 'Pour le bébé',
     babyIntro:
@@ -242,7 +306,7 @@ export const strings = {
     orderStep3b:
       'ci-dessous — pas la vôtre. Colis Colibri réexpédie le colis en Guyane, où vit la famille.',
     orderStep4:
-      'Revenez ici, onglet « J’ai choisi ce cadeau », pour laisser votre nom et un mot.',
+      'Revenez ici, sélectionnez tous les cadeaux commandés (vous pouvez en cocher plusieurs), puis laissez votre nom et un seul message pour tous.',
     addressLabel: 'Adresse de livraison',
     addressForward:
       'Colis Colibri réexpédie ce colis en Guyane, où vit la famille.',

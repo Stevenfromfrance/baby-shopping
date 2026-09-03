@@ -14,7 +14,8 @@
     "image": "/products/baby-01.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0CDXYWVGQ",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Philips Avent grooming kit"
+    "titleEn": "Philips Avent grooming kit",
+    "priority": "comfort"
   },
   {
     "id": "baby-02",
@@ -31,7 +32,8 @@
     "image": "/products/baby-02.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B084PMMS2H",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Philips Avent bottle warmer"
+    "titleEn": "Philips Avent bottle warmer",
+    "priority": "comfort"
   },
   {
     "id": "baby-03",
@@ -48,7 +50,8 @@
     "image": "/products/baby-03.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0FNRVCVGB",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Trois Kilos Sept fitted sheets, set of 2"
+    "titleEn": "Trois Kilos Sept fitted sheets, set of 2",
+    "priority": "comfort"
   },
   {
     "id": "baby-04",
@@ -65,7 +68,8 @@
     "image": "/products/baby-04.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0CQD4PVL7",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Eryplast nappy rash cream"
+    "titleEn": "Eryplast nappy rash cream",
+    "priority": "essential"
   },
   {
     "id": "baby-05",
@@ -82,7 +86,8 @@
     "image": "/products/baby-05.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0BWRWCCD8",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Foldable laundry baskets, set of 2"
+    "titleEn": "Foldable laundry baskets, set of 2",
+    "priority": "comfort"
   },
   {
     "id": "baby-07",
@@ -99,7 +104,8 @@
     "image": "/products/baby-07.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0DKP62K7Q",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Frida Baby NoseFrida nasal aspirator"
+    "titleEn": "Frida Baby NoseFrida nasal aspirator",
+    "priority": "comfort"
   },
   {
     "id": "baby-08",
@@ -116,7 +122,8 @@
     "image": "/products/baby-08.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B08DPPY1SC",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Philips Avent steriliser and dryer"
+    "titleEn": "Philips Avent steriliser and dryer",
+    "priority": "comfort"
   },
   {
     "id": "baby-09",
@@ -133,7 +140,8 @@
     "image": "/products/baby-09.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B009X83YBM",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "NUK milk powder dispenser"
+    "titleEn": "NUK milk powder dispenser",
+    "priority": "comfort"
   },
   {
     "id": "baby-10",
@@ -150,7 +158,8 @@
     "image": "/products/baby-10.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0CF65NYQR",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Philips Avent glass bottle starter set"
+    "titleEn": "Philips Avent glass bottle starter set",
+    "priority": "essential"
   },
   {
     "id": "baby-11",
@@ -174,7 +183,8 @@
     "image": "/products/baby-11.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B07YQ6P7PR",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Mustela organic wash gel, 400 ml"
+    "titleEn": "Mustela organic wash gel, 400 ml",
+    "priority": "comfort"
   },
   {
     "id": "baby-12",
@@ -200,7 +210,8 @@
     "image": "/products/baby-12.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0GCX7LR16",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Mustela organic moisturising cream, 150 ml"
+    "titleEn": "Mustela organic moisturising cream, 150 ml",
+    "priority": "comfort"
   },
   {
     "id": "baby-15",
@@ -217,7 +228,8 @@
     "image": "/products/baby-15.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B00QFFC58O",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Thermoval digital thermometer"
+    "titleEn": "Thermoval digital thermometer",
+    "priority": "comfort"
   },
   {
     "id": "baby-16",
@@ -234,7 +246,8 @@
     "image": "/products/baby-16.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0GLQX4PN4",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Twinly Bubbly changing table with bath"
+    "titleEn": "Twinly Bubbly changing table with bath",
+    "priority": "essential"
   },
   {
     "id": "baby-19",
@@ -251,7 +264,8 @@
     "image": "/products/baby-19.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0GBDCBVKX",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Pampers 99% water wipes, 540"
+    "titleEn": "Pampers 99% water wipes, 540",
+    "priority": "essential"
   },
   {
     "id": "baby-20",
@@ -268,7 +282,8 @@
     "image": "/products/baby-20.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B07KRRCZ5G",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "NIVEA SUN Kids spray SPF 50+"
+    "titleEn": "NIVEA SUN Kids spray SPF 50+",
+    "priority": "comfort"
   },
   {
     "id": "baby-21",
@@ -285,7 +300,8 @@
     "image": "/products/baby-21.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B00569UOQK",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Cooper saline solution, 30 vials"
+    "titleEn": "Cooper saline solution, 30 vials",
+    "priority": "comfort"
   },
   {
     "id": "baby-22",
@@ -302,7 +318,8 @@
     "image": "/products/baby-22.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B09Y9L8XCX",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "HAMUR HOME nappy pouch"
+    "titleEn": "HAMUR HOME nappy pouch",
+    "priority": "comfort"
   },
   {
     "id": "baby-24",
@@ -319,7 +336,8 @@
     "image": "/products/baby-24.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0FJFV2X5T",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Carryboo organic cotton pads, 150"
+    "titleEn": "Carryboo organic cotton pads, 150",
+    "priority": "comfort"
   },
   {
     "id": "baby-27",
@@ -336,7 +354,8 @@
     "image": "/products/baby-27.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B07K2TKK26",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Ubbi scented nappy sacks, 200"
+    "titleEn": "Ubbi scented nappy sacks, 200",
+    "priority": "comfort"
   },
   {
     "id": "baby-29",
@@ -353,7 +372,8 @@
     "image": "/products/baby-29.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B08MTMKQNX",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Dikaslon changing backpack"
+    "titleEn": "Dikaslon changing backpack",
+    "priority": "comfort"
   },
   {
     "id": "mom-01",
@@ -370,7 +390,8 @@
     "image": "/products/mom-01.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0H4WJ9YCN",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Philips Avent hands-free double breast pump"
+    "titleEn": "Philips Avent hands-free double breast pump",
+    "priority": "essential"
   },
   {
     "id": "mom-03",
@@ -387,7 +408,8 @@
     "image": "/products/mom-03.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B08J56CKZ4",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "My Brest Friend deluxe nursing pillow"
+    "titleEn": "My Brest Friend deluxe nursing pillow",
+    "priority": "comfort"
   },
   {
     "id": "mom-04",
@@ -404,7 +426,8 @@
     "image": "/products/mom-04.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0G51W9CBV",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Lansinoh washable nursing pads, 8"
+    "titleEn": "Lansinoh washable nursing pads, 8",
+    "priority": "comfort"
   },
   {
     "id": "mom-06",
@@ -421,7 +444,8 @@
     "image": "/products/mom-06.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0GMQ8PHF7",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Philips Avent milk storage bags, 50"
+    "titleEn": "Philips Avent milk storage bags, 50",
+    "priority": "comfort"
   },
   {
     "id": "mom-07",
@@ -438,24 +462,8 @@
     "image": "/products/mom-07.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B07X5HG2HC",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Ergobaby Embrace newborn carrier"
-  },
-  {
-    "id": "mom-09",
-    "list": "mom",
-    "listLabel": "Maman",
-    "category": "Allaitement",
-    "title": "Tire-lait manuel Philips Avent",
-    "shortTitle": "Tire-lait manuel Philips Avent",
-    "brand": "PHILIPS",
-    "price": null,
-    "currency": "EUR",
-    "description": "Philips Avent Tire-lait manuel sans BPA, portable et léger, coussin en silicone souple adaptatif de taille uni…",
-    "notes": [],
-    "image": "/products/mom-09.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0BCX3BV8W",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Philips Avent manual breast pump"
+    "titleEn": "Ergobaby Embrace newborn carrier",
+    "priority": "essential"
   },
   {
     "id": "mom-11",
@@ -472,7 +480,8 @@
     "image": "/products/mom-11.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B004NZNAVE",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Tigex disposable maternity briefs, pack of 5"
+    "titleEn": "Tigex disposable maternity briefs, pack of 5",
+    "priority": "essential"
   },
   {
     "id": "mom-12",
@@ -489,7 +498,8 @@
     "image": "/products/mom-12.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0G533GL56",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Always Discreet postpartum pants, size L"
+    "titleEn": "Always Discreet postpartum pants, size L",
+    "priority": "essential"
   },
   {
     "id": "mom-13",
@@ -506,7 +516,8 @@
     "image": "/products/mom-13.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B07NBGP9MF",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Abena maternity pads, 2 × 14"
+    "titleEn": "Abena maternity pads, 2 × 14",
+    "priority": "essential"
   },
   {
     "id": "mom-15",
@@ -523,24 +534,8 @@
     "image": "/products/mom-15.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0D97THKQK",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Medela Easy Pour milk bags, 50"
-  },
-  {
-    "id": "mom-17",
-    "list": "mom",
-    "listLabel": "Maman",
-    "category": "Post-partum",
-    "title": "Bouteille périnéale Frida Mom",
-    "shortTitle": "Bouteille périnéale Frida Mom",
-    "brand": "Frida",
-    "price": null,
-    "currency": "EUR",
-    "description": "Frida Mom Bouteille Périnéale MomWasher Bidet Essentiels Postpartum",
-    "notes": [],
-    "image": "/products/mom-17.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0GVPGYDQX",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Frida Mom peri bottle"
+    "titleEn": "Medela Easy Pour milk bags, 50",
+    "priority": "comfort"
   },
   {
     "id": "mom-18",
@@ -557,24 +552,8 @@
     "image": "/products/mom-18.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B096FK4Z4Q",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Lansinoh perineal spray, 100 ml"
-  },
-  {
-    "id": "mom-19",
-    "list": "mom",
-    "listLabel": "Maman",
-    "category": "Post-partum",
-    "title": "Bouteille périnéale Dr. Talbot’s, 360 ml",
-    "shortTitle": "Bouteille périnéale Dr. Talbot’s, 360 ml",
-    "brand": "Dr. Talbot's",
-    "price": 9.99,
-    "currency": "EUR",
-    "description": "Nuby Dr. Talbot's Bouteille Périnéale Post-Partum, Bidet portable, 360ml",
-    "notes": [],
-    "image": "/products/mom-19.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0CJMRQH8W",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Dr. Talbot’s peri bottle, 360 ml"
+    "titleEn": "Lansinoh perineal spray, 100 ml",
+    "priority": "comfort"
   },
   {
     "id": "mom-20",
@@ -591,7 +570,8 @@
     "image": "/products/mom-20.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B08C3R6ZVP",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Medela Purelan lanolin cream, 37 g"
+    "titleEn": "Medela Purelan lanolin cream, 37 g",
+    "priority": "comfort"
   },
   {
     "id": "baby-31",
@@ -608,7 +588,8 @@
     "image": "/products/baby-31-air.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0B93VG735",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Maxi-Cosi Iora Air co-sleeper crib"
+    "titleEn": "Maxi-Cosi Iora Air co-sleeper crib",
+    "priority": "essential"
   },
   {
     "id": "baby-33",
@@ -625,7 +606,8 @@
     "image": "/products/baby-33.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0FHBNQY9P",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Philips Avent Soothie soothers, pack of 2"
+    "titleEn": "Philips Avent Soothie soothers, pack of 2",
+    "priority": "comfort"
   },
   {
     "id": "baby-35",
@@ -638,10 +620,260 @@
     "description": "Maxi-Cosi Zelia S Trio Poussette 3 en 1, 0 à 4 ans, CabrioFix S i-Size",
     "shortTitle": "Poussette trio Maxi-Cosi Zelia S",
     "currency": "EUR",
-    "notes": [],
+    "notes": [
+      "Inclut la coque CabrioFix S",
+      "Ajouter la base Isofix CabrioFix i-Size pour la voiture"
+    ],
     "image": "/products/baby-35.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B09KS5HT2R",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
-    "titleEn": "Maxi-Cosi Zelia S Trio travel system"
+    "titleEn": "Maxi-Cosi Zelia S Trio travel system",
+    "priority": "essential"
+  },
+  {
+    "id": "baby-38",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Rangement & sorties",
+    "priority": "essential",
+    "title": "Moustiquaire universelle pour poussette",
+    "shortTitle": "Moustiquaire universelle pour poussette",
+    "titleEn": "Universal stroller mosquito net",
+    "brand": "LEMESO",
+    "price": 8.54,
+    "currency": "EUR",
+    "description": "Filet anti-moustiques universel pour poussette, siège auto et lit — très utile en Guyane.",
+    "notes": [
+      "Idéal climat tropical"
+    ],
+    "image": "/products/baby-38.jpg",
+    "amazonUrl": "https://www.amazon.fr/dp/B07CQMJH1P",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
+  },
+  {
+    "id": "baby-39",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Toilette & soins",
+    "priority": "essential",
+    "title": "Thermomètre de bain Béaba Lotus",
+    "shortTitle": "Thermomètre de bain Béaba Lotus",
+    "titleEn": "Béaba Lotus bath thermometer",
+    "brand": "Béaba",
+    "price": 17.99,
+    "currency": "EUR",
+    "description": "Thermomètre digital de bain et d’ambiance — pour vérifier ~37 °C dès les premiers bains.",
+    "notes": [],
+    "image": "/products/baby-39.jpg",
+    "amazonUrl": "https://www.amazon.fr/s?k=Beaba+Lotus+thermometre+bain",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
+  },
+  {
+    "id": "baby-40",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Toilette & soins",
+    "priority": "comfort",
+    "title": "Cape de bain bébé à capuche",
+    "shortTitle": "Cape de bain bébé à capuche",
+    "titleEn": "Hooded baby bath towel",
+    "brand": "Generic",
+    "price": 19.99,
+    "currency": "EUR",
+    "description": "Grande cape de bain douce à capuche pour sécher et envelopper bébé après le bain.",
+    "notes": [],
+    "image": "/products/baby-40.jpg",
+    "amazonUrl": "https://www.amazon.fr/s?k=cape+de+bain+bebe+capuche",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
+  },
+  {
+    "id": "baby-41",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Chambre & sommeil",
+    "priority": "essential",
+    "title": "Gigoteuse d’été légère 0–6 mois",
+    "shortTitle": "Gigoteuse d’été légère 0–6 mois",
+    "titleEn": "Light summer sleep bag 0–6 months",
+    "brand": "Generic",
+    "price": 24.99,
+    "currency": "EUR",
+    "description": "Turbulette légère (TOG bas) pour un sommeil sûr — adaptée aux climats chauds.",
+    "notes": [
+      "TOG léger",
+      "Climat chaud"
+    ],
+    "image": "/products/baby-41.jpg",
+    "amazonUrl": "https://www.amazon.fr/s?k=gigoteuse+ete+0-6+mois+TOG+0.5",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
+  },
+  {
+    "id": "baby-42",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Couches & hygiène",
+    "priority": "comfort",
+    "title": "Lot de bodies manches courtes naissance",
+    "shortTitle": "Lot de bodies manches courtes naissance",
+    "titleEn": "Newborn short-sleeve bodysuit set",
+    "brand": "Generic",
+    "price": 22.99,
+    "currency": "EUR",
+    "description": "Lot de bodies manches courtes — pratique au quotidien, surtout par temps chaud.",
+    "notes": [],
+    "image": "/products/baby-42.jpg",
+    "amazonUrl": "https://www.amazon.fr/s?k=lot+bodies+manches+courtes+naissance",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
+  },
+  {
+    "id": "baby-43",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Chambre & sommeil",
+    "priority": "comfort",
+    "title": "Veilleuse LED rechargeable pour chambre",
+    "shortTitle": "Veilleuse LED rechargeable pour chambre",
+    "titleEn": "Rechargeable LED night light",
+    "brand": "Generic",
+    "price": 19.99,
+    "currency": "EUR",
+    "description": "Veilleuse à lumière douce pour les changes et tétées de nuit — rechargeable.",
+    "notes": [],
+    "image": "/products/baby-43.jpg",
+    "amazonUrl": "https://www.amazon.fr/s?k=veilleuse+bebe+rechargeable+LED",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
+  },
+  {
+    "id": "baby-44",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Rangement & sorties",
+    "priority": "essential",
+    "title": "Maxi-Cosi Base CabrioFix i-Size (Isofix)",
+    "shortTitle": "Maxi-Cosi Base CabrioFix i-Size (Isofix)",
+    "titleEn": "Maxi-Cosi CabrioFix i-Size Isofix base",
+    "brand": "Maxi-Cosi",
+    "price": 135.99,
+    "currency": "EUR",
+    "description": "Base Isofix Click & Go pour la coque CabrioFix S du trio Zelia S — installation sûre et rapide en voiture (norme i-Size).",
+    "notes": [
+      "Compatible coque CabrioFix du trio Zelia S",
+      "À laisser installée dans la voiture"
+    ],
+    "image": "/products/baby-44.jpg",
+    "amazonUrl": "https://www.amazon.fr/s?k=Maxi-Cosi+Base+CabrioFix+i-Size+Isofix",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
+  },
+  {
+    "id": "mom-22",
+    "list": "mom",
+    "listLabel": "Maman",
+    "category": "Post-partum",
+    "priority": "comfort",
+    "title": "Lansinoh Serviette apaisante chaud/froid",
+    "shortTitle": "Lansinoh Serviette apaisante chaud/froid",
+    "titleEn": "Lansinoh hot/cold soothing pad",
+    "brand": "Lansinoh",
+    "price": 16,
+    "currency": "EUR",
+    "description": "Serviette apaisante post-accouchement réutilisable — chaud ou froid pour soulager le périnée.",
+    "notes": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B092JGQG2Z",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
+    "image": "/products/mom-22.jpg"
+  },
+  {
+    "id": "mom-23",
+    "list": "mom",
+    "listLabel": "Maman",
+    "category": "Post-partum",
+    "priority": "comfort",
+    "title": "Lansinoh Recharges 24 pochettes apaisantes",
+    "shortTitle": "Lansinoh Recharges 24 pochettes apaisantes",
+    "titleEn": "Lansinoh soothing pad refills, 24",
+    "brand": "Lansinoh",
+    "price": 7.99,
+    "currency": "EUR",
+    "description": "Recharges de pochettes pour la serviette apaisante Lansinoh post-accouchement.",
+    "notes": [
+      "Complément de la serviette apaisante"
+    ],
+    "amazonUrl": "https://www.amazon.fr/dp/B09642TX95",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
+    "image": "/products/mom-23.jpg"
+  },
+  {
+    "id": "mom-24",
+    "list": "mom",
+    "listLabel": "Maman",
+    "category": "Post-partum",
+    "priority": "comfort",
+    "title": "Lansinoh Douche intime périnée",
+    "shortTitle": "Lansinoh Douche intime périnée",
+    "titleEn": "Lansinoh perineal cleansing bottle",
+    "brand": "Lansinoh",
+    "price": 3.09,
+    "currency": "EUR",
+    "description": "Douche intime post-accouchement pour l’hygiène du périnée — compacte et pratique.",
+    "notes": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B092JHDFD6",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
+    "image": "/products/mom-24.jpg"
+  },
+  {
+    "id": "baby-45",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Toilette & soins",
+    "priority": "comfort",
+    "title": "Tigex Éponges végétales bébé, lot de 2",
+    "shortTitle": "Tigex Éponges végétales bébé, lot de 2",
+    "titleEn": "Tigex baby plant sponges, pack of 2",
+    "brand": "Tigex",
+    "price": 5.89,
+    "currency": "EUR",
+    "description": "Lot de 2 éponges végétales douces pour la toilette de bébé.",
+    "notes": [],
+    "amazonUrl": "https://www.amazon.fr/dp/B000NN1SJG",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
+    "image": "/products/baby-45.jpg"
+  },
+  {
+    "id": "baby-46",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Chambre & sommeil",
+    "priority": "essential",
+    "title": "Draps-housses cododo Next2Me, 50 × 83 cm",
+    "shortTitle": "Draps-housses cododo Next2Me, 50 × 83 cm",
+    "titleEn": "Next2Me co-sleeper fitted sheets, 50 × 83 cm",
+    "brand": "Lovely Hippo",
+    "price": 13.99,
+    "currency": "EUR",
+    "description": "Draps-housses 100 % coton compatibles lit cododo type Next2Me — doux et respirants (motif baleines).",
+    "notes": [
+      "Compatible lit cododo"
+    ],
+    "amazonUrl": "https://www.amazon.fr/dp/B0G76QLLTL",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
+    "image": "/products/baby-46.jpg"
+  },
+  {
+    "id": "baby-47",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Toilette & soins",
+    "priority": "comfort",
+    "title": "Frida Baby DermaFrida FlakeFixer (croûtes de lait)",
+    "shortTitle": "Frida Baby DermaFrida FlakeFixer (croûtes de lait)",
+    "titleEn": "Frida Baby DermaFrida FlakeFixer cradle-cap kit",
+    "brand": "Frida",
+    "price": 15.9,
+    "currency": "EUR",
+    "description": "Kit Frida Baby DermaFrida FlakeFixer pour traiter en douceur les croûtes de lait du nourrisson.",
+    "notes": [],
+    "image": "/products/baby-47.jpg",
+    "amazonUrl": "https://www.amazon.fr/dp/B0DKNZ2RGK",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP"
   }
 ]

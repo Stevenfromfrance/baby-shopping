@@ -75,6 +75,45 @@ export function useClaims() {
     [],
   )
 
+  const submitClaims = useCallback(
+    async (items: Omit<Claim, 'id' | 'createdAt'>[]) => {
+      if (items.length === 0) {
+        throw new Error('Aucun cadeau sélectionné.')
+      }
+      for (const item of items) {
+        if (getClaimForProduct(item.productId)) {
+          throw new Error('Ce produit a déjà été réservé ou offert.')
+        }
+      }
+      const groupId = items[0].groupId || crypto.randomUUID()
+      const enriched = items.map((item) => ({
+        ...item,
+        groupId: item.groupId || groupId,
+      }))
+      const saved: Claim[] = []
+      for (const item of enriched) {
+        if (isRemoteEnabled()) {
+          saved.push(await pushRemoteClaim(item))
+        } else {
+          saved.push(addLocalClaim(item))
+        }
+      }
+      if (isRemoteEnabled()) {
+        const savedIds = new Set(saved.map((c) => c.id))
+        const next = [
+          ...saved,
+          ...getClaims().filter((c) => !savedIds.has(c.id)),
+        ]
+        localStorage.setItem('nehemia-claims-v1', JSON.stringify(next))
+        setClaims(next)
+      } else {
+        setClaims(getClaims())
+      }
+      return saved
+    },
+    [],
+  )
+
   const releaseClaim = useCallback(async (claim: Claim) => {
     if (isRemoteEnabled()) {
       try {
@@ -88,5 +127,12 @@ export function useClaims() {
     setClaims(getClaims())
   }, [])
 
-  return { claims, ready, submitClaim, releaseClaim, remote: isRemoteEnabled() }
+  return {
+    claims,
+    ready,
+    submitClaim,
+    submitClaims,
+    releaseClaim,
+    remote: isRemoteEnabled(),
+  }
 }

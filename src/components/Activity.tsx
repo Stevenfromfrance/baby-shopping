@@ -1,36 +1,75 @@
+import { useMemo } from 'react'
 import type { Claim, Product } from '../types'
 import { formatDate, productTitle, publicUrl } from '../lib/utils'
 import { BABY } from '../config'
 import { useLang } from '../i18n'
 import { PayOptions } from './PayOptions'
+import { StickerField } from './Stickers'
 
 type Props = {
   claims: Claim[]
   productsById: Map<string, Product>
 }
 
+type ClaimGroup = {
+  key: string
+  claims: Claim[]
+  representative: Claim
+}
+
+function groupClaims(claims: Claim[]): ClaimGroup[] {
+  const buckets = new Map<string, Claim[]>()
+  const order: string[] = []
+  for (const claim of claims) {
+    const key = claim.groupId || claim.id
+    if (!buckets.has(key)) {
+      buckets.set(key, [])
+      order.push(key)
+    }
+    buckets.get(key)!.push(claim)
+  }
+  return order.map((key) => {
+    const list = buckets.get(key)!
+    return {
+      key,
+      claims: list,
+      representative: list[0],
+    }
+  })
+}
+
 export function ActivityFeed({ claims, productsById }: Props) {
   const { lang, t } = useLang()
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
+  const groups = useMemo(() => groupClaims(claims), [claims])
 
   return (
-    <section className="section wrap" id="messages">
+    <section className="section wrap section-with-stickers" id="messages">
+      <StickerField variant="messages" />
       <div className="section-head">
         <h2>{t.messagesTitle}</h2>
         <p>{t.messagesIntro}</p>
       </div>
 
-      {claims.length === 0 ? (
+      {groups.length === 0 ? (
         <div className="empty">{t.messagesEmpty}</div>
       ) : (
         <div className="activity">
-          {claims.map((claim) => {
-            const product = productsById.get(claim.productId)
+          {groups.map((group) => {
+            const claim = group.representative
+            const titles = group.claims
+              .map((c) => {
+                const product = productsById.get(c.productId)
+                return product ? productTitle(product, lang) : ''
+              })
+              .filter(Boolean)
+            const firstProduct = productsById.get(claim.productId)
+
             return (
-              <article key={claim.id} className="activity-item">
+              <article key={group.key} className="activity-item">
                 <div className="activity-thumb">
-                  {product?.image ? (
-                    <img src={publicUrl(product.image)} alt="" />
+                  {firstProduct?.image ? (
+                    <img src={publicUrl(firstProduct.image)} alt="" />
                   ) : (
                     <span>✦</span>
                   )}
@@ -42,7 +81,7 @@ export function ActivityFeed({ claims, productsById }: Props) {
                   </p>
                   <p className="activity-what">
                     {claim.type === 'donation' ? t.donatedFor : t.offered}{' '}
-                    {product ? productTitle(product, lang) : ''}
+                    {titles.join(' · ')}
                   </p>
                   {claim.message ? (
                     <p className="gifted-by-message">« {claim.message} »</p>
@@ -77,6 +116,7 @@ export function Footer() {
   const { t } = useLang()
   return (
     <footer className="site-footer wrap">
+      <StickerField variant="footer" />
       <p>
         <strong>
           {BABY.firstName} {BABY.lastName}

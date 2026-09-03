@@ -24,13 +24,33 @@ const CATEGORY_ORDER = [
   'Post-partum',
 ]
 
+const PRIORITY_ORDER = ['essential', 'comfort'] as const
+
+export function priorityRank(
+  priority?: string | null,
+): number {
+  const normalized = priority === 'extra' ? 'comfort' : priority
+  const idx = PRIORITY_ORDER.indexOf(
+    (normalized as (typeof PRIORITY_ORDER)[number]) || 'comfort',
+  )
+  return idx === -1 ? 1 : idx
+}
+
 function familyKey(brand: string) {
   const b = brand.trim().toLowerCase()
   if (b === 'avent' || b.includes('philips')) return 'philips avent'
   return b
 }
 
-export function groupProductsByFamily<T extends { category: string; brand: string; title: string; titleEn?: string }>(
+export function groupProductsByFamily<
+  T extends {
+    category: string
+    brand: string
+    title: string
+    titleEn?: string
+    priority?: string
+  },
+>(
   products: T[],
   lang: 'en' | 'fr',
 ): { category: string; products: T[] }[] {
@@ -49,6 +69,8 @@ export function groupProductsByFamily<T extends { category: string; brand: strin
   return ordered.map((category) => ({
     category,
     products: [...(buckets.get(category) ?? [])].sort((a, b) => {
+      const byPriority = priorityRank(a.priority) - priorityRank(b.priority)
+      if (byPriority !== 0) return byPriority
       const family = familyKey(a.brand).localeCompare(familyKey(b.brand), lang)
       if (family !== 0) return family
       return productTitle(a, lang).localeCompare(productTitle(b, lang), lang)

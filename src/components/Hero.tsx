@@ -1,6 +1,7 @@
 import { BABY } from '../config'
 import { publicUrl } from '../lib/utils'
 import { useLang } from '../i18n'
+import { StickerField } from './Stickers'
 
 export function Header() {
   const { lang, t, setLang } = useLang()
@@ -84,27 +85,45 @@ export function HowTo() {
   const { t } = useLang()
 
   return (
-    <section className="section wrap" id="comment">
-      <div className="section-head">
+    <section className="section section-howto wrap section-with-stickers" id="comment">
+      <StickerField variant="section" />
+      <div className="section-head section-head-compact">
         <h2>{t.howTitle}</h2>
         <p>{t.howIntro}</p>
       </div>
-      <div className="paths">
-        <article className="path-card">
-          <div className="path-num">01</div>
-          <h3>{t.how1Title}</h3>
-          <p>{t.how1Body}</p>
-        </article>
-        <article className="path-card">
-          <div className="path-num">02</div>
-          <h3>{t.how2Title}</h3>
-          <p>{t.how2Body}</p>
-        </article>
-        <article className="path-card">
-          <div className="path-num">03</div>
-          <h3>{t.how3Title}</h3>
-          <p>{t.how3Body}</p>
-        </article>
+
+      <ol className="how-compact">
+        <li>
+          <span className="how-compact-num">1</span>
+          <div>
+            <strong>{t.how1Title}</strong>
+            <p>{t.how1Body}</p>
+          </div>
+        </li>
+        <li>
+          <span className="how-compact-num">2</span>
+          <div>
+            <strong>{t.how2Title}</strong>
+            <p>{t.how2Body}</p>
+          </div>
+        </li>
+        <li>
+          <span className="how-compact-num">3</span>
+          <div>
+            <strong>{t.how3Title}</strong>
+            <p>{t.how3Body}</p>
+          </div>
+        </li>
+      </ol>
+
+      <div className="how-donate-bar">
+        <div>
+          <strong>{t.how4Title}</strong>
+          <p>{t.how4Body}</p>
+        </div>
+        <a className="btn btn-primary" href="#don">
+          {t.how4Cta}
+        </a>
       </div>
     </section>
   )

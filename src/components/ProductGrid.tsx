@@ -1,13 +1,18 @@
-import { useMemo } from 'react'
-import type { Claim, Product } from '../types'
+import { useMemo, useState } from 'react'
+import type { Claim, Product, ProductPriority } from '../types'
 import { ProductCard } from './ProductCard'
 import { useLang } from '../i18n'
 import { groupProductsByFamily } from '../lib/utils'
+import { StickerField } from './Stickers'
+
+type PriorityFilter = 'all' | ProductPriority
 
 type Props = {
   products: Product[]
   claimsByProduct: Map<string, Claim>
+  selectedIds: Set<string>
   onOpen: (product: Product) => void
+  onToggleSelect: (product: Product) => void
 }
 
 function ListBlock({
@@ -16,14 +21,18 @@ function ListBlock({
   intro,
   products,
   claimsByProduct,
+  selectedIds,
   onOpen,
+  onToggleSelect,
 }: {
   id: string
   title: string
   intro: string
   products: Product[]
   claimsByProduct: Map<string, Claim>
+  selectedIds: Set<string>
   onOpen: (product: Product) => void
+  onToggleSelect: (product: Product) => void
 }) {
   const { lang, t } = useLang()
   const available = products.filter((p) => !claimsByProduct.has(p.id)).length
@@ -55,7 +64,9 @@ function ListBlock({
                   key={product.id}
                   product={product}
                   claim={claimsByProduct.get(product.id)}
+                  selected={selectedIds.has(product.id)}
                   onOpen={onOpen}
+                  onToggleSelect={onToggleSelect}
                 />
               ))}
             </div>
@@ -66,22 +77,69 @@ function ListBlock({
   )
 }
 
-export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
+export function ProductGrid({
+  products,
+  claimsByProduct,
+  selectedIds,
+  onOpen,
+  onToggleSelect,
+}: Props) {
   const { t } = useLang()
+  const [priorityFilter, setPriorityFilter] = useState<PriorityFilter>('all')
+
+  const filtered = useMemo(() => {
+    if (priorityFilter === 'all') return products
+    return products.filter(
+      (p) => (p.priority || 'comfort') === priorityFilter,
+    )
+  }, [products, priorityFilter])
+
   const baby = useMemo(
-    () => products.filter((p) => p.list === 'baby'),
-    [products],
+    () => filtered.filter((p) => p.list === 'baby'),
+    [filtered],
   )
   const mom = useMemo(
-    () => products.filter((p) => p.list === 'mom'),
-    [products],
+    () => filtered.filter((p) => p.list === 'mom'),
+    [filtered],
   )
 
+  const filters: { id: PriorityFilter; label: string; hint: string }[] = [
+    { id: 'all', label: t.priorityAll, hint: '' },
+    {
+      id: 'essential',
+      label: t.priorityEssential,
+      hint: t.priorityEssentialHint,
+    },
+    {
+      id: 'comfort',
+      label: t.priorityComfort,
+      hint: t.priorityComfortHint,
+    },
+  ]
+
   return (
-    <div className="section wrap" id="liste">
+    <div className="section wrap section-with-stickers" id="liste">
+      <StickerField variant="list" />
       <div className="section-head">
         <h2>{t.giftsTitle}</h2>
         <p>{t.giftsIntro}</p>
+      </div>
+
+      <div className="priority-filters" role="group" aria-label={t.filterPriority}>
+        {filters.map((filter) => (
+          <button
+            key={filter.id}
+            type="button"
+            className={`priority-filter${priorityFilter === filter.id ? ' active' : ''}`}
+            onClick={() => setPriorityFilter(filter.id)}
+            title={filter.hint || undefined}
+          >
+            <span>{filter.label}</span>
+            {filter.hint ? (
+              <small className="priority-filter-hint">{filter.hint}</small>
+            ) : null}
+          </button>
+        ))}
       </div>
 
       <ListBlock
@@ -90,7 +148,9 @@ export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
         intro={t.babyIntro}
         products={baby}
         claimsByProduct={claimsByProduct}
+        selectedIds={selectedIds}
         onOpen={onOpen}
+        onToggleSelect={onToggleSelect}
       />
       <ListBlock
         id="maman"
@@ -98,7 +158,9 @@ export function ProductGrid({ products, claimsByProduct, onOpen }: Props) {
         intro={t.momIntro}
         products={mom}
         claimsByProduct={claimsByProduct}
+        selectedIds={selectedIds}
         onOpen={onOpen}
+        onToggleSelect={onToggleSelect}
       />
     </div>
   )
