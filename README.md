@@ -22,14 +22,34 @@ Ouvrez l’URL affichée (souvent `http://localhost:5173`).
 
 ## Sync famille (plusieurs téléphones)
 
-Sans configuration, les réservations restent dans le navigateur local.
+**Obligatoire pour le site en ligne.** Sans Supabase, chaque téléphone garde ses messages
+dans son navigateur seulement — les autres visiteurs ne voient rien (risque de double achat).
 
-Pour un affichage **public en direct** pour toute la famille :
+### 1. Créer Supabase (5 min)
 
-1. Créez un projet gratuit sur [supabase.com](https://supabase.com)
-2. Exécutez `supabase.sql` dans le SQL Editor
-3. Copiez `.env.example` → `.env` et remplissez URL + clé `anon`
-4. Relancez `npm run dev`
+1. Crée un projet gratuit sur [supabase.com](https://supabase.com)
+2. **SQL Editor** → colle et lance `supabase.sql`
+3. Puis lance `scripts/seed-denise-phillip.sql` (cadeaux déjà offerts par Denise & Phillip)
+4. **Project Settings → API** : copie `Project URL` et la clé `anon` `public`
+
+### 2. Brancher GitHub Pages
+
+Dans le repo GitHub → **Settings → Secrets and variables → Actions**, ajoute :
+
+| Secret | Valeur |
+| --- | --- |
+| `VITE_SUPABASE_URL` | Project URL |
+| `VITE_SUPABASE_ANON_KEY` | clé anon public |
+
+Puis **Actions → Deploy GitHub Pages → Run workflow** (ou push sur `main`).
+
+### 3. En local (optionnel)
+
+```bash
+cp .env.example .env
+# remplir VITE_SUPABASE_URL + VITE_SUPABASE_ANON_KEY
+npm run dev
+```
 
 ## Produits
 

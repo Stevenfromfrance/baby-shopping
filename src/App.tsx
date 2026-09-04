@@ -6,6 +6,7 @@ import { CheckoutModal, SelectionBar } from './components/CheckoutModal'
 import { ActivityFeed, DonateBanner, Footer } from './components/Activity'
 import { useClaims } from './hooks/useClaims'
 import { useAdmin } from './hooks/useAdmin'
+import { isRemoteEnabled } from './lib/remote'
 import { publicUrl } from './lib/utils'
 import type { Product } from './types'
 
@@ -16,6 +17,7 @@ export default function App() {
   const [checkoutOpen, setCheckoutOpen] = useState(false)
   const { claims, submitClaim, submitClaims, releaseClaim } = useClaims()
   const { isAdmin } = useAdmin()
+  const syncOffline = import.meta.env.PROD && !isRemoteEnabled()
 
   useEffect(() => {
     const version = import.meta.env.VITE_BUILD_ID || '1'
@@ -58,6 +60,15 @@ export default function App() {
   return (
     <>
       <Header />
+      {syncOffline ? (
+        <div className="sync-banner" role="status">
+          <p>
+            Les réservations ne sont pas encore synchronisées entre les
+            téléphones. Les cadeaux déjà offerts peuvent ne pas apparaître —
+            vérifiez avant d’acheter.
+          </p>
+        </div>
+      ) : null}
       <main>
         <Hero />
         <HowTo />

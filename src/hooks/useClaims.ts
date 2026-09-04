@@ -63,14 +63,19 @@ export function useClaims() {
       if (getClaimForProduct(claim.productId)) {
         throw new Error('Ce produit a déjà été réservé ou offert.')
       }
-      if (isRemoteEnabled()) {
-        const saved = await pushRemoteClaim(claim)
-        const next = [saved, ...getClaims().filter((c) => c.id !== saved.id)]
-        localStorage.setItem('nehemia-claims-v1', JSON.stringify(next))
-        setClaims(next)
-        return saved
+      if (!isRemoteEnabled()) {
+        if (import.meta.env.PROD) {
+          throw new Error(
+            'La synchronisation famille n’est pas encore activée. Réessaie dans quelques minutes.',
+          )
+        }
+        return addLocalClaim(claim)
       }
-      return addLocalClaim(claim)
+      const saved = await pushRemoteClaim(claim)
+      const next = [saved, ...getClaims().filter((c) => c.id !== saved.id)]
+      localStorage.setItem('nehemia-claims-v1', JSON.stringify(next))
+      setClaims(next)
+      return saved
     },
     [],
   )
@@ -83,6 +88,13 @@ export function useClaims() {
       for (const item of items) {
         if (getClaimForProduct(item.productId)) {
           throw new Error('Ce produit a déjà été réservé ou offert.')
+        }
+      }
+      if (!isRemoteEnabled()) {
+        if (import.meta.env.PROD) {
+          throw new Error(
+            'La synchronisation famille n’est pas encore activée. Réessaie dans quelques minutes.',
+          )
         }
       }
       const groupId = items[0].groupId || crypto.randomUUID()

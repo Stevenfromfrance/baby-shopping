@@ -24,3 +24,8 @@ create policy "Ajout public"
 create policy "Suppression publique"
   on claims for delete
   using (true);
+
+create policy "Mise à jour publique"
+  on claims for update
+  using (true)
+  with check (true);
