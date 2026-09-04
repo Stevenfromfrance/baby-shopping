@@ -34,7 +34,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B084PMMS2H",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
     "titleEn": "Philips Avent bottle warmer",
-    "priority": "comfort",
+    "priority": "essential",
     "originalPrice": 54.99
   },
   {
@@ -55,7 +55,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B0FNRVCVGB",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
     "titleEn": "Trois Kilos Sept fitted sheets, set of 2",
-    "priority": "comfort",
+    "priority": "essential",
     "choiceNote": "Motif graphiques vert olive — taille 50 x 83 cm"
   },
   {
@@ -74,7 +74,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B08DPPY1SC",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
     "titleEn": "Philips Avent steriliser and dryer",
-    "priority": "comfort",
+    "priority": "essential",
     "originalPrice": 99.99
   },
   {
@@ -95,7 +95,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B009X83YBM",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
     "titleEn": "NUK milk powder dispenser",
-    "priority": "comfort",
+    "priority": "essential",
     "originalPrice": 8.6,
     "choiceNote": "Couleur gris"
   },
@@ -179,7 +179,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B08MTMKQNX",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
     "titleEn": "Dikaslon changing backpack",
-    "priority": "comfort",
+    "priority": "essential",
     "choiceNote": "Couleur gris clair"
   },
   {
@@ -218,7 +218,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B08J56CKZ4",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
     "titleEn": "My Brest Friend deluxe nursing pillow",
-    "priority": "comfort",
+    "priority": "essential",
     "choiceNote": "Couleur Aqua"
   },
   {
@@ -336,7 +336,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B0D97THKQK",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
     "titleEn": "Medela Easy Pour milk bags, 50",
-    "priority": "comfort"
+    "priority": "essential"
   },
   {
     "id": "mom-18",
@@ -354,7 +354,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B096FK4Z4Q",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
     "titleEn": "Lansinoh perineal spray, 100 ml",
-    "priority": "comfort",
+    "priority": "essential",
     "originalPrice": 15.99
   },
   {
@@ -373,7 +373,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B08C3R6ZVP",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
     "titleEn": "Medela Purelan lanolin cream, 37 g",
-    "priority": "comfort"
+    "priority": "essential"
   },
   {
     "id": "baby-31",
@@ -415,7 +415,7 @@
     "amazonUrl": "https://www.amazon.fr/dp/B0FHBNQY9P",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
     "titleEn": "Philips Avent Soothie soothers, pack of 2",
-    "priority": "comfort",
+    "priority": "essential",
     "choiceNote": "Blue Eco — lot de 2"
   },
   {
@@ -483,7 +483,7 @@
     "list": "mom",
     "listLabel": "Maman",
     "category": "Post-partum",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Lansinoh Douche intime périnée",
     "shortTitle": "Lansinoh Douche intime périnée",
     "titleEn": "Lansinoh perineal cleansing bottle",
@@ -501,7 +501,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Biberons & repas",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Chaise haute Chicco Polly Essential",
     "shortTitle": "Chaise haute Chicco Polly Essential",
     "titleEn": "Chicco Polly Essential high chair",
@@ -544,7 +544,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Couches & hygiène",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Bavoir multi-usage Aden + Anais Essentials",
     "shortTitle": "Bavoir multi-usage Aden + Anais Essentials",
     "titleEn": "Aden + Anais Essentials burpy bib",
@@ -566,7 +566,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Couches & hygiène",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Bavoir Aden + Anais Disney Burpy",
     "shortTitle": "Bavoir Aden + Anais Disney Burpy",
     "titleEn": "Aden + Anais Disney burpy bib",
@@ -587,7 +587,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Couches & hygiène",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Bavoir Aden + Anais Essentials Burpy",
     "shortTitle": "Bavoir Aden + Anais Essentials Burpy",
     "titleEn": "Aden + Anais Essentials burpy bib",
@@ -651,7 +651,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Chambre & sommeil",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Balançoire portable Ingenuity Swing 'n Go",
     "shortTitle": "Balançoire portable Ingenuity Swing 'n Go",
     "titleEn": "Ingenuity Swing 'n Go portable swing",
@@ -670,7 +670,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Couches & hygiène",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Sacs imperméables Bumkins (lot)",
     "shortTitle": "Sacs imperméables Bumkins (lot)",
     "titleEn": "Bumkins wet bags set",
@@ -727,7 +727,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Chambre & sommeil",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Gigoteuse Mama Cheetah TOG 0,5 coton bio",
     "shortTitle": "Gigoteuse Mama Cheetah TOG 0,5 coton bio",
     "titleEn": "Mama Cheetah organic TOG 0.5 sleep bag",
@@ -788,7 +788,7 @@
     "list": "mom",
     "listLabel": "Maman",
     "category": "Post-partum",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Ceinture post-partum Momcozy Ergowrap",
     "shortTitle": "Ceinture post-partum Momcozy Ergowrap",
     "titleEn": "Momcozy Ergowrap postpartum support belt",
@@ -809,7 +809,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Chambre & sommeil",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Couvertures d’emmaillotage Momcozy, lot de 2",
     "shortTitle": "Couvertures d’emmaillotage Momcozy, lot de 2",
     "titleEn": "Momcozy swaddle blankets, pack of 2",
@@ -830,7 +830,7 @@
     "list": "baby",
     "listLabel": "Bébé",
     "category": "Chambre & sommeil",
-    "priority": "comfort",
+    "priority": "essential",
     "title": "Lampe de chevet tactile RGB (5 modes)",
     "shortTitle": "Lampe de chevet tactile RGB (5 modes)",
     "titleEn": "Touch bedside lamp RGB (5 modes)",
@@ -846,5 +846,23 @@
     "amazonUrl": "https://www.amazon.fr/dp/B0H2DFSVBS",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
     "choiceNote": "Couleur bois M2 — batterie 3000 mAh — 1 piece"
+  },
+  {
+    "id": "mom-26",
+    "list": "mom",
+    "listLabel": "Maman",
+    "category": "Allaitement",
+    "priority": "essential",
+    "title": "Coussinets d’allaitement jetables Philips Avent",
+    "shortTitle": "Coussinets d’allaitement jetables Philips Avent",
+    "titleEn": "Philips Avent disposable nursing pads",
+    "brand": "PHILIPS",
+    "price": 7.9,
+    "currency": "EUR",
+    "description": "Coussinets d’allaitement jetables — absorption triple épaisseur, anti-fuites.",
+    "notes": [],
+    "image": "/products/mom-26.jpg",
+    "amazonUrl": "https://www.amazon.fr/dp/B0788CC2Y1",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T"
   }
 ]
