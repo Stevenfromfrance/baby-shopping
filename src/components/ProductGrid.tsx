@@ -86,13 +86,18 @@ export function ProductGrid({
 }: Props) {
   const { t } = useLang()
   const [priorityFilter, setPriorityFilter] = useState<PriorityFilter>('all')
+  const [hideGifted, setHideGifted] = useState(false)
 
   const filtered = useMemo(() => {
-    if (priorityFilter === 'all') return products
-    return products.filter(
-      (p) => (p.priority || 'comfort') === priorityFilter,
-    )
-  }, [products, priorityFilter])
+    let list = products
+    if (priorityFilter !== 'all') {
+      list = list.filter((p) => (p.priority || 'comfort') === priorityFilter)
+    }
+    if (hideGifted) {
+      list = list.filter((p) => !claimsByProduct.has(p.id))
+    }
+    return list
+  }, [products, priorityFilter, hideGifted, claimsByProduct])
 
   const baby = useMemo(
     () => filtered.filter((p) => p.list === 'baby'),
@@ -141,6 +146,15 @@ export function ProductGrid({
           </button>
         ))}
       </div>
+
+      <label className="hide-gifted-toggle">
+        <input
+          type="checkbox"
+          checked={hideGifted}
+          onChange={(e) => setHideGifted(e.target.checked)}
+        />
+        <span>{t.hideGifted}</span>
+      </label>
 
       <ListBlock
         id="bebe"

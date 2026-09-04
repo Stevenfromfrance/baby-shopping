@@ -12,6 +12,7 @@ import {
   loadRemoteClaims,
   pushRemoteClaim,
   deleteRemoteClaim,
+  syncLocalClaimsToRemote,
 } from '../lib/remote'
 import type { Claim } from '../types'
 
@@ -27,13 +28,17 @@ export function useClaims() {
   useEffect(() => {
     if (!isRemoteEnabled()) return
     let cancelled = false
-    loadRemoteClaims()
-      .then((remote) => {
-        if (!cancelled && remote) {
-          localStorage.setItem('nehemia-claims-v1', JSON.stringify(remote))
-          setClaims(remote)
-        }
-      })
+
+    async function refresh(uploadOrphans: boolean) {
+      const remote = uploadOrphans
+        ? await syncLocalClaimsToRemote(getClaims())
+        : await loadRemoteClaims()
+      if (cancelled || !remote) return
+      localStorage.setItem('nehemia-claims-v1', JSON.stringify(remote))
+      setClaims(remote)
+    }
+
+    refresh(true)
       .catch(() => {
         /* keep local cache */
       })
@@ -42,14 +47,7 @@ export function useClaims() {
       })
 
     const timer = window.setInterval(() => {
-      loadRemoteClaims()
-        .then((remote) => {
-          if (remote) {
-            localStorage.setItem('nehemia-claims-v1', JSON.stringify(remote))
-            setClaims(remote)
-          }
-        })
-        .catch(() => undefined)
+      refresh(false).catch(() => undefined)
     }, 12_000)
 
     return () => {

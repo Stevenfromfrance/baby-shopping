@@ -49,6 +49,9 @@ export function ProductCard({
         onClick={() => onOpen(product)}
         aria-label={title}
       >
+        {claim ? (
+          <span className="catalog-gifted-badge">{t.gifted}</span>
+        ) : null}
         {product.image ? (
           <img src={publicUrl(product.image)} alt="" loading="lazy" />
         ) : (
@@ -113,14 +116,16 @@ export function ProductCard({
               <span>{selected ? t.selectedGift : t.selectGift}</span>
             </label>
           ) : null}
-          <a
-            className="catalog-amazon"
-            href={product.amazonUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            {t.amazonFr}
-          </a>
+          {!claim ? (
+            <a
+              className="catalog-amazon"
+              href={product.amazonUrl}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {t.amazonFr}
+            </a>
+          ) : null}
         </div>
       </div>
     </article>

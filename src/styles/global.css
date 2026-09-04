@@ -744,8 +744,62 @@ a.chip {
   background: color-mix(in srgb, var(--paper) 78%, transparent);
 }
 
+.catalog-item.gifted {
+  opacity: 0.72;
+}
+
 .catalog-item.gifted .catalog-photo {
-  filter: grayscale(0.25);
+  filter: grayscale(0.85) brightness(0.92);
+}
+
+.catalog-item.gifted .catalog-photo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: color-mix(in srgb, var(--ink) 18%, transparent);
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+.catalog-gifted-badge {
+  position: absolute;
+  z-index: 1;
+  left: 0.65rem;
+  top: 0.65rem;
+  padding: 0.28rem 0.55rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--ink) 88%, transparent);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.catalog-item.gifted .catalog-amazon,
+.catalog-item.gifted .catalog-check {
+  display: none;
+}
+
+.catalog-item.gifted .catalog-title,
+.catalog-item.gifted .catalog-photo {
+  cursor: default;
+}
+
+.hide-gifted-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.85rem 0 0.25rem;
+  font-size: 0.95rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.hide-gifted-toggle input {
+  width: 1.05rem;
+  height: 1.05rem;
+  accent-color: var(--accent);
 }
 
 .catalog-photo {

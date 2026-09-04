@@ -224,14 +224,20 @@ export function ProductModal({
                 </ul>
               ) : null}
               <p style={{ marginTop: '0.85rem' }}>
-                <a
-                  className="btn btn-primary"
-                  href={product.amazonUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  {t.openAmazon}
-                </a>
+                {claim ? (
+                  <span className="btn btn-ghost" aria-disabled="true">
+                    {t.gifted}
+                  </span>
+                ) : (
+                  <a
+                    className="btn btn-primary"
+                    href={product.amazonUrl}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    {t.openAmazon}
+                  </a>
+                )}
               </p>
               {claim ? (
                 <div className="gifted-by gifted-by-modal">
@@ -532,14 +538,6 @@ export function ProductModal({
                   </form>
                 ) : null}
                 <p style={{ marginTop: '1rem' }} className="copy-row">
-                  <a
-                    className="btn btn-primary"
-                    href={product.amazonUrl}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    {t.openAmazon}
-                  </a>
                   <a className="btn btn-ghost" href="#liste" onClick={onClose}>
                     {t.backToList}
                   </a>

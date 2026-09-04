@@ -33,6 +33,35 @@ export async function loadRemoteClaims(): Promise<Claim[] | null> {
   return rows.map(rowToClaim)
 }
 
+/** Push local-only claims to Supabase, then return the shared list. */
+export async function syncLocalClaimsToRemote(
+  localClaims: Claim[],
+): Promise<Claim[]> {
+  if (!enabled) return localClaims
+  const remote = (await loadRemoteClaims()) ?? []
+  const remoteByProduct = new Set(remote.map((c) => c.productId))
+  const orphans = localClaims.filter((c) => !remoteByProduct.has(c.productId))
+
+  for (const orphan of orphans) {
+    try {
+      await pushRemoteClaim({
+        productId: orphan.productId,
+        type: orphan.type,
+        name: orphan.name,
+        message: orphan.message,
+        amount: orphan.amount,
+        proofNote: orphan.proofNote,
+        proofDataUrl: orphan.proofDataUrl,
+        groupId: orphan.groupId,
+      })
+    } catch {
+      /* already claimed remotely or network error */
+    }
+  }
+
+  return (await loadRemoteClaims()) ?? remote
+}
+
 const GID_PREFIX = '__gid__'
 
 function packProofNote(groupId?: string, proofNote?: string): string | null {
