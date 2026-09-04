@@ -63,5 +63,5 @@ export const WISHLISTS = {
 export const CONTACT_NOTE =
   'Une question ? Écrivez à Steven ou Sherally — ils vous guideront avec plaisir.'
 
-/** Family admin only. Open ?admin=searwar — or enter this code to restore a gift by mistake. Guests never need this. */
+/** Secret family unlock only: open /baby-shopping/?admin=searwar — never shown in the public UI. */
 export const ADMIN_PIN = 'searwar'

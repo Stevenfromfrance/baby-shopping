@@ -121,15 +121,6 @@ export function ProductCard({
           >
             {t.amazonFr}
           </a>
-          {claim ? (
-            <button
-              type="button"
-              className="btn btn-soft"
-              onClick={() => onOpen(product)}
-            >
-              {t.restoreGift}
-            </button>
-          ) : null}
         </div>
       </div>
     </article>

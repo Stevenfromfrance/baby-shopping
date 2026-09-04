@@ -3,49 +3,44 @@ import { ADMIN_PIN } from '../config'
 
 const STORAGE_KEY = 'nehemia-admin'
 
-function readAdmin(): boolean {
-  try {
-    return (
-      localStorage.getItem(STORAGE_KEY) === '1' ||
-      sessionStorage.getItem(STORAGE_KEY) === '1'
-    )
-  } catch {
-    return false
-  }
-}
-
+/**
+ * Admin is invisible to guests.
+ * Unlock only with the secret URL: ?admin=searwar
+ * Stored in sessionStorage only (clears when the tab closes).
+ */
 export function useAdmin() {
-  const [admin, setAdmin] = useState(readAdmin)
+  const [admin, setAdmin] = useState(false)
 
   useEffect(() => {
+    // Clear any old persistent admin flag from previous versions
+    try {
+      localStorage.removeItem(STORAGE_KEY)
+    } catch {
+      /* ignore */
+    }
+
     const params = new URLSearchParams(window.location.search)
     const pin = params.get('admin')
     if (pin && pin === ADMIN_PIN) {
-      unlockAdmin()
+      try {
+        sessionStorage.setItem(STORAGE_KEY, '1')
+      } catch {
+        /* ignore */
+      }
+      setAdmin(true)
       params.delete('admin')
       const search = params.toString()
       const next = `${window.location.pathname}${search ? `?${search}` : ''}${window.location.hash}`
       window.history.replaceState({}, '', next)
       return
     }
-    setAdmin(readAdmin())
+
+    try {
+      setAdmin(sessionStorage.getItem(STORAGE_KEY) === '1')
+    } catch {
+      setAdmin(false)
+    }
   }, [])
 
-  function unlockAdmin() {
-    try {
-      localStorage.setItem(STORAGE_KEY, '1')
-      sessionStorage.setItem(STORAGE_KEY, '1')
-    } catch {
-      /* ignore */
-    }
-    setAdmin(true)
-  }
-
-  function unlock(pin: string) {
-    if (pin.trim() !== ADMIN_PIN) return false
-    unlockAdmin()
-    return true
-  }
-
-  return { isAdmin: admin, unlock }
+  return { isAdmin: admin }
 }
