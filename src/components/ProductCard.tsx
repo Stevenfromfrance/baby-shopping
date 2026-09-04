@@ -1,5 +1,10 @@
 import type { Claim, Product, ProductPriority } from '../types'
-import { formatPrice, productTitle, publicUrl } from '../lib/utils'
+import {
+  formatPrice,
+  hasPromoPrice,
+  productTitle,
+  publicUrl,
+} from '../lib/utils'
 import { useLang } from '../i18n'
 
 type Props = {
@@ -32,6 +37,7 @@ export function ProductCard({
   const title = productTitle(product, lang)
   const canSelect = !claim && Boolean(onToggleSelect)
   const priority = product.priority || 'comfort'
+  const promo = hasPromoPrice(product)
 
   return (
     <article
@@ -67,8 +73,26 @@ export function ProductCard({
           </button>
         </h3>
         <div className="catalog-price">
-          {formatPrice(product.price, locale, t.seeAmazon)}
+          {promo ? (
+            <>
+              <span className="price-was">
+                {formatPrice(product.originalPrice, locale, t.seeAmazon)}
+              </span>
+              <span className="price-now">
+                {formatPrice(product.price, locale, t.seeAmazon)}
+              </span>
+              <span className="price-promo">{t.promoBadge}</span>
+            </>
+          ) : (
+            formatPrice(product.price, locale, t.seeAmazon)
+          )}
         </div>
+        {product.choiceNote ? (
+          <p className="catalog-choice">
+            <span className="catalog-choice-label">{t.choiceLabel}</span>{' '}
+            {product.choiceNote}
+          </p>
+        ) : null}
         {claim ? (
           <div className="gifted-by">
             <span className="gifted-by-label">{t.givenBy}</span>

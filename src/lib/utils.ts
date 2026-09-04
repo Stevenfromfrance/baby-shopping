@@ -90,6 +90,18 @@ export function formatPrice(
   }).format(price)
 }
 
+/** True when Amazon shows a higher list / “was” price than the current price. */
+export function hasPromoPrice(product: {
+  price: number | null
+  originalPrice?: number | null
+}): boolean {
+  return (
+    product.price != null &&
+    product.originalPrice != null &&
+    product.originalPrice > product.price + 0.01
+  )
+}
+
 export function formatDate(iso: string, locale = 'en-GB'): string {
   return new Intl.DateTimeFormat(locale, {
     day: 'numeric',

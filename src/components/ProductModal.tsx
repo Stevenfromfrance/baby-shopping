@@ -1,6 +1,13 @@
 import { useEffect, useState, type FormEvent } from 'react'
 import { DELIVERY, SHIPPING_EUR, contributeAmount } from '../config'
-import { copyText, fileToDataUrl, formatPrice, productTitle, publicUrl } from '../lib/utils'
+import {
+  copyText,
+  fileToDataUrl,
+  formatPrice,
+  hasPromoPrice,
+  productTitle,
+  publicUrl,
+} from '../lib/utils'
 import type { Claim, Product } from '../types'
 import { useLang } from '../i18n'
 import { PayOptions } from './PayOptions'
@@ -35,6 +42,8 @@ export function ProductModal({
   const { lang, t } = useLang()
   const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
   const priceLabel = formatPrice(product.price, locale, t.seeAmazon)
+  const promo = hasPromoPrice(product)
+  const wasLabel = formatPrice(product.originalPrice, locale, t.seeAmazon)
   const suggested = contributeAmount(product.price)
   const suggestedLabel = formatPrice(suggested, locale, t.seeAmazon)
   const shippingLabel = formatPrice(SHIPPING_EUR, locale)
@@ -195,8 +204,34 @@ export function ProductModal({
               </div>
               <h2 id="product-title">{title}</h2>
               <div className="card-price" style={{ marginTop: '0.75rem' }}>
-                {priceLabel}
+                {promo ? (
+                  <>
+                    <span className="price-was">{wasLabel}</span>
+                    <span className="price-now">{priceLabel}</span>
+                    <span className="price-promo">{t.promoBadge}</span>
+                  </>
+                ) : (
+                  priceLabel
+                )}
               </div>
+              {product.choiceNote ? (
+                <p className="catalog-choice" style={{ marginTop: '0.65rem' }}>
+                  <span className="catalog-choice-label">{t.choiceLabel}</span>{' '}
+                  {product.choiceNote}
+                </p>
+              ) : null}
+              {product.description ? (
+                <p className="product-desc" style={{ marginTop: '0.75rem' }}>
+                  {product.description}
+                </p>
+              ) : null}
+              {product.notes?.length ? (
+                <ul className="product-notes">
+                  {product.notes.map((note) => (
+                    <li key={note}>{note}</li>
+                  ))}
+                </ul>
+              ) : null}
               <p style={{ marginTop: '0.85rem' }}>
                 <a
                   className="btn btn-primary"

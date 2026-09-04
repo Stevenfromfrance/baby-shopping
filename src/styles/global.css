@@ -786,12 +786,79 @@ a.chip {
   cursor: pointer;
 }
 
-.catalog-price {
+.catalog-price,
+.card-price {
   font-family: var(--font-body);
   font-size: 1.2rem;
   font-weight: 700;
   letter-spacing: -0.01em;
   color: var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.45rem 0.65rem;
+}
+
+.price-was {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: color-mix(in srgb, var(--ink) 45%, transparent);
+  text-decoration: line-through;
+}
+
+.price-now {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.price-promo {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8a3a1a;
+  background: color-mix(in srgb, #e8a070 28%, white);
+  border: 1px solid color-mix(in srgb, #c46a3a 35%, transparent);
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+}
+
+.catalog-choice {
+  margin: 0.35rem 0 0;
+  font-size: 0.88rem;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+
+.catalog-choice-label {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.product-desc {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.45;
+  color: color-mix(in srgb, var(--ink) 78%, transparent);
+}
+
+.product-notes {
+  margin: 0.65rem 0 0;
+  padding-left: 1.1rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  color: color-mix(in srgb, var(--ink) 75%, transparent);
+}
+
+.product-notes li + li {
+  margin-top: 0.25rem;
+}
+
+.cart-choice {
+  margin: 0.25rem 0 0;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  color: color-mix(in srgb, var(--ink) 70%, transparent);
 }
 
 .catalog-actions {
@@ -943,9 +1010,6 @@ a.chip {
 
 .card-price {
   margin-top: auto;
-  font-family: var(--font-body);
-  font-size: 1.2rem;
-  font-weight: 700;
 }
 
 .claim-line {

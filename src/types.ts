@@ -11,10 +11,15 @@ export type Product = {
   titleEn?: string
   shortTitle: string
   brand: string
+  /** Current Amazon price (promo if applicable). */
   price: number | null
+  /** Strikethrough / list price when Amazon shows a higher “was” price. */
+  originalPrice?: number | null
   currency: string
   description: string
   notes: string[]
+  /** Preferred option (colour, size, etc.) so guests know what to pick. */
+  choiceNote?: string
   image: string | null
   amazonUrl: string
   wishlistUrl: string

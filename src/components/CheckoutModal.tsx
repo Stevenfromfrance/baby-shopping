@@ -146,6 +146,12 @@ export function CheckoutModal({
                     </div>
                     <div className="cart-item-body">
                       <strong>{title}</strong>
+                      {product.choiceNote ? (
+                        <p className="cart-choice">
+                          <span className="catalog-choice-label">{t.choiceLabel}</span>{' '}
+                          {product.choiceNote}
+                        </p>
+                      ) : null}
                       <div className="cart-item-actions">
                         <a
                           href={product.amazonUrl}
