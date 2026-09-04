@@ -9,7 +9,7 @@ import {
   publicUrl,
 } from '../lib/utils'
 import type { Claim, Product } from '../types'
-import { useLang } from '../i18n'
+import { useLang, localeForLang } from '../i18n'
 import { PayOptions } from './PayOptions'
 
 type Tab = 'order' | 'donate' | 'claim'
@@ -38,7 +38,7 @@ export function ProductModal({
   onReleaseClaim,
 }: Props) {
   const { lang, t } = useLang()
-  const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
+  const locale = localeForLang(lang)
   const priceLabel = formatPrice(product.price, locale, t.seeAmazon)
   const promo = hasPromoPrice(product)
   const wasLabel = formatPrice(product.originalPrice, locale, t.seeAmazon)

@@ -34,6 +34,13 @@ export function Header() {
           >
             {t.langFr}
           </button>
+          <button
+            type="button"
+            className={lang === 'nl' ? 'active' : ''}
+            onClick={() => setLang('nl')}
+          >
+            {t.langNl}
+          </button>
         </div>
       </div>
     </header>

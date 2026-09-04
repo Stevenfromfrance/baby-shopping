@@ -7,7 +7,13 @@ import {
   type ReactNode,
 } from 'react'
 
-export type Lang = 'en' | 'fr'
+export type Lang = 'en' | 'fr' | 'nl'
+
+export function localeForLang(lang: Lang): string {
+  if (lang === 'fr') return 'fr-FR'
+  if (lang === 'nl') return 'nl-NL'
+  return 'en-GB'
+}
 
 const STORAGE_KEY = 'nehemia-lang'
 
@@ -24,6 +30,7 @@ export const strings = {
     navDonate: 'Contribute',
     langEn: 'EN',
     langFr: 'FR',
+    langNl: 'NL',
     langSwitch: 'Language',
     kicker: 'Welcoming',
     heroLede: 'You are invited to celebrate the arrival of their son.',
@@ -207,6 +214,7 @@ export const strings = {
     navDonate: 'Contribuer',
     langEn: 'EN',
     langFr: 'FR',
+    langNl: 'NL',
     langSwitch: 'Langue',
     kicker: 'Pour son arrivée',
     heroLede: 'Vous êtes invités à célébrer l’arrivée de leur fils.',
@@ -383,6 +391,195 @@ export const strings = {
       'Post-partum': 'Post-partum',
     } as Record<string, string>,
   },
+  nl: {
+    htmlLang: 'nl',
+    title: 'Nehemia Searwar',
+    description:
+      'Cadeaus voor de komst van Nehemia Searwar, met liefde van Sherally en Steven.',
+    navHow: 'Meedoen',
+    navBaby: 'Baby',
+    navMom: 'Mama',
+    navMessages: 'Berichten',
+    navDonate: 'Bijdragen',
+    langEn: 'EN',
+    langFr: 'FR',
+    langNl: 'NL',
+    langSwitch: 'Taal',
+    kicker: 'Welkom',
+    heroLede: 'Jullie zijn uitgenodigd om de komst van hun zoon te vieren.',
+    heroCtaBaby: 'Cadeaus voor de baby',
+    heroCtaMom: 'Cadeaus voor mama',
+    howTitle: 'Hoe meedoen',
+    howIntro:
+      'Amazon levert niet in Frans-Guyana. Je kunt een cadeau van de lijst kiezen — of gewoon bijdragen, als je liever geen artikel uitkiest.',
+    how1Title: 'Kies cadeaus',
+    how1Body:
+      'Vink één of meer items aan. Essentiële dingen staan eerst als je twijfelt.',
+    how2Title: 'Bestel op Amazon.fr',
+    how2Body:
+      'Verstuur naar het Colis Colibri-adres in Frankrijk — niet via Amazon.com.',
+    how3Title: 'Bevestig één keer hier',
+    how3Body:
+      'Laat je naam en één bericht achter voor alles wat je hebt gekozen.',
+    how4Title: 'Of draag gewoon bij',
+    how4Body:
+      'Liever geen product kiezen? Een PayPal- of Wero-bijdrage is net zo welkom.',
+    how4Cta: 'Bijdragen',
+    journeyTitle: 'In het kort',
+    journeyStep1: 'Vink cadeaus aan',
+    journeyStep2: 'Bestel op Amazon.fr',
+    journeyStep3: 'Bevestig hier één keer',
+    journeyAlt: 'Of draag bij zonder te kiezen',
+    giftsTitle: 'De cadeaus',
+    giftsIntro:
+      'Filter op prioriteit als je wilt. Vink meerdere cadeaus aan en laat één bericht achter voor allemaal.',
+    priorityAll: 'Alles',
+    priorityEssential: 'Essentieel',
+    priorityComfort: 'Ook welkom',
+    priorityEssentialHint: 'Het nuttigst eerst',
+    priorityComfortHint: 'Lieve extra’s',
+    filterPriority: 'Toon',
+    selectGift: 'Selecteren',
+    selectedGift: 'Geselecteerd',
+    addToSelection: 'Toevoegen aan mijn selectie',
+    multiSelectHint:
+      'Voor meerdere cadeaus: vink ze aan op de lijst en bevestig één keer met één bericht.',
+    cartCountOne: 'cadeau geselecteerd',
+    cartCountMany: 'cadeaus geselecteerd',
+    cartClear: 'Wissen',
+    cartContinue: 'Cadeaus bevestigen',
+    cartTitle: 'Jouw geselecteerde cadeaus',
+    cartIntro:
+      'Bestel elk item op Amazon.fr indien nodig, en laat daarna je naam en één bericht achter voor de hele selectie.',
+    cartRemove: 'Verwijderen',
+    cartMessageHint: 'Eén bericht voor alle geselecteerde cadeaus',
+    cartPublish: 'Alles op de lijst zetten',
+    cartEmpty: 'Selecteer minstens één cadeau.',
+    thanksGifts: 'Dank je. Jouw cadeaus staan nu als gegeven gemarkeerd.',
+    hideGifted: 'Verberg al gegeven cadeaus',
+    babyTitle: 'Voor de baby',
+    babyIntro:
+      'Voor Nehemia’s eerste dagen: verzorging, rust en de kleine essentials.',
+    momTitle: 'Voor mama',
+    momIntro:
+      'Voor Sherally: borstvoeding, dragen, en de dagen na de geboorte.',
+    available: 'beschikbaar',
+    empty: 'Nog niets om te tonen.',
+    gifted: 'Gegeven',
+    givenBy: 'Gegeven door',
+    restoreGift: 'Opnieuw beschikbaar maken',
+    restoreConfirm:
+      'Dit cadeau weer beschikbaar maken? De naam en het bericht verdwijnen van de lijst.',
+    restored: 'Dit cadeau is weer beschikbaar.',
+    adminPinLabel: 'Familiecode',
+    adminPinHint:
+      'Alleen Steven of Sherally — hiermee komt het cadeau terug op de lijst.',
+    adminPinWrong: 'Die code klopt niet.',
+    adminOn:
+      'Adminmodus aan. Je kunt een per ongeluk gemarkeerd cadeau herstellen.',
+    amazonFr: 'Amazon.fr',
+    thanks: 'Met dank aan',
+    seeAmazon: 'Bekijk op Amazon',
+    promoBadge: 'Promo',
+    wasPrice: 'Was',
+    choiceLabel: 'Kies a.u.b.',
+    messagesTitle: 'Lieve woorden',
+    messagesIntro: 'Berichtjes en cadeaus verschijnen hier wanneer ze binnenkomen.',
+    messagesEmpty: 'Nog geen berichten.',
+    thanksLabel: 'Bedankje van de familie',
+    thanksFrom: 'Sherally & Steven',
+    donatedFor: 'droeg bij aan',
+    offered: 'koos',
+    donateTitle: 'Een bijdrage',
+    donateBody:
+      'PayPal of Wero — zoals jij wilt. Beide komen rechtstreeks bij Sherally en Steven terecht.',
+    donateBtn: 'Bijdragen via PayPal',
+    donateWero: 'Bijdragen via Wero',
+    paypalHint: 'Een overschrijving in een paar momenten.',
+    weroHint: 'Via je bank-app, naar dit nummer.',
+    copyNumber: 'Nummer kopiëren',
+    numberCopied: 'Nummer gekopieerd',
+    footerThanks: 'Sherally & Steven — met heel veel liefde en dankbaarheid.',
+    close: 'Sluiten',
+    alreadyBy: 'Al gegeven door',
+    order: 'Bestellen',
+    donate: 'Bijdragen',
+    iGave: 'Ik koos dit cadeau',
+    amazonGuide: 'Bestellen op Amazon',
+    orderStep1:
+      'Je moet op de Franse site Amazon.fr zijn — niet Amazon.com of een ander land. Open het artikel met de knop hieronder.',
+    orderStep2: 'Voeg het toe aan je mandje en rond de bestelling af.',
+    orderStep3a: 'Bij bezorging vul je het Colis Colibri-adres in',
+    orderStep3b:
+      'hieronder — niet je eigen adres. Colis Colibri stuurt het pakket door naar Frans-Guyana, waar de familie woont.',
+    orderStep4:
+      'Kom hier terug, selecteer alle cadeaus die je bestelde (je mag er meerdere aanvinken), en laat je naam en één bericht achter voor allemaal.',
+    addressLabel: 'Bezorgadres',
+    addressForward:
+      'Colis Colibri stuurt dit pakket door naar Frans-Guyana, waar de familie woont.',
+    addressName: 'Naam',
+    addressStreet: 'Straat',
+    addressPostal: 'Postcode',
+    addressCity: 'Plaats',
+    addressCountry: 'Land',
+    copied: 'Adres gekopieerd',
+    copyAddress: 'Adres kopiëren',
+    openAmazon: 'Openen op Amazon.fr',
+    viewWishlist: 'Bekijk de Amazon-lijst',
+    donateItemTitle: 'Bijdragen aan dit cadeau',
+    donateItemBody:
+      'Een mooi alternatief voor zelf bestellen. Het voorgestelde bedrag inclusief verzending, zodat de familie het cadeau zelf kan kopen. Jouw naam verschijnt bij het item.',
+    donatePaypal: 'Bijdragen via PayPal',
+    contributeItem: 'Artikel',
+    contributeDelivery: 'Verzending',
+    contributeTotal: 'Totaal',
+    contactPaypal:
+      'Schrijf Steven of Sherally voor PayPal, en bevestig hieronder.',
+    yourName: 'Jouw naam',
+    namePh: 'bijv. Tante Marie',
+    amount: 'Bedrag (€)',
+    suggestion: 'Voorstel',
+    message: 'Een berichtje (optioneel)',
+    messagePh: 'Een paar woorden voor de familie…',
+    confirmDonate: 'Mijn bijdrage bevestigen',
+    iBoughtTitle: 'Ik heb dit artikel besteld of gekozen',
+    iBoughtBody:
+      'Laat je naam achter zodat de familie weet dat het al genomen is. Een screenshot is optioneel.',
+    cousinPh: 'bijv. Neef Julien',
+    welcomePh: 'Welkom, lieve Nehemia',
+    orderNote: 'Bestelnummer / notitie',
+    optional: 'Optioneel',
+    proof: 'Aankoopbewijs (afbeelding)',
+    screenshot: 'Optionele screenshot',
+    publish: 'Delen op de lijst',
+    alreadyTitle: 'Al gegeven',
+    thankYou: 'Dank aan',
+    donationTag: '(bijdrage)',
+    proofAlt: 'Aankoopbewijs',
+    backToList: 'Terug naar de cadeaus',
+    nameRequired: 'Vul je naam in.',
+    proofType: 'Het bewijs moet een afbeelding zijn.',
+    compressFail: 'Afbeelding comprimeren lukte niet.',
+    fileFail: 'Bestand lezen lukte niet.',
+    thanksDonate: 'Dank je. Jouw bijdrage staat nu op de lijst.',
+    thanksGift: 'Dank je. Dit cadeau staat nu als gegeven gemarkeerd.',
+    genericError: 'Er ging iets mis.',
+    contact:
+      'Een vraag? Schrijf Steven of Sherally — zij helpen je graag.',
+    listBaby: 'Baby',
+    listMom: 'Mama',
+    categories: {
+      'Toilette & soins': 'Bad & verzorging',
+      'Biberons & repas': 'Flessen & voeding',
+      'Chambre & sommeil': 'Kamer & slapen',
+      'Couches & hygiène': 'Luiers & hygiëne',
+      'Rangement & sorties': 'Uitstapjes & opbergen',
+      Allaitement: 'Borstvoeding',
+      Portage: 'Dragen',
+      'Soins maman': 'Mamverzorging',
+      'Post-partum': 'Postpartum',
+    } as Record<string, string>,
+  },
 } as const
 
 export type Strings = (typeof strings)[Lang]
@@ -398,7 +595,7 @@ const LangContext = createContext<LangContextValue | null>(null)
 function readStoredLang(): Lang {
   try {
     const stored = localStorage.getItem(STORAGE_KEY)
-    if (stored === 'fr' || stored === 'en') return stored
+    if (stored === 'fr' || stored === 'en' || stored === 'nl') return stored
   } catch {
     /* ignore */
   }

@@ -3,7 +3,7 @@ import type { Claim, Product } from '../types'
 import { formatDate, productTitle, publicUrl } from '../lib/utils'
 import { generateThanks } from '../lib/thanks'
 import { BABY } from '../config'
-import { useLang } from '../i18n'
+import { useLang, localeForLang } from '../i18n'
 import { PayOptions } from './PayOptions'
 import { StickerField } from './Stickers'
 
@@ -41,7 +41,7 @@ function groupClaims(claims: Claim[]): ClaimGroup[] {
 
 export function ActivityFeed({ claims, productsById }: Props) {
   const { lang, t } = useLang()
-  const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
+  const locale = localeForLang(lang)
   const groups = useMemo(() => groupClaims(claims), [claims])
 
   return (

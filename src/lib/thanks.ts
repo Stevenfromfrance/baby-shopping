@@ -1,4 +1,4 @@
-export type ThanksLang = 'en' | 'fr'
+import type { Lang } from '../i18n'
 
 const FR = [
   (name: string) =>
@@ -26,6 +26,19 @@ const EN = [
     `${name}, thank you for your sweetness. We’re thinking of you with so much love.`,
 ]
 
+const NL = [
+  (name: string) =>
+    `Heel erg bedankt, ${name}. Jullie gebaar raakt ons diep — Nehemia heeft geluk met zulke lieve mensen om zich heen.`,
+  (name: string) =>
+    `Een groot dankjewel, ${name}. Jullie berichtje maakt ons hart warm.`,
+  (name: string) =>
+    `Van harte bedankt, ${name}. Jullie cadeau en woorden betekenen zoveel voor ons.`,
+  (name: string) =>
+    `Dank je, ${name}. Een dikke knuffel — we kunnen niet wachten tot jullie Nehemia ontmoeten.`,
+  (name: string) =>
+    `${name}, dank voor jullie zachtheid. We denken met heel veel liefde aan jullie.`,
+]
+
 function hashKey(input: string): number {
   let h = 0
   for (let i = 0; i < input.length; i++) {
@@ -34,19 +47,23 @@ function hashKey(input: string): number {
   return h
 }
 
-function displayName(raw: string, lang: ThanksLang): string {
+function displayName(raw: string, lang: Lang): string {
   const trimmed = raw.trim()
-  if (!trimmed) return lang === 'fr' ? 'vous' : 'friend'
+  if (!trimmed) {
+    if (lang === 'fr') return 'vous'
+    if (lang === 'nl') return 'vriend'
+    return 'friend'
+  }
   return trimmed.split(/\s+/)[0] || trimmed
 }
 
 export function generateThanks(
   name: string,
   message: string,
-  lang: ThanksLang,
+  lang: Lang,
   claimKey: string,
 ): string {
-  const templates = lang === 'fr' ? FR : EN
+  const templates = lang === 'fr' ? FR : lang === 'nl' ? NL : EN
   const who = displayName(name, lang)
   const idx = hashKey(`${claimKey}|${name}|${message}`) % templates.length
   return templates[idx](who)

@@ -5,7 +5,7 @@ import {
   productTitle,
   publicUrl,
 } from '../lib/utils'
-import { useLang } from '../i18n'
+import { useLang, localeForLang } from '../i18n'
 
 type Props = {
   product: Product
@@ -31,7 +31,7 @@ export function ProductCard({
   onToggleSelect,
 }: Props) {
   const { lang, t } = useLang()
-  const locale = lang === 'fr' ? 'fr-FR' : 'en-GB'
+  const locale = localeForLang(lang)
   const category = t.categories[product.category] ?? product.category
   const listLabel = product.list === 'mom' ? t.listMom : t.listBaby
   const title = productTitle(product, lang)

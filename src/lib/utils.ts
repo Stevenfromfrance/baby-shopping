@@ -1,3 +1,5 @@
+import type { Lang } from '../i18n'
+
 /** Prefix public files with the GitHub Pages base (`/baby-shopping/`). */
 export function publicUrl(path: string): string {
   const base = import.meta.env.BASE_URL || '/'
@@ -6,10 +8,10 @@ export function publicUrl(path: string): string {
 
 export function productTitle(
   product: { title: string; titleEn?: string; shortTitle?: string },
-  lang: 'en' | 'fr',
+  lang: Lang,
 ): string {
-  if (lang === 'en') return product.titleEn || product.shortTitle || product.title
-  return product.title
+  if (lang === 'fr') return product.title
+  return product.titleEn || product.shortTitle || product.title
 }
 
 const CATEGORY_ORDER = [
@@ -52,7 +54,7 @@ export function groupProductsByFamily<
   },
 >(
   products: T[],
-  lang: 'en' | 'fr',
+  lang: Lang,
 ): { category: string; products: T[] }[] {
   const buckets = new Map<string, T[]>()
   for (const product of products) {
