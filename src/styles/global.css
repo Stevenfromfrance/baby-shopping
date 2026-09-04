@@ -1449,6 +1449,47 @@ textarea:focus {
   color: var(--sky-deep);
 }
 
+.activity-thanks {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.65rem;
+  align-items: start;
+  margin-top: 0.85rem;
+  padding: 0.75rem 0.85rem;
+  border-radius: 14px;
+  background: color-mix(in srgb, var(--accent) 10%, var(--paper));
+  border: 1px solid color-mix(in srgb, var(--accent) 28%, var(--line));
+}
+
+.activity-thanks-heart {
+  display: grid;
+  place-items: center;
+  width: 1.85rem;
+  height: 1.85rem;
+  border-radius: 999px;
+  background: color-mix(in srgb, #c45c6a 88%, #fff);
+  color: #fff;
+  font-size: 0.95rem;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+
+.activity-thanks-from {
+  margin: 0 !important;
+  font-size: 0.78rem !important;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--ink) !important;
+}
+
+.activity-thanks-text {
+  margin: 0.2rem 0 0 !important;
+  color: var(--ink) !important;
+  font-size: 0.95rem !important;
+  line-height: 1.45 !important;
+}
+
 .donate-banner {
   background:
     linear-gradient(135deg, rgba(61, 107, 140, 0.95), rgba(122, 154, 138, 0.9)),
