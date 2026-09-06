@@ -57,12 +57,23 @@ function displayName(raw: string, lang: Lang): string {
   return trimmed.split(/\s+/)[0] || trimmed
 }
 
+/** Personal replies that override the auto templates. */
+const PERSONAL: Array<{ match: RegExp; text: string }> = [
+  {
+    match: /\b(debbie|deborah)\b/i,
+    text: 'thank you aunty debbie',
+  },
+]
+
 export function generateThanks(
   name: string,
   message: string,
   lang: Lang,
   claimKey: string,
 ): string {
+  const personal = PERSONAL.find((entry) => entry.match.test(name.trim()))
+  if (personal) return personal.text
+
   const templates = lang === 'fr' ? FR : lang === 'nl' ? NL : EN
   const who = displayName(name, lang)
   const idx = hashKey(`${claimKey}|${name}|${message}`) % templates.length
