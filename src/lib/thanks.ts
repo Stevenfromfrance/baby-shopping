@@ -63,6 +63,10 @@ const PERSONAL: Array<{ match: RegExp; text: string }> = [
     match: /\b(debbie|deborah)\b/i,
     text: 'thank you aunty debbie',
   },
+  {
+    match: /\bstepho\b/i,
+    text: 'Thank you Stepho, Xavier, Olivia and Gabriel — we love you so much.',
+  },
 ]
 
 export function generateThanks(
