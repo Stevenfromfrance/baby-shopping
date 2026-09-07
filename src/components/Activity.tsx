@@ -65,12 +65,7 @@ export function ActivityFeed({ claims, productsById }: Props) {
               })
               .filter(Boolean)
             const firstProduct = productsById.get(claim.productId)
-            const thanks = generateThanks(
-              claim.name,
-              claim.message,
-              lang,
-              group.key,
-            )
+            const thanks = generateThanks(claim.name)
 
             return (
               <article key={group.key} className="activity-item">
@@ -97,15 +92,17 @@ export function ActivityFeed({ claims, productsById }: Props) {
                     {formatDate(claim.createdAt, locale)}
                   </div>
 
-                  <aside className="activity-thanks" aria-label={t.thanksLabel}>
-                    <span className="activity-thanks-heart" aria-hidden>
-                      ♥
-                    </span>
-                    <div className="activity-thanks-body">
-                      <p className="activity-thanks-from">{t.thanksFrom}</p>
-                      <p className="activity-thanks-text">{thanks}</p>
-                    </div>
-                  </aside>
+                  {thanks ? (
+                    <aside className="activity-thanks" aria-label={t.thanksLabel}>
+                      <span className="activity-thanks-heart" aria-hidden>
+                        ♥
+                      </span>
+                      <div className="activity-thanks-body">
+                        <p className="activity-thanks-from">{t.thanksFrom}</p>
+                        <p className="activity-thanks-text">{thanks}</p>
+                      </div>
+                    </aside>
+                  ) : null}
                 </div>
               </article>
             )
