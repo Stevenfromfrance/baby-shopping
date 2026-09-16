@@ -5,6 +5,10 @@ const PERSONAL: Array<{ match: RegExp; text: string }> = [
     text: 'thank you aunty debbie',
   },
   {
+    match: /\bsharon\b/i,
+    text: 'Thank you Auntie Sharon ❤️❤️ for the lovely gift for the baby!',
+  },
+  {
     match: /\bstepho\b/i,
     text: 'Thank you Stepho, Xavier, Olivia and Gabriel — we love you so much.',
   },
