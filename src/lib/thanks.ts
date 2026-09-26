@@ -22,11 +22,13 @@ const PERSONAL: Array<{ match: RegExp; text: string }> = [
   },
 ]
 
-const DEFAULT =
-  'Thank you so much for this gift for Nehemia ❤️❤️❤️'
+function defaultThanks(name: string): string {
+  const who = name.trim() || 'you'
+  return `Thank you so much, ${who}, for this gift for Nehemia ❤️❤️❤️`
+}
 
-/** Personal reply if known, otherwise a thank-you with hearts for every gift. */
+/** Personal reply if known, otherwise a thank-you with their name and hearts. */
 export function generateThanks(name: string): string {
   const personal = PERSONAL.find((entry) => entry.match.test(name.trim()))
-  return personal?.text ?? DEFAULT
+  return personal?.text ?? defaultThanks(name)
 }
