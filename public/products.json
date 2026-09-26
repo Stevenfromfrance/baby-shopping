@@ -201,27 +201,6 @@
     "priority": "essential"
   },
   {
-    "id": "mom-03",
-    "list": "mom",
-    "listLabel": "Maman",
-    "category": "Allaitement",
-    "title": "Coussin d’allaitement My Brest Friend Deluxe",
-    "shortTitle": "Coussin d’allaitement My Brest Friend Deluxe",
-    "brand": "My Brest Friend",
-    "price": 140.55,
-    "currency": "EUR",
-    "description": "My Brest Friend Coussin d'allaitement – Deluxe – Confort amélioré avec Housse – Coussin d'allaitement Ergonomi… — Couleur Aqua.",
-    "notes": [
-      "A choisir sur Amazon : Couleur Aqua"
-    ],
-    "image": "/products/mom-03.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B08J56CKZ4",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "My Brest Friend deluxe nursing pillow",
-    "priority": "essential",
-    "choiceNote": "Couleur Aqua"
-  },
-  {
     "id": "mom-04",
     "list": "mom",
     "listLabel": "Maman",

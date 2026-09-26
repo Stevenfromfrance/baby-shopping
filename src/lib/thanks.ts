@@ -1,4 +1,4 @@
-/** Manual thank-you replies only — matched on the giver’s name. */
+/** Personal thank-you replies matched on the giver’s name. */
 const PERSONAL: Array<{ match: RegExp; text: string }> = [
   {
     match: /\b(debbie|deborah)\b/i,
@@ -22,8 +22,11 @@ const PERSONAL: Array<{ match: RegExp; text: string }> = [
   },
 ]
 
-/** Returns a manual reply, or empty string if none is defined for this giver. */
+const DEFAULT =
+  'Thank you so much for this gift for Nehemia ❤️❤️❤️'
+
+/** Personal reply if known, otherwise a thank-you with hearts for every gift. */
 export function generateThanks(name: string): string {
   const personal = PERSONAL.find((entry) => entry.match.test(name.trim()))
-  return personal?.text ?? ''
+  return personal?.text ?? DEFAULT
 }
