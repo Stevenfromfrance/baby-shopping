@@ -843,5 +843,26 @@
     "image": "/products/mom-26.jpg",
     "amazonUrl": "https://www.amazon.fr/dp/B0788CC2Y1",
     "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T"
+  },
+  {
+    "id": "baby-69",
+    "list": "baby",
+    "listLabel": "Bébé",
+    "category": "Biberons & repas",
+    "priority": "essential",
+    "title": "Coussin de grossesse et d’allaitement Candide Multirelax 3 en 1",
+    "shortTitle": "Coussin de grossesse et d’allaitement Candide Multirelax 3 en 1",
+    "titleEn": "Candide Multirelax 3-in-1 pregnancy & nursing pillow",
+    "brand": "Candide",
+    "price": 51.52,
+    "currency": "EUR",
+    "description": "Coussin de grossesse, coussin d’allaitement et transat bébé en un, déhoussable, fabriqué en France (78 × 44 cm). — Coloris Jersey Fleurs.",
+    "notes": [
+      "A choisir sur Amazon : Coloris Jersey Fleurs"
+    ],
+    "image": "/products/baby-69.jpg",
+    "amazonUrl": "https://www.amazon.fr/dp/B0FSSZ2LLT",
+    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/3P7DYQA3VATIP",
+    "choiceNote": "Coloris Jersey Fleurs"
   }
 ]
