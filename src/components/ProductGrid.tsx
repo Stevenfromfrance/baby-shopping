@@ -35,11 +35,36 @@ function ListBlock({
   onToggleSelect: (product: Product) => void
 }) {
   const { lang, t } = useLang()
-  const available = products.filter((p) => !claimsByProduct.has(p.id)).length
-  const families = useMemo(
-    () => groupProductsByFamily(products, lang),
-    [products, lang],
-  )
+  const { openFamilies, giftedFamilies, availableCount } = useMemo(() => {
+    const open = products.filter((p) => !claimsByProduct.has(p.id))
+    const gifted = products.filter((p) => claimsByProduct.has(p.id))
+    return {
+      openFamilies: groupProductsByFamily(open, lang),
+      giftedFamilies: groupProductsByFamily(gifted, lang),
+      availableCount: open.length,
+    }
+  }, [products, claimsByProduct, lang])
+
+  const renderFamilies = (families: typeof openFamilies) =>
+    families.map((family) => (
+      <div className="catalog-family" key={family.category}>
+        <h3 className="catalog-family-title">
+          {t.categories[family.category] ?? family.category}
+        </h3>
+        <div className="catalog">
+          {family.products.map((product) => (
+            <ProductCard
+              key={product.id}
+              product={product}
+              claim={claimsByProduct.get(product.id)}
+              selected={selectedIds.has(product.id)}
+              onOpen={onOpen}
+              onToggleSelect={onToggleSelect}
+            />
+          ))}
+        </div>
+      </div>
+    ))
 
   return (
     <section className="list-block" id={id}>
@@ -48,30 +73,20 @@ function ListBlock({
         <p>{intro}</p>
       </div>
       <div className="stats list-stats">
-        <strong>{available}</strong> / {products.length} {t.available}
+        <strong>{availableCount}</strong> / {products.length} {t.available}
       </div>
       {products.length === 0 ? (
         <div className="empty">{t.empty}</div>
       ) : (
-        families.map((family) => (
-          <div className="catalog-family" key={family.category}>
-            <h3 className="catalog-family-title">
-              {t.categories[family.category] ?? family.category}
-            </h3>
-            <div className="catalog">
-              {family.products.map((product) => (
-                <ProductCard
-                  key={product.id}
-                  product={product}
-                  claim={claimsByProduct.get(product.id)}
-                  selected={selectedIds.has(product.id)}
-                  onOpen={onOpen}
-                  onToggleSelect={onToggleSelect}
-                />
-              ))}
+        <>
+          {renderFamilies(openFamilies)}
+          {giftedFamilies.length > 0 ? (
+            <div className="gifted-section">
+              <h3 className="gifted-section-title">{t.giftedSection}</h3>
+              {renderFamilies(giftedFamilies)}
             </div>
-          </div>
-        ))
+          ) : null}
+        </>
       )}
     </section>
   )

@@ -91,6 +91,7 @@ export const strings = {
     available: 'available',
     empty: 'Nothing to show here yet.',
     gifted: 'Given',
+    giftedSection: 'Already given',
     givenBy: 'Given by',
     restoreGift: 'Make available again',
     restoreConfirm:
@@ -277,6 +278,7 @@ export const strings = {
     available: 'disponibles',
     empty: 'Rien à afficher pour le moment.',
     gifted: 'Offert',
+    giftedSection: 'Déjà offerts',
     givenBy: 'Offert par',
     restoreGift: 'Remettre disponible',
     restoreConfirm:
@@ -466,6 +468,7 @@ export const strings = {
     available: 'beschikbaar',
     empty: 'Nog niets om te tonen.',
     gifted: 'Gegeven',
+    giftedSection: 'Al gegeven',
     givenBy: 'Gegeven door',
     restoreGift: 'Opnieuw beschikbaar maken',
     restoreConfirm:

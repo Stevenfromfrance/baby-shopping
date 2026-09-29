@@ -707,6 +707,23 @@ a.chip {
   margin-top: 0.35rem;
 }
 
+.gifted-section {
+  margin-top: 2.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+
+.gifted-section-title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  color: var(--ink);
+}
+
+.gifted-section .catalog-family:first-of-type {
+  margin-top: 0.9rem;
+}
+
 .catalog-family-title {
   margin: 0 0 0.55rem;
   font-family: var(--font-body);
