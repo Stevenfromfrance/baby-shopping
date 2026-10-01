@@ -183,24 +183,6 @@
     "choiceNote": "Couleur gris clair"
   },
   {
-    "id": "mom-01",
-    "list": "mom",
-    "listLabel": "Maman",
-    "category": "Allaitement",
-    "title": "Double tire-lait mains libres Philips Avent",
-    "shortTitle": "Double tire-lait mains libres Philips Avent",
-    "brand": "PHILIPS",
-    "price": 209.99,
-    "currency": "EUR",
-    "description": "Double tire-lait électrique portable mains libres, téterelle SkinSense, qualité hospitalière (SCF495/11).",
-    "notes": [],
-    "image": "/products/mom-01.jpg",
-    "amazonUrl": "https://www.amazon.fr/dp/B0H4WJ9YCN",
-    "wishlistUrl": "https://www.amazon.fr/hz/wishlist/ls/2LS2RZZ72752T",
-    "titleEn": "Philips Avent hands-free double breast pump",
-    "priority": "essential"
-  },
-  {
     "id": "mom-04",
     "list": "mom",
     "listLabel": "Maman",
